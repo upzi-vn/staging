@@ -3,528 +3,526 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upzi — Tuyển Fresher & Intern Gen Z</title>
+<title>Upzi — Kết nối Doanh nghiệp với nhân sự Gen Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --purple-900:#1B0B33;
-    --purple-800:#2A1147;
-    --purple-700:#551caf;
-    --purple-500:#9345FF;
-    --purple-200:#e6d9ff;
+    --purple:#9345FF;
+    --purple-dark:#551caf;
+    --purple-deep:#2E0F5C;
+    --purple-deeper:#1d0940;
+    --purple-tint:#F4EDFF;
     --yellow:#E0E722;
     --mint:#5FE0BB;
+    --gold:#FFD364;
+    --orange:#FF8F3C;
     --coral:#FF968C;
-    --cream:#FAF8FF;
-    --ink:#14101F;
-    --ink-soft:rgba(20,16,31,0.64);
-    --ink-faint:rgba(20,16,31,0.42);
+    --ink:#111111;
+    --body:#4b5563;
     --white:#ffffff;
-    --font-display:'Space Grotesk', sans-serif;
+    --off:#F7F5FB;
+    --font-display:'Bricolage Grotesque', sans-serif;
+    --font-sub:'Manrope', sans-serif;
     --font-body:'Inter', -apple-system, sans-serif;
-    --radius:18px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    font-family:var(--font-body);
-    color:var(--ink);
-    background:var(--cream);
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:var(--font-body); color:var(--ink); background:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased;}
   img{max-width:100%; display:block;}
   a{text-decoration:none; color:inherit;}
   button{font-family:inherit; cursor:pointer;}
-  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
 
-  /* ===== reveal-on-scroll ===== */
-  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);}
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .65s ease, transform .65s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
-  .reveal-stagger > *{opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal-stagger.in > *{opacity:1; transform:translateY(0);}
-  .reveal-stagger.in > *:nth-child(1){transition-delay:.05s;}
-  .reveal-stagger.in > *:nth-child(2){transition-delay:.15s;}
-  .reveal-stagger.in > *:nth-child(3){transition-delay:.25s;}
-  .reveal-stagger.in > *:nth-child(4){transition-delay:.35s;}
-
+  .stagger > *{opacity:0; transform:translateY(20px); transition:opacity .55s ease, transform .55s ease;}
+  .stagger.in > *{opacity:1; transform:translateY(0);}
+  .stagger.in > *:nth-child(1){transition-delay:.05s;}
+  .stagger.in > *:nth-child(2){transition-delay:.15s;}
+  .stagger.in > *:nth-child(3){transition-delay:.25s;}
+  .stagger.in > *:nth-child(4){transition-delay:.35s;}
   @media (prefers-reduced-motion: reduce){
-    .reveal, .reveal-stagger > *{opacity:1; transform:none; transition:none;}
+    .reveal,.stagger > *{opacity:1; transform:none; transition:none;}
+    .hero-inner > *{opacity:1; transform:none; animation:none;}
+    .swoosh-1,.swoosh-2{animation:none;}
+    .j-node{opacity:1; transform:none; transition:none;}
+    .block .arw path{stroke-dashoffset:0; transition:none;}
     html{scroll-behavior:auto;}
   }
 
-  /* ===== top bar ===== */
-  .topbar{
-    position:sticky; top:0; z-index:50;
-    background:rgba(250,248,255,0.86);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(20,16,31,0.06);
+  /* ===== nav ===== */
+  .nav{position:sticky; top:0; z-index:60; background:rgba(255,255,255,0.92); backdrop-filter:blur(8px); border-bottom:1px solid #efecf5;}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:15px 28px;}
+  .logo{font-family:var(--font-display); font-weight:700; font-size:22px; color:var(--purple-dark); letter-spacing:-0.02em;}
+  .nav-cta{
+    background:var(--purple); color:var(--white); font-family:var(--font-sub); font-weight:700; font-size:14px;
+    padding:11px 22px; border-radius:999px; border:none; transition:transform .18s ease, background .2s ease;
   }
-  .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
-  .logo{font-family:var(--font-display); font-weight:700; font-size:22px; color:var(--purple-700); letter-spacing:-0.02em;}
-  .topbar-cta{
-    background:var(--ink); color:var(--white); font-weight:600; font-size:14px;
-    padding:10px 20px; border-radius:999px; border:none;
-    transition:transform .2s ease, background .2s ease;
-  }
-  .topbar-cta:hover{background:var(--purple-700); transform:translateY(-1px);}
+  .nav-cta:hover{background:var(--purple-dark);}
+  .nav-cta:hover{transform:translateY(-1px);}
 
-  /* ===== hero ===== */
+  /* ===== hero (deck cover pattern: deep purple + swoosh + yellow accent) ===== */
   .hero{
-    background:radial-gradient(120% 140% at 15% 0%, #3a1c6b 0%, var(--purple-900) 55%, #120724 100%);
-    color:var(--white);
-    padding:88px 0 64px;
-    position:relative;
-    overflow:hidden;
+    position:relative; color:var(--white);
+    background:linear-gradient(135deg, var(--purple) 0%, #7B32E0 50%, var(--purple-dark) 100%);
+    padding:78px 0 96px; overflow:hidden;
   }
-  .hero::before{
-    content:'';
-    position:absolute; inset:0;
-    background:
-      radial-gradient(480px 320px at 88% 12%, rgba(147,69,255,0.35), transparent 70%),
-      radial-gradient(360px 280px at 100% 90%, rgba(95,224,187,0.18), transparent 70%);
-    pointer-events:none;
+  .swoosh{position:absolute; pointer-events:none;}
+  .swoosh-1{top:-70px; right:-140px; width:600px; opacity:.16; animation:drift1 16s ease-in-out infinite;}
+  .swoosh-2{bottom:-60px; left:-120px; width:420px; opacity:.12; animation:drift2 20s ease-in-out infinite;}
+  @keyframes drift1{0%,100%{transform:translate(0,0) rotate(0deg);} 50%{transform:translate(-26px,18px) rotate(-4deg);}}
+  @keyframes drift2{0%,100%{transform:translate(0,0) rotate(0deg);} 50%{transform:translate(22px,-16px) rotate(5deg);}}
+
+  .hero-inner > *{opacity:0; transform:translateY(20px); animation:heroIn .8s cubic-bezier(.22,.61,.36,1) forwards;}
+  .hero-inner > *:nth-child(1){animation-delay:.1s;}
+  .hero-inner > *:nth-child(2){animation-delay:.22s;}
+  .hero-inner > *:nth-child(3){animation-delay:.34s;}
+  .hero-inner > *:nth-child(4){animation-delay:.46s;}
+  .hero-inner > *:nth-child(5){animation-delay:.58s;}
+  @keyframes heroIn{to{opacity:1; transform:translateY(0);}}
+  .hero-inner{position:relative; z-index:2; max-width:760px;}
+  .tag{
+    display:inline-block; font-family:var(--font-sub); font-weight:700; font-size:13px;
+    color:var(--purple-deep); background:var(--yellow);
+    padding:8px 18px; border-radius:999px; margin-bottom:26px;
   }
-  .hero-inner{position:relative; z-index:1; max-width:720px;}
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:12.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--mint); background:rgba(95,224,187,0.12);
-    border:1px solid rgba(95,224,187,0.3);
-    padding:7px 14px; border-radius:999px; margin-bottom:24px;
-  }
-  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--mint); animation:pulse 2s ease-in-out infinite;}
-  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.35;}}
   .hero h1{
-    font-family:var(--font-display);
-    font-size:clamp(32px, 5.2vw, 54px);
-    line-height:1.12;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    margin-bottom:22px;
+    font-family:var(--font-display); font-size:clamp(31px,4.6vw,50px); line-height:1.14;
+    font-weight:700; letter-spacing:-0.022em; margin-bottom:22px;
   }
-  .hero h1 .accent{color:var(--yellow);}
-  .hero p.lead{
-    font-size:17px; line-height:1.6; color:rgba(255,255,255,0.72);
-    max-width:560px; margin-bottom:36px;
+  .hero h1 .hl{color:var(--yellow);}
+  .hero .lead{font-size:17.5px; line-height:1.65; color:rgba(255,255,255,0.76); max-width:580px; margin-bottom:36px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px;}
+  .btn-y{
+    background:var(--yellow); color:var(--purple-deep); font-family:var(--font-sub); font-weight:700; font-size:16px;
+    padding:17px 34px; border-radius:999px; border:none; transition:transform .18s ease;
   }
-  .hero-ctas{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
-  .btn-primary{
-    background:var(--yellow); color:var(--ink);
-    font-weight:800; font-size:15px;
-    padding:16px 30px; border-radius:999px; border:none;
-    box-shadow:0 10px 30px rgba(224,231,34,0.22);
-    transition:transform .2s ease, box-shadow .2s ease;
+  .btn-y:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent; color:var(--white); font-family:var(--font-sub); font-weight:700; font-size:16px;
+    padding:16px 32px; border-radius:999px; border:1.5px solid rgba(255,255,255,0.4); transition:background .2s ease;
   }
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(224,231,34,0.32);}
-  .hero-microcopy{font-size:13.5px; color:rgba(255,255,255,0.5);}
-  .hero-ticker{
-    margin-top:56px; display:flex; align-items:center; gap:14px;
-    font-size:14px; color:rgba(255,255,255,0.68);
+  .btn-ghost:hover{background:rgba(255,255,255,0.1);}
+  .hero-note{display:flex; align-items:center; gap:11px; font-size:14px; color:rgba(255,255,255,0.6);}
+  .hero-note .vsq{
+    width:26px; height:26px; border-radius:8px; background:rgba(255,255,255,0.15);
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-sub); font-weight:700; font-size:12px; color:var(--white);
   }
-  .avatar-stack{display:flex;}
-  .avatar-stack span{
-    width:30px; height:30px; border-radius:50%; border:2px solid var(--purple-900);
-    margin-left:-9px; display:flex; align-items:center; justify-content:center;
-    font-size:11px; font-weight:700; color:var(--white);
-  }
-  .avatar-stack span:first-child{margin-left:0;}
 
-  /* ===== journey (signature element) ===== */
-  .journey{background:var(--cream); padding:96px 0 80px;}
-  .section-head{max-width:640px; margin-bottom:56px;}
-  .section-eyebrow{
-    font-size:12.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--purple-500); margin-bottom:14px;
+  /* ===== section shells ===== */
+  .sec{padding:96px 0;}
+  .sec-flush{padding-bottom:0;}
+  .sec-white{background:var(--white);}
+  .sec-off{background:var(--off);}
+  .head{max-width:680px; margin-bottom:52px;}
+  .eyebrow{
+    display:inline-block; font-family:var(--font-sub); font-weight:700; font-size:12.5px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--purple); background:var(--purple-tint);
+    padding:7px 15px; border-radius:999px; margin-bottom:18px;
   }
-  .section-head h2{
-    font-family:var(--font-display); font-size:clamp(26px,3.4vw,36px);
-    font-weight:700; letter-spacing:-0.01em; line-height:1.22; color:var(--ink);
+  .head h2{
+    font-family:var(--font-display); font-size:clamp(26px,3.6vw,38px); font-weight:700;
+    letter-spacing:-0.022em; line-height:1.15; color:var(--ink);
   }
-  .section-head p{margin-top:14px; font-size:16px; color:var(--ink-soft); line-height:1.6;}
+  .head p{margin-top:16px; font-size:16.5px; line-height:1.65; color:var(--body);}
 
-  .journey-track{position:relative; padding-top:8px;}
-  .journey-line{
-    position:absolute; top:19px; left:0; right:0; height:2px;
-    background:linear-gradient(90deg, var(--mint) 0%, var(--mint) 75%, var(--ink-faint) 75%, var(--ink-faint) 100%);
+  /* ===== signature: solid colour-block cards ===== */
+  .blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:end;}
+  .block{
+    background:#F4EDFF; border-radius:40px 40px 0 0;
+    padding:40px 32px 34px; min-height:330px;
+    display:flex; flex-direction:column; position:relative;
   }
-  .journey-steps{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:18px; position:relative;
+  .block .n{
+    font-family:var(--font-display); font-size:14px; font-weight:700;
+    color:var(--purple); opacity:.6; letter-spacing:0.04em; margin-bottom:14px;
   }
-  .journey-step{display:flex; flex-direction:column; align-items:flex-start;}
-  .journey-node{
-    width:40px; height:40px; border-radius:50%;
+  .block h3{
+    font-family:var(--font-display); font-size:26px; font-weight:700; line-height:1.2;
+    letter-spacing:-0.015em; color:var(--purple); margin-bottom:14px;
+  }
+  .block p{font-size:14.5px; line-height:1.66; color:var(--body); margin-bottom:26px;}
+  .block .arw{margin-top:auto; align-self:flex-start;}
+  .block .arw svg{width:86px; height:auto; display:block;}
+  .block .arw path{
+    stroke-dasharray:220; stroke-dashoffset:220;
+    transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1);
+  }
+  .blocks.in .block .arw path{stroke-dashoffset:0;}
+  .blocks.in .block:nth-child(1) .arw path{transition-delay:.35s;}
+  .blocks.in .block:nth-child(2) .arw path{transition-delay:.5s;}
+  .blocks.in .block:nth-child(3) .arw path{transition-delay:.65s;}
+  .block{transition:transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;}
+  .block:hover{transform:translateY(-8px); box-shadow:0 22px 44px rgba(85,28,175,0.13);}
+
+  /* ===== journey ===== */
+  .j-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .j-step{
+    background:var(--white); border-radius:26px; padding:28px 24px 30px;
+    border:2px solid var(--purple-tint); display:flex; flex-direction:column;
+    transition:transform .28s ease, border-color .28s ease;
+  }
+  .j-step:hover{transform:translateY(-6px); border-color:var(--purple);}
+  .j-step.is-last{border-color:#e9e9ee; background:#fbfbfc;}
+  .j-node{
+    width:44px; height:44px; border-radius:14px; background:var(--purple); color:var(--white);
     display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-display); font-weight:700; font-size:14px;
-    background:var(--white); border:2px solid var(--mint); color:var(--purple-700);
-    margin-bottom:20px; position:relative; z-index:1;
+    font-family:var(--font-display); font-weight:700; font-size:17px; margin-bottom:20px;
+    transform:scale(.6); opacity:0; transition:transform .5s cubic-bezier(.34,1.56,.64,1), opacity .4s ease;
   }
-  .journey-step.is-last .journey-node{border-color:var(--ink-faint); color:var(--ink-faint); background:var(--cream);}
-  .journey-badge{
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:999px;
-    background:rgba(95,224,187,0.16); color:#1f7a5c; margin-bottom:12px;
+  .j-grid.in .j-node{transform:scale(1); opacity:1;}
+  .j-grid.in .j-step:nth-child(1) .j-node{transition-delay:.15s;}
+  .j-grid.in .j-step:nth-child(2) .j-node{transition-delay:.28s;}
+  .j-grid.in .j-step:nth-child(3) .j-node{transition-delay:.41s;}
+  .j-grid.in .j-step:nth-child(4) .j-node{transition-delay:.54s;}
+  .j-step.is-last .j-node{background:#d6d6de; color:#8b8b96;}
+  .j-pill{
+    align-self:flex-start; font-family:var(--font-sub); font-weight:700; font-size:11.5px;
+    padding:5px 12px; border-radius:999px; background:var(--mint); color:var(--purple-deep); margin-bottom:12px;
   }
-  .journey-step.is-last .journey-badge{background:rgba(20,16,31,0.07); color:var(--ink-faint);}
-  .journey-step h3{font-family:var(--font-display); font-size:18px; font-weight:600; margin-bottom:8px;}
-  .journey-step p{font-size:14px; line-height:1.55; color:var(--ink-soft);}
-  .journey-callout{
-    margin-top:44px; padding:20px 24px; background:var(--white); border-radius:var(--radius);
-    border:1px solid rgba(147,69,255,0.14); font-size:15px; color:var(--ink-soft); line-height:1.6;
-    display:flex; gap:14px; align-items:flex-start;
+  .j-step.is-last .j-pill{background:#ececf1; color:#8b8b96;}
+  .j-step h3{font-family:var(--font-display); font-weight:700; font-size:19px; margin-bottom:8px; letter-spacing:-0.01em;}
+  .j-step p{font-size:14px; line-height:1.55; color:var(--body);}
+  .j-note{
+    margin-top:26px; background:var(--white); border-left:4px solid var(--coral);
+    border-radius:20px; padding:24px 28px;
+    font-size:15.5px; line-height:1.62; color:var(--body);
   }
-  .journey-callout strong{color:var(--purple-700);}
+  .j-note strong{color:var(--ink);}
+  .j-note strong{font-family:var(--font-sub); font-weight:700;}
 
-  /* ===== stats ===== */
-  .stats{background:var(--purple-700); padding:64px 0;}
-  .stats-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; text-align:center;}
-  .stat-num{font-family:var(--font-display); font-size:clamp(36px,5vw,52px); font-weight:700; color:var(--white); letter-spacing:-0.02em;}
-  .stat-label{font-size:14.5px; color:rgba(255,255,255,0.72); margin-top:8px;}
+  /* ===== stats band (deep purple, deck section-break pattern) ===== */
+  .band{position:relative; background:#F4EDFF; color:var(--ink); padding:82px 0;}
+  .band-inner{position:relative; z-index:2;}
+  .band h2{
+    font-family:var(--font-display); font-size:clamp(24px,3.2vw,34px); font-weight:700;
+    letter-spacing:-0.02em; line-height:1.22; margin-bottom:40px; max-width:640px;
+  }
+  .band h2 .hl{color:var(--purple);}
+  .st-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .st{border-radius:26px; padding:30px 28px; background:var(--white); transition:transform .28s ease, box-shadow .28s ease;}
+  .st:hover{transform:translateY(-6px); box-shadow:0 18px 38px rgba(85,28,175,0.12);}
+  .st .num{font-family:var(--font-display); font-size:clamp(32px,4.2vw,44px); font-weight:700; color:var(--purple); letter-spacing:-0.02em;}
+  .st .lb{font-size:14.5px; line-height:1.5; color:var(--body); margin-top:10px;}
+  .band-src{font-size:12.5px; color:#9b93ab; margin-top:24px;}
 
-  /* ===== pillars ===== */
-  .pillars{background:var(--cream); padding:96px 0;}
-  .pillars-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .pillar-card{
-    background:var(--white); border-radius:var(--radius); padding:32px 28px;
-    border:1px solid rgba(20,16,31,0.06);
-    transition:transform .25s ease, box-shadow .25s ease;
+  /* ===== testimonial ===== */
+  .tcard{
+    background:var(--purple-tint); border-radius:32px; padding:42px 40px; max-width:760px;
   }
-  .pillar-card:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(85,28,175,0.1);}
-  .pillar-icon{
-    width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-    font-size:20px; margin-bottom:20px;
+  .tquote{font-family:var(--font-sub); font-size:19px; line-height:1.6; font-weight:600; color:var(--purple-deep); margin-bottom:20px; transition:opacity .3s ease;}
+  .tmeta{font-size:13.5px; color:var(--body); transition:opacity .3s ease;}
+  .tcard.fading .tquote, .tcard.fading .tmeta{opacity:0;}
+  .tctrl{display:flex; align-items:center; gap:14px; margin-top:26px;}
+  .tdots{display:flex; gap:8px;}
+  .tdot{width:8px; height:8px; border-radius:50%; background:#d8cfe8; border:none; transition:background .2s ease, width .2s ease;}
+  .tdot.active{background:var(--purple); width:24px; border-radius:5px;}
+  .tarrow{
+    width:38px; height:38px; border-radius:50%; border:1.5px solid #ddd4ea; background:var(--white);
+    color:var(--purple-deep); font-size:16px; display:flex; align-items:center; justify-content:center; transition:background .2s ease;
   }
-  .pillar-card:nth-child(1) .pillar-icon{background:rgba(147,69,255,0.12);}
-  .pillar-card:nth-child(2) .pillar-icon{background:rgba(255,211,100,0.22);}
-  .pillar-card:nth-child(3) .pillar-icon{background:rgba(95,224,187,0.2);}
-  .pillar-card h3{font-family:var(--font-display); font-size:19px; font-weight:600; margin-bottom:10px;}
-  .pillar-card p{font-size:14.5px; line-height:1.6; color:var(--ink-soft);}
+  .tarrow:hover{background:var(--purple-tint);}
 
-  /* ===== testimonials ===== */
-  .testi{background:var(--purple-900); padding:96px 0; color:var(--white); position:relative; overflow:hidden;}
-  .testi::before{
-    content:''; position:absolute; inset:0;
-    background:radial-gradient(500px 340px at 90% 10%, rgba(147,69,255,0.28), transparent 70%);
-    pointer-events:none;
+  /* ===== fit ===== */
+  .fit-grid{display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center;}
+  .fit-list{display:flex; flex-direction:column; gap:14px;}
+  .fit-item{display:flex; gap:16px; align-items:flex-start; background:var(--white); border-radius:20px; padding:20px 22px; border:2px solid var(--purple-tint); transition:transform .25s ease, border-color .25s ease;}
+  .fit-item:hover{transform:translateX(6px); border-color:var(--mint);}
+  .fit-chk{
+    width:28px; height:28px; border-radius:9px; background:var(--mint); color:var(--purple-deep);
+    display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0;
   }
-  .testi-inner{position:relative; z-index:1;}
-  .testi .section-head h2{color:var(--white);}
-  .testi .section-head p{color:rgba(255,255,255,0.62);}
-  .testi-card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:var(--radius);
-    padding:40px 36px;
-    max-width:680px;
-    min-height:210px;
-  }
-  .testi-stars{color:var(--yellow); font-size:15px; margin-bottom:18px; letter-spacing:2px;}
-  .testi-quote{font-size:18px; line-height:1.6; color:rgba(255,255,255,0.92); margin-bottom:20px;}
-  .testi-meta{font-size:13.5px; color:rgba(255,255,255,0.5);}
-  .testi-controls{display:flex; align-items:center; gap:16px; margin-top:28px;}
-  .testi-dots{display:flex; gap:8px;}
-  .testi-dot{width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.25); border:none; transition:background .2s ease, width .2s ease;}
-  .testi-dot.active{background:var(--yellow); width:22px; border-radius:4px;}
-  .testi-arrow{
-    width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.2);
-    background:transparent; color:var(--white); font-size:16px;
-    display:flex; align-items:center; justify-content:center;
-    transition:background .2s ease;
-  }
-  .testi-arrow:hover{background:rgba(255,255,255,0.1);}
-
-  /* ===== fit check ===== */
-  .fit{background:var(--cream); padding:96px 0;}
-  .fit-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
-  .fit-list{display:flex; flex-direction:column; gap:18px; margin-top:8px;}
-  .fit-item{
-    display:flex; gap:14px; align-items:flex-start;
-    background:var(--white); border-radius:14px; padding:18px 20px;
-    border:1px solid rgba(20,16,31,0.06);
-  }
-  .fit-check{
-    width:26px; height:26px; border-radius:50%; background:var(--mint); color:var(--purple-900);
-    display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; flex-shrink:0;
-  }
-  .fit-item p{font-size:15px; font-weight:600; line-height:1.5;}
-  .fit-visual{
-    background:linear-gradient(160deg, var(--purple-700), var(--purple-900));
-    border-radius:24px; padding:44px 36px; color:var(--white);
-    min-height:340px; display:flex; flex-direction:column; justify-content:center;
-  }
-  .fit-visual .big{font-family:var(--font-display); font-size:48px; font-weight:700; color:var(--yellow); line-height:1;}
-  .fit-visual .cap{font-size:15px; color:rgba(255,255,255,0.7); margin-top:10px; margin-bottom:28px;}
-  .fit-visual .quote{font-size:15px; line-height:1.6; color:rgba(255,255,255,0.85); border-left:2px solid var(--mint); padding-left:16px;}
+  .fit-item p{font-family:var(--font-sub); font-size:15px; font-weight:700; line-height:1.5; color:var(--ink);}
+  .fit-vis{background:var(--white); border:2px solid #F0E4C8; border-radius:32px; padding:42px 38px; min-height:300px; display:flex; flex-direction:column; justify-content:center; color:var(--ink);}
+  .fit-vis .big{font-family:var(--font-display); font-size:56px; font-weight:700; line-height:1; letter-spacing:-0.03em; color:var(--purple);}
+  .fit-vis .cap{font-family:var(--font-sub); font-size:15.5px; font-weight:700; margin-top:12px; margin-bottom:24px; color:var(--ink);}
+  .fit-vis .q{font-size:15px; line-height:1.62; color:var(--body); border-left:3px solid var(--gold); padding-left:16px;}
 
   /* ===== form ===== */
-  .cta-form{background:var(--purple-800); padding:96px 0;}
-  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
-  .form-copy h2{
-    font-family:var(--font-display); color:var(--white); font-size:clamp(26px,3.6vw,38px);
-    font-weight:700; line-height:1.2; letter-spacing:-0.01em; margin-bottom:18px;
+  .form-sec{position:relative; background:var(--purple-deep); padding:96px 0; overflow:hidden;}
+  .form-sec::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(640px 440px at 12% 15%, rgba(147,69,255,0.5), transparent 68%);
   }
-  .form-copy p{color:rgba(255,255,255,0.66); font-size:16px; line-height:1.65; margin-bottom:28px;}
-  .form-copy ul{list-style:none; display:flex; flex-direction:column; gap:12px;}
-  .form-copy li{display:flex; gap:10px; align-items:center; font-size:14.5px; color:rgba(255,255,255,0.78);}
-  .form-copy li::before{content:'—'; color:var(--mint); font-weight:700;}
-
-  .form-card{
-    background:var(--white); border-radius:22px; padding:36px;
-    box-shadow:0 30px 70px rgba(0,0,0,0.35);
+  .form-grid{position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .fcopy h2{font-family:var(--font-display); color:var(--white); font-size:clamp(26px,3.4vw,36px); font-weight:700; line-height:1.15; letter-spacing:-0.022em; margin-bottom:18px;}
+  .fcopy h2 .hl{color:var(--yellow);}
+  .fcopy > p{color:rgba(255,255,255,0.72); font-size:16.5px; line-height:1.65; margin-bottom:28px;}
+  .fcopy ul{list-style:none; display:flex; flex-direction:column; gap:13px;}
+  .fcopy li{display:flex; gap:12px; align-items:center; font-size:15px; color:rgba(255,255,255,0.82);}
+  .fcopy li span{
+    width:22px; height:22px; border-radius:7px; background:var(--yellow); color:var(--purple-deep);
+    display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0;
   }
-  .form-row{margin-bottom:18px;}
-  .form-row label{display:block; font-size:13px; font-weight:700; color:var(--ink); margin-bottom:7px;}
-  .form-row input, .form-row select{
-    width:100%; padding:12px 14px; border-radius:10px;
-    border:1.5px solid rgba(20,16,31,0.12); font-size:14.5px; font-family:inherit;
-    background:var(--cream); color:var(--ink);
-    transition:border-color .2s ease;
+  .fcard{background:var(--white); border-radius:32px; padding:38px 34px;}
+  .frow{margin-bottom:17px;}
+  .frow label{display:block; font-family:var(--font-sub); font-size:13px; font-weight:700; color:var(--ink); margin-bottom:7px;}
+  .frow input, .frow select{
+    width:100%; padding:13px 15px; border-radius:14px; border:2px solid #ece8f4;
+    font-size:15px; font-family:inherit; background:var(--off); color:var(--ink); transition:border-color .2s ease;
   }
-  .form-row input:focus, .form-row select:focus{outline:none; border-color:var(--purple-500);}
-  .form-two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  .form-submit{
-    width:100%; background:var(--yellow); color:var(--ink); font-weight:800; font-size:15px;
-    padding:15px; border:none; border-radius:12px; margin-top:8px;
-    transition:transform .2s ease;
+  .frow input:focus, .frow select:focus{outline:none; border-color:var(--purple);}
+  .ftwo{display:grid; grid-template-columns:1fr 1fr; gap:13px;}
+  .fsubmit{
+    width:100%; background:var(--purple); color:var(--white); font-family:var(--font-sub); font-weight:700; font-size:16px;
+    padding:16px; border:none; border-radius:999px; margin-top:8px; transition:background .2s ease, transform .18s ease;
   }
-  .form-submit:hover{transform:translateY(-2px);}
-  .form-note{font-size:12px; color:var(--ink-faint); margin-top:14px; text-align:center; line-height:1.5;}
-  .form-success{
-    display:none; text-align:center; padding:24px 8px;
+  .fsubmit:hover{background:var(--purple-dark); transform:translateY(-1px);}
+  .fnote{font-size:12px; color:#9ca3af; margin-top:15px; text-align:center; line-height:1.5;}
+  .fsuccess{display:none; text-align:center; padding:26px 8px;}
+  .fsuccess .chk{
+    width:56px; height:56px; border-radius:18px; background:var(--mint); color:var(--purple-deep);
+    display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; margin:0 auto 16px;
   }
-  .form-success .check{
-    width:52px; height:52px; border-radius:50%; background:var(--mint); color:var(--purple-900);
-    display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:800;
-    margin:0 auto 16px;
-  }
-  .form-success h3{font-family:var(--font-display); font-size:20px; margin-bottom:8px;}
-  .form-success p{font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .fsuccess h3{font-family:var(--font-display); font-weight:700; font-size:21px; margin-bottom:9px;}
+  .fsuccess p{font-size:14.5px; color:var(--body); line-height:1.55;}
 
   /* ===== footer ===== */
-  footer{background:var(--purple-900); padding:48px 0 32px; color:rgba(255,255,255,0.5);}
-  .footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,0.08);}
-  .footer-logo{font-family:var(--font-display); font-weight:700; font-size:20px; color:var(--white); margin-bottom:10px;}
-  .footer-col p{font-size:13.5px; line-height:1.7;}
-  .footer-col h4{font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(255,255,255,0.4); margin-bottom:10px;}
-  .footer-bottom{padding-top:24px; font-size:12.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  footer{background:var(--off); color:#7a7488; padding:48px 0 28px; border-top:1px solid #eae5f3;}
+  .f-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:34px; padding-bottom:30px; border-bottom:1px solid #e6e1ef;}
+  .f-logo{font-family:var(--font-display); font-weight:700; font-size:21px; color:var(--purple-dark); margin-bottom:11px;}
+  .f-col p{font-size:13.5px; line-height:1.75;}
+  .f-col h4{font-family:var(--font-sub); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:#a49db4; margin-bottom:10px;}
+  .f-bot{padding-top:22px; font-size:12.5px; color:#a49db4; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
 
-  /* ===== responsive ===== */
-  @media (max-width: 860px){
-    .journey-steps{grid-template-columns:repeat(2,1fr); row-gap:36px;}
-    .journey-line{display:none;}
-    .stats-grid{grid-template-columns:1fr; gap:28px;}
-    .pillars-grid{grid-template-columns:1fr;}
+  @media (max-width: 900px){
+    .blocks{grid-template-columns:1fr;}
+    .j-grid{grid-template-columns:repeat(2,1fr);}
+    .st-grid{grid-template-columns:1fr;}
     .fit-grid{grid-template-columns:1fr; gap:32px;}
-    .form-grid{grid-template-columns:1fr; gap:36px;}
-    .footer-top{flex-direction:column;}
+    .form-grid{grid-template-columns:1fr; gap:38px;}
+    .f-top{flex-direction:column;}
   }
-  @media (max-width: 520px){
-    .journey-steps{grid-template-columns:1fr;}
-    .form-two{grid-template-columns:1fr;}
-    .hero{padding:64px 0 48px;}
-    .hero-ctas{flex-direction:column; align-items:flex-start;}
+  @media (max-width: 540px){
+    .j-grid{grid-template-columns:1fr;}
+    .ftwo{grid-template-columns:1fr;}
+    .hero{padding:60px 0 90px;}
+    .sec{padding:66px 0;}
+    .block{padding:30px 26px 34px; min-height:auto;}
   }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="wrap topbar-inner">
+<div class="nav">
+  <div class="wrap nav-inner">
     <div class="logo">upzi</div>
-    <button class="topbar-cta" onclick="document.getElementById('leadform').scrollIntoView({behavior:'smooth'})">Tư vấn miễn phí</button>
+    <button class="nav-cta" onclick="document.getElementById('leadform').scrollIntoView({behavior:'smooth'})">Tư vấn miễn phí</button>
   </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
+  <svg class="swoosh swoosh-1" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M600 90C420 90 300 210 300 390C300 510 380 600 500 600" stroke="#9345FF" stroke-width="86" stroke-linecap="round"/>
+  </svg>
+  <svg class="swoosh swoosh-2" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 120C170 120 280 230 280 400C280 470 250 500 200 500" stroke="#551caf" stroke-width="72" stroke-linecap="round"/>
+  </svg>
   <div class="wrap hero-inner">
-    <div class="eyebrow"><span class="dot"></span>Dành cho doanh nghiệp tuyển Fresher & Intern</div>
-    <h1>Gen Z chọn doanh nghiệp <span class="accent">trước khi</span> thấy tin tuyển dụng của bạn.</h1>
-    <p class="lead">Job board chỉ xuất hiện ở bước cuối cùng — khi ứng viên đã quyết định. Upzi giúp doanh nghiệp có mặt từ sớm hơn, ngay khi Gen Z còn đang tìm hiểu và lựa chọn nơi muốn làm việc.</p>
+    <div class="tag">Dành cho doanh nghiệp tuyển Intern &amp; dưới 2 năm kinh nghiệm</div>
+    <h1>Gen Z chọn doanh nghiệp <span class="hl">trước khi</span> đọc tin tuyển dụng của bạn.</h1>
+    <p class="lead">Ứng viên trẻ thường đã quyết định muốn làm ở đâu — qua mạng xã hội, cộng đồng, bạn bè giới thiệu — trước khi thấy tin tuyển dụng. Lúc tin đăng lên job board, đó đã là bước cuối cùng. Upzi giúp doanh nghiệp xuất hiện từ những bước đầu tiên đó.</p>
     <div class="hero-ctas">
-      <button class="btn-primary" onclick="document.getElementById('leadform').scrollIntoView({behavior:'smooth'})">Nhận tư vấn tuyển dụng</button>
-      <span class="hero-microcopy">Phản hồi trong 24h làm việc</span>
+      <button class="btn-y" onclick="document.getElementById('leadform').scrollIntoView({behavior:'smooth'})">Nhận tư vấn tuyển dụng</button>
+      <button class="btn-ghost" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">Xem cách hoạt động</button>
     </div>
-    <div class="hero-ticker">
-      <div class="avatar-stack">
-        <span style="background:#9345FF">A</span>
-        <span style="background:#5FE0BB; color:#1B0B33">B</span>
-        <span style="background:#FF968C">C</span>
-      </div>
-      1.000+ doanh nghiệp đang tuyển dụng cùng Upzi
+    <div class="hero-note">
+      <span class="vsq">V</span>
+      Trực thuộc Navigos Group — đơn vị sở hữu VietnamWorks
     </div>
   </div>
 </section>
 
-<!-- JOURNEY (signature element) -->
-<section class="journey">
+<!-- PILLARS: signature colour blocks -->
+<section class="sec sec-white sec-flush">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="section-eyebrow">Hành trình tìm việc của Gen Z</div>
-      <h2>Không chỉ xem tin tuyển dụng — Gen Z quan sát bạn từ rất lâu trước đó</h2>
-      <p>Bốn giai đoạn một ứng viên trẻ trải qua trước khi apply. Ba giai đoạn đầu, hầu hết doanh nghiệp hoàn toàn vắng mặt.</p>
-    </div>
-
-    <div class="journey-track reveal">
-      <div class="journey-line"></div>
-      <div class="journey-steps">
-        <div class="journey-step">
-          <div class="journey-node">1</div>
-          <div class="journey-badge">Upzi có mặt</div>
-          <h3>Khám phá</h3>
-          <p>Theo dõi trang doanh nghiệp, xem review, quan sát văn hoá qua mạng xã hội.</p>
-        </div>
-        <div class="journey-step">
-          <div class="journey-node">2</div>
-          <div class="journey-badge">Upzi có mặt</div>
-          <h3>Tìm hiểu</h3>
-          <p>Đào sâu về đãi ngộ, môi trường làm việc, câu chuyện nhân viên thật.</p>
-        </div>
-        <div class="journey-step">
-          <div class="journey-node">3</div>
-          <div class="journey-badge">Upzi có mặt</div>
-          <h3>Chọn lọc</h3>
-          <p>Lập "wishlist" những doanh nghiệp muốn ứng tuyển khi có cơ hội.</p>
-        </div>
-        <div class="journey-step is-last">
-          <div class="journey-node">4</div>
-          <div class="journey-badge">Job board mới xuất hiện</div>
-          <h3>Ứng tuyển</h3>
-          <p>Nộp đơn khi thấy tin tuyển dụng phù hợp — bước cuối, không phải bước đầu.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="journey-callout reveal">
-      <span>💡</span>
-      <div><strong>Vấn đề:</strong> Nếu doanh nghiệp chỉ xuất hiện ở bước 4, bạn đang cạnh tranh với những công ty đã "ghi điểm" từ bước 1. Upzi giúp bạn rút ngắn khoảng cách đó.</div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats">
-  <div class="wrap stats-grid">
-    <div class="reveal">
-      <div class="stat-num" data-count="200000" data-suffix="+">0</div>
-      <div class="stat-label">Hồ sơ Gen Z & Fresher</div>
-    </div>
-    <div class="reveal">
-      <div class="stat-num" data-count="30" data-suffix="+">0</div>
-      <div class="stat-label">Trường Đại học / Cao đẳng liên kết</div>
-    </div>
-    <div class="reveal">
-      <div class="stat-num" data-count="1000" data-suffix="+">0</div>
-      <div class="stat-label">Doanh nghiệp tin dùng</div>
-    </div>
-  </div>
-</section>
-
-<!-- PILLARS -->
-<section class="pillars">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="section-eyebrow">Vì sao doanh nghiệp chọn Upzi</div>
+    <div class="head reveal">
+      <div class="eyebrow">Vì sao doanh nghiệp chọn Upzi</div>
       <h2>Ba việc Upzi làm khác với job board truyền thống</h2>
     </div>
-    <div class="pillars-grid reveal-stagger">
-      <div class="pillar-card">
-        <div class="pillar-icon">🎓</div>
-        <h3>Tiếp cận đúng tệp</h3>
+    <div class="blocks stagger">
+      <div class="block">
+        <div class="n">01</div>
+        <h3>Đúng nhóm ứng viên</h3>
         <p>Kết nối trực tiếp với cộng đồng sinh viên qua mạng lưới 30+ trường Đại học, Cao đẳng liên kết — không phải quảng cáo đại trà.</p>
+        <div class="arw">
+          <svg viewBox="0 0 120 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 54C22 54 30 22 48 22C60 22 60 42 72 42C88 42 96 18 112 12"
+                  stroke="#5FE0BB" stroke-width="7" stroke-linecap="round"/>
+            <path d="M92 8C101 9 109 10 113 11C112 16 110 23 108 31"
+                  stroke="#5FE0BB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
-      <div class="pillar-card">
-        <div class="pillar-icon">✨</div>
+      <div class="block">
+        <div class="n">02</div>
         <h3>Hiện diện sớm hơn</h3>
-        <p>Xây dựng employer branding ngay từ giai đoạn Gen Z còn đang khám phá — trước khi có tin tuyển dụng nào cần đăng.</p>
+        <p>Xây dựng employer branding từ giai đoạn Gen Z còn đang tìm hiểu — không đợi đến khi có tin tuyển dụng mới xuất hiện.</p>
+        <div class="arw">
+          <svg viewBox="0 0 120 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 52C14 52 20 34 32 34C42 34 42 50 32 50C22 50 22 26 38 22C54 18 66 40 80 34C92 29 98 18 112 12"
+                  stroke="#E0E722" stroke-width="7" stroke-linecap="round"/>
+            <path d="M92 8C101 9 109 10 113 11C112 16 110 23 108 31"
+                  stroke="#E0E722" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
-      <div class="pillar-card">
-        <div class="pillar-icon">🔄</div>
+      <div class="block">
+        <div class="n">03</div>
         <h3>Pipeline liên tục</h3>
         <p>Nguồn ứng viên trẻ ổn định, dài hạn — thay vì chỉ trông chờ vào job fair hoặc chiến dịch tuyển dụng theo mùa.</p>
+        <div class="arw">
+          <svg viewBox="0 0 120 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34 46C16 46 8 34 14 24C21 12 44 12 52 26C60 40 82 42 90 30C97 19 88 8 74 10"
+                  stroke="#FF968C" stroke-width="7" stroke-linecap="round"/>
+            <path d="M84 4C77 7 71 9 68 11C71 15 75 20 79 26"
+                  stroke="#FF968C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testi">
-  <div class="wrap testi-inner">
-    <div class="section-head reveal">
-      <div class="section-eyebrow" style="color:var(--mint)">Khách hàng nói gì</div>
-      <h2>1.000+ doanh nghiệp đang tuyển dụng cùng Upzi</h2>
+<!-- JOURNEY -->
+<section class="sec sec-off" id="journey">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Hành trình tìm việc của Gen Z</div>
+      <h2>Gen Z tìm hiểu doanh nghiệp rất lâu trước khi tìm việc</h2>
+      <p>4 giai đoạn ứng viên trẻ trải qua trước khi ứng tuyển. Đa số doanh nghiệp chỉ xuất hiện ở giai đoạn cuối cùng.</p>
     </div>
-    <div class="testi-card reveal" id="testiCard">
-      <div class="testi-stars">★★★★★</div>
-      <div class="testi-quote" id="testiQuote">"Bên mình tuyển liên tục cho các vị trí fresher và entry-level nên cần một nguồn ứng viên ổn định hơn, thay vì chỉ phụ thuộc vào job board hay job fair theo từng đợt. Mô hình của Upzi khá phù hợp với nhu cầu đó."</div>
-      <div class="testi-meta" id="testiMeta">Nhà tuyển dụng — Doanh nghiệp tuyển Fresher thường xuyên</div>
+    <div class="j-grid stagger">
+      <div class="j-step">
+        <div class="j-node">1</div>
+        <div class="j-pill">Upzi có mặt</div>
+        <h3>Khám phá</h3>
+        <p>Theo dõi trang doanh nghiệp, xem review, quan sát văn hoá qua mạng xã hội.</p>
+      </div>
+      <div class="j-step">
+        <div class="j-node">2</div>
+        <div class="j-pill">Upzi có mặt</div>
+        <h3>Tìm hiểu</h3>
+        <p>Đào sâu về đãi ngộ, môi trường làm việc, câu chuyện nhân viên thật.</p>
+      </div>
+      <div class="j-step">
+        <div class="j-node">3</div>
+        <div class="j-pill">Upzi có mặt</div>
+        <h3>Chọn lọc</h3>
+        <p>Lập danh sách các doanh nghiệp muốn ứng tuyển khi có cơ hội.</p>
+      </div>
+      <div class="j-step is-last">
+        <div class="j-node">4</div>
+        <div class="j-pill">Job board mới xuất hiện</div>
+        <h3>Ứng tuyển</h3>
+        <p>Nộp đơn khi thấy tin tuyển dụng phù hợp — bước cuối, không phải bước đầu.</p>
+      </div>
     </div>
-    <div class="testi-controls">
-      <button class="testi-arrow" onclick="moveTesti(-1)">‹</button>
-      <div class="testi-dots" id="testiDots"></div>
-      <button class="testi-arrow" onclick="moveTesti(1)">›</button>
+    <div class="j-note reveal">
+      <strong>Hệ quả:</strong> Nếu doanh nghiệp chỉ xuất hiện ở bước 4, ứng viên đã chọn nơi muốn làm từ trước — cơ hội mất ngay từ đầu, không phải vì tin đăng chưa tốt. Upzi giúp doanh nghiệp có mặt sớm hơn, từ bước 1.
     </div>
   </div>
 </section>
 
-<!-- FIT CHECK -->
-<section class="fit">
+<!-- STATS BAND -->
+<section class="band">
+  <div class="wrap band-inner">
+    <h2 class="reveal">Một nền tảng <span class="hl">chuyên biệt</span> cho nhóm Intern &amp; dưới 2 năm kinh nghiệm</h2>
+    <div class="st-grid stagger">
+      <div class="st st-1">
+        <div class="num" data-count="150000" data-suffix="+">0</div>
+        <div class="lb">Ứng viên Gen Z trên nền tảng, tập trung độ tuổi 21–26</div>
+      </div>
+      <div class="st st-2">
+        <div class="num" data-count="30" data-suffix="+">0</div>
+        <div class="lb">Trường Đại học / Cao đẳng liên kết trực tiếp</div>
+      </div>
+      <div class="st st-3">
+        <div class="num" data-count="24" data-suffix=" năm">0</div>
+        <div class="lb">Kinh nghiệm hệ sinh thái tuyển dụng của Navigos Group</div>
+      </div>
+    </div>
+    <p class="band-src reveal">Số liệu nội bộ Upzi, cập nhật gần nhất — chi tiết có thể cung cấp khi Anh/Chị yêu cầu.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Khách hàng nói gì</div>
+      <h2>Trích từ khảo sát khách hàng Upzi</h2>
+    </div>
+    <div class="tcard reveal" id="tcard">
+      <div class="tquote" id="tq">"Bên mình tuyển liên tục cho các vị trí fresher và entry-level nên cần một nguồn ứng viên ổn định hơn, thay vì chỉ phụ thuộc vào job board hay job fair theo từng đợt. Mô hình của Upzi khá phù hợp với nhu cầu đó."</div>
+      <div class="tmeta" id="tm">Doanh nghiệp tuyển Fresher thường xuyên · Danh tính ẩn theo thỏa thuận bảo mật</div>
+    </div>
+    <div class="tctrl">
+      <button class="tarrow" onclick="moveT(-1)">‹</button>
+      <div class="tdots" id="tdots"></div>
+      <button class="tarrow" onclick="moveT(1)">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="sec sec-off">
   <div class="wrap fit-grid">
     <div>
-      <div class="section-head reveal" style="margin-bottom:24px;">
-        <div class="section-eyebrow">Upzi phù hợp khi nào</div>
+      <div class="head reveal" style="margin-bottom:26px;">
+        <div class="eyebrow">Upzi phù hợp khi nào</div>
         <h2>Đây có phải doanh nghiệp của Anh/Chị?</h2>
       </div>
-      <div class="fit-list reveal-stagger">
-        <div class="fit-item"><div class="fit-check">✓</div><p>Tuyển Fresher và Intern thường xuyên, không chỉ theo mùa</p></div>
-        <div class="fit-item"><div class="fit-check">✓</div><p>Đang hoặc có kế hoạch xây dựng Employer Branding với Gen Z</p></div>
-        <div class="fit-item"><div class="fit-check">✓</div><p>Muốn nguồn ứng viên trẻ ổn định, dài hạn thay vì phụ thuộc job fair</p></div>
+      <div class="fit-list stagger">
+        <div class="fit-item"><div class="fit-chk">✓</div><p>Tuyển Intern, Fresher thường xuyên — không chỉ theo mùa</p></div>
+        <div class="fit-item"><div class="fit-chk">✓</div><p>Đang hoặc có kế hoạch xây dựng Employer Branding với Gen Z</p></div>
+        <div class="fit-item"><div class="fit-chk">✓</div><p>Muốn nguồn ứng viên trẻ ổn định, dài hạn thay vì phụ thuộc job fair</p></div>
       </div>
     </div>
-    <div class="fit-visual reveal">
+    <div class="fit-vis reveal">
       <div class="big">30+</div>
       <div class="cap">Trường Đại học / Cao đẳng đối tác trực tiếp</div>
-      <div class="quote">"Gen Z bây giờ tìm hiểu doanh nghiệp qua mạng xã hội và cộng đồng trước khi apply — employer branding ngày càng quan trọng hơn."</div>
+      <div class="q">"Gen Z tìm hiểu doanh nghiệp qua mạng xã hội và cộng đồng trước khi ứng tuyển. Employer branding sớm giúp doanh nghiệp được chọn trước."</div>
     </div>
   </div>
 </section>
 
-<!-- LEAD FORM -->
-<section class="cta-form" id="leadform">
+<!-- FORM -->
+<section class="form-sec" id="leadform">
   <div class="wrap form-grid">
-    <div class="form-copy reveal">
-      <h2>Bắt đầu xây pipeline ứng viên Gen Z của bạn</h2>
+    <div class="fcopy reveal">
+      <h2>Bắt đầu xây <span class="hl">pipeline</span> ứng viên Gen Z của bạn</h2>
       <p>Để lại thông tin — đội ngũ Upzi sẽ liên hệ để tìm hiểu nhu cầu tuyển dụng cụ thể và đề xuất giải pháp phù hợp.</p>
       <ul>
-        <li>Tư vấn miễn phí, không ràng buộc</li>
-        <li>Phản hồi trong vòng 24h làm việc</li>
-        <li>Đề xuất theo đúng ngành và quy mô tuyển dụng</li>
+        <li><span>✓</span>Tư vấn miễn phí, không ràng buộc</li>
+        <li><span>✓</span>Phản hồi trong vòng 24h làm việc</li>
+        <li><span>✓</span>Đề xuất theo đúng ngành và quy mô tuyển dụng</li>
       </ul>
     </div>
-
-    <div class="form-card reveal" id="formCard">
+    <div class="fcard reveal">
       <form id="leadFormEl">
-        <div class="form-row">
+        <div class="frow">
           <label for="f-name">Họ và tên *</label>
           <input type="text" id="f-name" required placeholder="Nguyễn Văn A">
         </div>
-        <div class="form-two">
-          <div class="form-row">
+        <div class="ftwo">
+          <div class="frow">
             <label for="f-company">Công ty *</label>
             <input type="text" id="f-company" required placeholder="Tên công ty">
           </div>
-          <div class="form-row">
+          <div class="frow">
             <label for="f-phone">Số điện thoại *</label>
             <input type="tel" id="f-phone" required placeholder="09xx xxx xxx">
           </div>
         </div>
-        <div class="form-row">
+        <div class="frow">
           <label for="f-email">Email công việc *</label>
           <input type="email" id="f-email" required placeholder="ban@congty.com">
         </div>
-        <div class="form-row">
+        <div class="frow">
           <label for="f-volume">Nhu cầu tuyển dụng</label>
           <select id="f-volume">
             <option value="">Chọn số lượng dự kiến</option>
@@ -534,11 +532,11 @@
             <option>Chưa xác định, muốn tư vấn</option>
           </select>
         </div>
-        <button type="submit" class="form-submit">Gửi yêu cầu tư vấn</button>
-        <div class="form-note">Bằng việc gửi form, bạn đồng ý để Upzi liên hệ tư vấn. Đây là bản staging — form chưa kết nối hệ thống thật.</div>
+        <button type="submit" class="fsubmit">Gửi yêu cầu tư vấn</button>
+        <div class="fnote">Bằng việc gửi form, Anh/Chị đồng ý để Upzi liên hệ tư vấn. Đây là bản staging — form chưa kết nối hệ thống thật.</div>
       </form>
-      <div class="form-success" id="formSuccess">
-        <div class="check">✓</div>
+      <div class="fsuccess" id="fsuccess">
+        <div class="chk">✓</div>
         <h3>Đã nhận thông tin</h3>
         <p>Cảm ơn Anh/Chị. Đội ngũ Upzi sẽ liên hệ trong 24h làm việc tới.</p>
       </div>
@@ -548,24 +546,25 @@
 
 <footer>
   <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-col" style="max-width:280px;">
-        <div class="footer-logo">upzi</div>
+    <div class="f-top">
+      <div class="f-col" style="max-width:290px;">
+        <div class="f-logo">upzi</div>
         <p>Một sản phẩm của Công Ty Cổ Phần Navigos Group Việt Nam.</p>
         <p style="margin-top:10px;">Tầng 20, tòa nhà E.Town Central, 11 Đoàn Văn Bơ, Phường Xóm Chiếu, TP.HCM.</p>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Liên hệ</h4>
         <p>Hotline: 028 7305 8500</p>
         <p>Zalo: 070 3377 017</p>
         <p>Email: upzi-support@navigosgroup.com</p>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Kết nối</h4>
         <p>facebook.com/UpziFanpage</p>
+        <p>www.upzi.vn</p>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="f-bot">
       <span>© Navigos Group Vietnam Joint Stock Company</span>
       <span>Staging build — nội bộ</span>
     </div>
@@ -573,100 +572,66 @@
 </footer>
 
 <script>
-  // ---- scroll reveal ----
-  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.18 });
-  revealEls.forEach(el => io.observe(el));
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -18% 0px' });
+  document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
 
-  // ---- counters ----
-  const counters = document.querySelectorAll('.stat-num');
-  const countIo = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCount(e.target);
-        countIo.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => countIo.observe(c));
+  const cio = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { count(e.target); cio.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -20% 0px' });
+  document.querySelectorAll('.num[data-count]').forEach(c => cio.observe(c));
 
-  function animateCount(el) {
+  function count(el){
     const target = parseInt(el.getAttribute('data-count'), 10);
     const suffix = el.getAttribute('data-suffix') || '';
-    const duration = 1400;
-    const start = performance.now();
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = Math.floor(eased * target);
-      el.textContent = value.toLocaleString('vi-VN') + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
+    const dur = 1300, start = performance.now();
+    function tick(now){
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString('vi-VN') + suffix;
+      if (p < 1) requestAnimationFrame(tick);
       else el.textContent = target.toLocaleString('vi-VN') + suffix;
     }
     requestAnimationFrame(tick);
   }
 
-  // ---- testimonials ----
-  const testimonials = [
-    {
-      quote: '"Bên mình tuyển liên tục cho các vị trí fresher và entry-level nên cần một nguồn ứng viên ổn định hơn, thay vì chỉ phụ thuộc vào job board hay job fair theo từng đợt. Mô hình của Upzi khá phù hợp với nhu cầu đó."',
-      meta: 'Nhà tuyển dụng — Doanh nghiệp tuyển Fresher thường xuyên'
-    },
-    {
-      quote: '"Điều bên mình quan tâm là Upzi không chỉ hỗ trợ tuyển dụng mà còn giúp tiếp cận sinh viên và Gen Z sớm hơn qua hệ sinh thái trường đại học. Đây là hướng phù hợp với xu hướng tuyển dụng hiện tại."',
-      meta: 'Nhà tuyển dụng — Doanh nghiệp xây dựng Employer Branding'
-    },
-    {
-      quote: '"Gen Z bây giờ tìm hiểu doanh nghiệp qua mạng xã hội và cộng đồng trước khi apply, nên employer branding ngày càng quan trọng. Upzi đang đi đúng hướng ở phần tiếp cận và xây hiện diện sớm."',
-      meta: 'Nhà tuyển dụng — Doanh nghiệp cần pipeline dài hạn'
-    }
+  const T = [
+    { q:'"Bên mình tuyển liên tục cho các vị trí fresher và entry-level nên cần một nguồn ứng viên ổn định hơn, thay vì chỉ phụ thuộc vào job board hay job fair theo từng đợt. Mô hình của Upzi khá phù hợp với nhu cầu đó."',
+      m:'Doanh nghiệp tuyển Fresher thường xuyên · Danh tính ẩn theo thỏa thuận bảo mật' },
+    { q:'"Điều bên mình quan tâm là Upzi không chỉ hỗ trợ tuyển dụng mà còn giúp tiếp cận sinh viên và Gen Z sớm hơn qua hệ sinh thái trường đại học. Đây là hướng phù hợp với xu hướng tuyển dụng hiện tại."',
+      m:'Doanh nghiệp xây dựng Employer Branding · Danh tính ẩn theo thỏa thuận bảo mật' },
+    { q:'"Gen Z bây giờ tìm hiểu doanh nghiệp qua mạng xã hội và cộng đồng trước khi apply, nên employer branding ngày càng quan trọng. Upzi đang đi đúng hướng ở phần tiếp cận và xây hiện diện sớm."',
+      m:'Doanh nghiệp cần pipeline dài hạn · Danh tính ẩn theo thỏa thuận bảo mật' }
   ];
-  let testiIndex = 0;
-  const testiQuote = document.getElementById('testiQuote');
-  const testiMeta = document.getElementById('testiMeta');
-  const testiDots = document.getElementById('testiDots');
-
-  testimonials.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => { testiIndex = i; renderTesti(); });
-    testiDots.appendChild(dot);
+  let ti = 0;
+  const tq = document.getElementById('tq'), tm = document.getElementById('tm'), td = document.getElementById('tdots');
+  T.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'tdot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => { ti = i; renderT(); });
+    td.appendChild(d);
   });
-
-  function renderTesti() {
-    testiQuote.textContent = testimonials[testiIndex].quote;
-    testiMeta.textContent = testimonials[testiIndex].meta;
-    [...testiDots.children].forEach((d, i) => d.classList.toggle('active', i === testiIndex));
+  function renderT(){
+    const card = document.getElementById('tcard');
+    card.classList.add('fading');
+    setTimeout(() => {
+      tq.textContent = T[ti].q; tm.textContent = T[ti].m;
+      [...td.children].forEach((d, i) => d.classList.toggle('active', i === ti));
+      card.classList.remove('fading');
+    }, 300);
   }
-  function moveTesti(dir) {
-    testiIndex = (testiIndex + dir + testimonials.length) % testimonials.length;
-    renderTesti();
-  }
-  setInterval(() => moveTesti(1), 7000);
+  function moveT(dir){ ti = (ti + dir + T.length) % T.length; renderT(); }
+  setInterval(() => moveT(1), 7000);
 
-  // ---- lead form (staging: no backend yet) ----
-  const leadForm = document.getElementById('leadFormEl');
-  const formSuccess = document.getElementById('formSuccess');
-  leadForm.addEventListener('submit', (e) => {
+  const lf = document.getElementById('leadFormEl'), fs = document.getElementById('fsuccess');
+  lf.addEventListener('submit', (e) => {
     e.preventDefault();
-    const payload = {
-      name: document.getElementById('f-name').value,
-      company: document.getElementById('f-company').value,
-      phone: document.getElementById('f-phone').value,
-      email: document.getElementById('f-email').value,
-      volume: document.getElementById('f-volume').value,
-      submittedAt: new Date().toISOString()
-    };
-    console.log('[Upzi lead form — staging submission]', payload);
-    leadForm.style.display = 'none';
-    formSuccess.style.display = 'block';
+    console.log('[Upzi lead form — staging]', {
+      name: f_name.value, company: f_company.value, phone: f_phone.value,
+      email: f_email.value, volume: f_volume.value, at: new Date().toISOString()
+    });
+    lf.style.display = 'none'; fs.style.display = 'block';
   });
 </script>
 
