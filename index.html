@@ -86,8 +86,8 @@
   .hero-inner{max-width:600px;}
   .hero-visual{position:relative;}
   .hero-visual img{
-    width:100%; border-radius:18px;
-    filter:drop-shadow(0 30px 60px rgba(20,5,50,0.42));
+    width:100%; display:block;
+    filter:drop-shadow(0 26px 54px rgba(20,5,50,0.38));
     animation:floatUp 1s cubic-bezier(.22,.61,.36,1) .3s both;
   }
   @keyframes floatUp{from{opacity:0; transform:translateY(34px) scale(.97);} to{opacity:1; transform:none;}}
@@ -97,7 +97,7 @@
     padding:8px 18px; border-radius:999px; margin-bottom:26px;
   }
   .hero h1{
-    font-family:var(--font-display); font-size:clamp(31px,4.6vw,50px); line-height:1.14;
+    font-family:var(--font-display); font-size:clamp(38px,6vw,68px); line-height:1.03;
     font-weight:700; letter-spacing:-0.022em; margin-bottom:22px;
   }
   .hero h1 .hl{color:var(--yellow);}
@@ -120,18 +120,18 @@
   }
 
   /* ===== section shells ===== */
-  .sec{padding:96px 0;}
+  .sec{padding:120px 0;}
   .sec-flush{padding-bottom:0;}
   .sec-white{background:var(--white);}
   .sec-off{background:var(--off);}
-  .head{max-width:680px; margin-bottom:52px;}
+  .head{max-width:720px; margin-bottom:64px;}
   .eyebrow{
     display:inline-block; font-family:var(--font-sub); font-weight:700; font-size:12.5px; letter-spacing:0.06em;
     text-transform:uppercase; color:var(--purple); background:var(--purple-tint);
     padding:7px 15px; border-radius:999px; margin-bottom:18px;
   }
   .head h2{
-    font-family:var(--font-display); font-size:clamp(26px,3.6vw,38px); font-weight:700;
+    font-family:var(--font-display); font-size:clamp(30px,4.2vw,46px); font-weight:700;
     letter-spacing:-0.022em; line-height:1.15; color:var(--ink);
   }
   .head p{margin-top:16px; font-size:16.5px; line-height:1.65; color:var(--body);}
@@ -358,8 +358,8 @@
   <div class="wrap hero-grid">
     <div class="hero-inner">
       <div class="tag">Dành cho doanh nghiệp tuyển Intern &amp; dưới 2 năm kinh nghiệm</div>
-      <h1>Gen Z chọn doanh nghiệp <span class="hl">trước khi</span> đọc tin tuyển dụng của bạn.</h1>
-      <p class="lead">Ứng viên trẻ thường đã quyết định muốn làm ở đâu — qua mạng xã hội, cộng đồng, bạn bè giới thiệu — trước khi thấy tin tuyển dụng. Lúc tin đăng lên job board, đó đã là bước cuối cùng.</p>
+      <h1>Tuyển Gen Z,<br><span class="hl">sớm hơn</span> đối thủ.</h1>
+      <p class="lead">Ứng viên trẻ đã chọn nơi muốn làm từ lâu trước khi đọc tin tuyển dụng. Upzi đưa doanh nghiệp xuất hiện ngay từ giai đoạn đó.</p>
       <div class="hero-ctas">
         <button class="btn-y" onclick="document.getElementById('leadform').scrollIntoView({behavior:'smooth'})">Nhận tư vấn tuyển dụng</button>
         <button class="btn-ghost" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">Xem cách hoạt động</button>
@@ -380,13 +380,13 @@
   <div class="wrap">
     <div class="head reveal">
       <div class="eyebrow">Vì sao doanh nghiệp chọn Upzi</div>
-      <h2>Ba việc Upzi làm khác với job board truyền thống</h2>
+      <h2>Ba điều job board không làm được</h2>
     </div>
     <div class="blocks stagger">
       <div class="block">
         <div class="n">01</div>
         <h3>Đúng nhóm ứng viên</h3>
-        <p>Kết nối trực tiếp với cộng đồng sinh viên qua mạng lưới 30+ trường Đại học, Cao đẳng liên kết — không phải quảng cáo đại trà.</p>
+        <p>Kết nối trực tiếp cộng đồng sinh viên qua 30+ trường liên kết. Không quảng cáo đại trà.</p>
         <div class="arw">
           <svg viewBox="0 0 120 62" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 54C22 54 30 22 48 22C60 22 60 42 72 42C88 42 96 18 112 12"
@@ -399,7 +399,7 @@
       <div class="block">
         <div class="n">02</div>
         <h3>Hiện diện sớm hơn</h3>
-        <p>Xây dựng employer branding từ giai đoạn Gen Z còn đang tìm hiểu — không đợi đến khi có tin tuyển dụng mới xuất hiện.</p>
+        <p>Xây employer branding từ lúc Gen Z còn đang tìm hiểu, không đợi tới lúc đăng tin.</p>
         <div class="arw">
           <svg viewBox="0 0 120 62" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 52C14 52 20 34 32 34C42 34 42 50 32 50C22 50 22 26 38 22C54 18 66 40 80 34C92 29 98 18 112 12"
@@ -412,7 +412,7 @@
       <div class="block">
         <div class="n">03</div>
         <h3>Pipeline liên tục</h3>
-        <p>Nguồn ứng viên trẻ ổn định, dài hạn — thay vì chỉ trông chờ vào job fair hoặc chiến dịch tuyển dụng theo mùa.</p>
+        <p>Nguồn ứng viên trẻ ổn định quanh năm, không phụ thuộc job fair theo mùa.</p>
         <div class="arw">
           <svg viewBox="0 0 120 62" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M34 46C16 46 8 34 14 24C21 12 44 12 52 26C60 40 82 42 90 30C97 19 88 8 74 10"
@@ -431,8 +431,8 @@
   <div class="wrap">
     <div class="head reveal">
       <div class="eyebrow">Hành trình tìm việc của Gen Z</div>
-      <h2>Gen Z tìm hiểu doanh nghiệp rất lâu trước khi tìm việc</h2>
-      <p>4 giai đoạn ứng viên trẻ trải qua trước khi ứng tuyển. Đa số doanh nghiệp chỉ xuất hiện ở giai đoạn cuối cùng.</p>
+      <h2>Gen Z tìm hiểu bạn từ rất lâu trước khi tìm việc</h2>
+      <p>4 giai đoạn trước khi ứng tuyển. Đa số doanh nghiệp chỉ xuất hiện ở giai đoạn cuối.</p>
     </div>
     <div class="j-grid stagger">
       <div class="j-step">
@@ -471,8 +471,8 @@
   <div class="wrap">
     <div class="head reveal">
       <div class="eyebrow">Upzi có mặt ở đâu</div>
-      <h2>Không chỉ trên nền tảng — Upzi ở ngay trong trường</h2>
-      <p>Ngày hội việc làm, talkshow, hoạt động tại giảng đường. Đây là những điểm chạm giúp doanh nghiệp xuất hiện trước sinh viên từ sớm, thay vì đợi đến lúc đăng tin.</p>
+      <h2>Upzi có mặt ngay trong trường</h2>
+      <p>Ngày hội việc làm, talkshow, hoạt động tại giảng đường — nơi doanh nghiệp gặp sinh viên trước khi họ tìm việc.</p>
     </div>
     <div class="act-grid stagger">
       <figure class="act act-wide">
@@ -561,8 +561,8 @@
 <section class="form-sec" id="leadform">
   <div class="wrap form-grid">
     <div class="fcopy reveal">
-      <h2>Bắt đầu xây <span class="hl">pipeline</span> ứng viên Gen Z của bạn</h2>
-      <p>Để lại thông tin — đội ngũ Upzi sẽ liên hệ để tìm hiểu nhu cầu tuyển dụng cụ thể và đề xuất giải pháp phù hợp.</p>
+      <h2>Bắt đầu với <span class="hl">Upzi</span></h2>
+      <p>Để lại thông tin, đội ngũ Upzi sẽ liên hệ và đề xuất giải pháp theo đúng nhu cầu.</p>
       <ul>
         <li><span>✓</span>Tư vấn miễn phí, không ràng buộc</li>
         <li><span>✓</span>Phản hồi trong vòng 24h làm việc</li>
