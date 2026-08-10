@@ -1,5 +1,5 @@
 ---
-layout: frame2
+layout: index
 title: Gen Z tìm hiểu doanh nghiệp từ rất lâu trước khi tìm việc
 category: RECRUITMENT
 ---
