@@ -1,5 +1,5 @@
 ---
-layout: index
+layout: frame1
 
 title: "Gen Z tìm hiểu doanh nghiệp từ rất lâu trước khi tìm việc"
 
