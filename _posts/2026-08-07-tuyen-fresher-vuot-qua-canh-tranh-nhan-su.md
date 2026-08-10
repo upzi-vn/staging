@@ -1,5 +1,5 @@
 ---
-layout: frame1
+layout: frame2
 
 title: "Tránh cuộc đua tăng lương bằng cách tuyển Fresher"
 
