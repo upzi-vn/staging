@@ -1,12 +1,39 @@
 ---
-layout: frame1
+layout: frame2
+
 title: "Gen Z tìm hiểu doanh nghiệp từ rất lâu trước khi tìm việc"
+
 category: "Insights"
+
 description: >
   Gen Z không chỉ bắt đầu tìm hiểu doanh nghiệp khi nhìn thấy một tin tuyển dụng.
   Họ chủ động tìm hiểu về văn hóa, môi trường làm việc và cơ hội phát triển
   trước khi quyết định ứng tuyển.
+
 ---
+
+<div class="eyebrow">
+  Insight · Employer Branding
+</div>
+
+<h1>
+  Gen Z tìm hiểu doanh nghiệp
+  <span>từ rất lâu trước khi tìm việc</span>
+</h1>
+
+<p class="hero-lead">
+  Với Gen Z, hành trình tìm việc không bắt đầu từ một tin tuyển dụng.
+  Trước khi quyết định ứng tuyển, họ đã chủ động tìm hiểu về doanh nghiệp,
+  văn hóa, môi trường làm việc và cơ hội phát triển.
+</p>
+
+<div class="meta">
+  <span>Chủ đề: Gen Z</span>
+  <span>Đối tượng: Nhà tuyển dụng</span>
+  <span>Thị trường: Việt Nam</span>
+  <span>Nguồn: VnExpress</span>
+</div>
+
 
 <div class="section-grid">
 
@@ -17,17 +44,24 @@ description: >
     </div>
 
     <h2>
-      Gen Z tìm hiểu doanh nghiệp
+      Khi ứng viên tìm hiểu doanh nghiệp
       <span class="accent">
-        từ rất lâu trước khi tìm việc
+        trước cả khi tìm việc
       </span>
     </h2>
 
     <p>
-      Với Gen Z, hành trình tìm việc không bắt đầu từ thời điểm
-      họ nhìn thấy một tin tuyển dụng. Trước khi quyết định ứng tuyển,
-      họ đã chủ động tìm hiểu về doanh nghiệp, văn hóa, môi trường
-      làm việc và cơ hội phát triển.
+      Gen Z đang thay đổi cách doanh nghiệp cần tiếp cận ứng viên.
+      Họ không chỉ quan tâm đến một vị trí đang tuyển mà còn muốn
+      biết doanh nghiệp là ai, môi trường làm việc như thế nào,
+      cơ hội phát triển ra sao và những nhân viên hiện tại đang
+      trải nghiệm điều gì.
+    </p>
+
+    <p>
+      Điều này khiến quá trình tuyển dụng bắt đầu sớm hơn rất nhiều:
+      trước khi ứng viên nhìn thấy tin tuyển dụng, họ có thể đã hình thành
+      một phần nhận định về doanh nghiệp.
     </p>
 
   </div>
@@ -44,7 +78,8 @@ description: >
       <li>
         <span class="check">✓</span>
         <span>
-          Ứng viên trẻ có xu hướng tìm hiểu doanh nghiệp trước khi ứng tuyển.
+          Ứng viên trẻ có xu hướng tìm hiểu doanh nghiệp
+          trước khi quyết định ứng tuyển.
         </span>
       </li>
 
@@ -59,8 +94,8 @@ description: >
       <li>
         <span class="check">✓</span>
         <span>
-          Trải nghiệm của nhân viên hiện tại cũng có thể ảnh hưởng
-          đến cách ứng viên nhìn nhận doanh nghiệp.
+          Trải nghiệm của nhân viên cũng có thể ảnh hưởng
+          đến cách ứng viên bên ngoài nhìn nhận doanh nghiệp.
         </span>
       </li>
 
@@ -90,14 +125,14 @@ description: >
       Theo VnExpress, Gen Z đang khiến nhà tuyển dụng thay đổi
       cách tiếp cận nhân sự. Nhóm ứng viên trẻ không chỉ quan tâm
       đến công việc và mức lương mà còn chú ý đến văn hóa doanh nghiệp,
-      cơ hội phát triển, môi trường làm việc và trải nghiệm của nhân viên.
+      cơ hội phát triển, môi trường làm việc và trải nghiệm nhân viên.
     </p>
 
     <p>
-      Điều này có nghĩa là doanh nghiệp không chỉ được đánh giá
-      thông qua tin tuyển dụng. Những gì doanh nghiệp thể hiện
-      trước khi ứng viên tìm việc cũng có thể trở thành một phần
-      trong quyết định ứng tuyển.
+      Vì vậy, sức hấp dẫn của doanh nghiệp không chỉ được quyết định
+      bởi nội dung của một tin tuyển dụng. Những gì ứng viên nhìn thấy,
+      nghe được và tìm hiểu về doanh nghiệp trước đó cũng có thể
+      tác động đến quyết định ứng tuyển.
     </p>
 
   </div>
@@ -148,7 +183,7 @@ description: >
 
   <p>
     Khi tìm hiểu một nơi làm việc, Gen Z quan tâm đến nhiều khía cạnh
-    bên cạnh bản thân công việc.
+    bên cạnh bản thân công việc và mức lương.
   </p>
 
 </div>
@@ -237,12 +272,13 @@ description: >
   </div>
 
   <h2>
-    Doanh nghiệp đang đáp ứng kỳ vọng của Gen Z đến đâu?
+    Khoảng cách giữa kỳ vọng
+    và trải nghiệm thực tế
   </h2>
 
   <p>
-    Khoảng cách giữa điều ứng viên mong muốn và những gì doanh nghiệp
-    đang thực sự triển khai là một điểm đáng lưu ý trong tuyển dụng.
+    Những yếu tố Gen Z quan tâm cũng đặt ra yêu cầu mới
+    đối với cách doanh nghiệp xây dựng môi trường làm việc.
   </p>
 
 </div>
@@ -261,7 +297,8 @@ description: >
     </h3>
 
     <p>
-      Doanh nghiệp xây dựng văn hóa cởi mở và tôn trọng khác biệt.
+      Doanh nghiệp xây dựng văn hóa cởi mở
+      và tôn trọng khác biệt.
     </p>
 
   </div>
@@ -278,7 +315,8 @@ description: >
     </h3>
 
     <p>
-      Doanh nghiệp có lộ trình phát triển nghề nghiệp rõ ràng.
+      Doanh nghiệp có lộ trình phát triển
+      nghề nghiệp rõ ràng.
     </p>
 
   </div>
@@ -295,7 +333,8 @@ description: >
     </h3>
 
     <p>
-      Doanh nghiệp tạo dựng môi trường làm việc linh hoạt.
+      Doanh nghiệp tạo dựng môi trường
+      làm việc linh hoạt.
     </p>
 
   </div>
@@ -314,7 +353,7 @@ description: >
     <h2>
       Điều Gen Z mong muốn
       <span class="accent">
-        chưa phải lúc nào cũng được doanh nghiệp đáp ứng.
+        chưa phải lúc nào cũng được đáp ứng.
       </span>
     </h2>
 
@@ -322,7 +361,7 @@ description: >
       Bên cạnh việc hiểu ứng viên trẻ quan tâm điều gì,
       doanh nghiệp cũng cần nhìn vào mức độ sẵn sàng của chính mình.
       Khoảng cách giữa kỳ vọng của ứng viên và trải nghiệm thực tế
-      có thể ảnh hưởng đến sức hấp dẫn của thương hiệu tuyển dụng.
+      có thể ảnh hưởng đến sức hấp dẫn của doanh nghiệp.
     </p>
 
   </div>
@@ -371,7 +410,7 @@ description: >
   </div>
 
   <h2>
-    Đừng chỉ bắt đầu xây dựng hình ảnh
+    Đừng chỉ xây dựng hình ảnh
     doanh nghiệp khi cần tuyển người
   </h2>
 
@@ -393,13 +432,12 @@ description: >
     </div>
 
     <h3>
-      Xây dựng hình ảnh doanh nghiệp nhất quán
+      Văn hóa doanh nghiệp
     </h3>
 
     <p>
-      Những gì doanh nghiệp truyền tải về văn hóa,
-      môi trường và con người cần nhất quán trên các điểm chạm
-      mà ứng viên có thể tìm thấy.
+      Thể hiện rõ doanh nghiệp đang xây dựng môi trường làm việc
+      và văn hóa như thế nào thay vì chỉ nói về vị trí tuyển dụng.
     </p>
 
   </div>
@@ -412,12 +450,12 @@ description: >
     </div>
 
     <h3>
-      Truyền tải cơ hội phát triển rõ ràng
+      Cơ hội phát triển
     </h3>
 
     <p>
-      Đừng chỉ nói về vị trí tuyển dụng. Hãy cho ứng viên thấy
-      họ có thể học hỏi và phát triển như thế nào khi gia nhập.
+      Cho ứng viên thấy họ có thể học hỏi,
+      phát triển và xây dựng sự nghiệp như thế nào.
     </p>
 
   </div>
@@ -430,12 +468,12 @@ description: >
     </div>
 
     <h3>
-      Cho ứng viên thấy trải nghiệm thực tế
+      Trải nghiệm thực tế
     </h3>
 
     <p>
-      Những câu chuyện và trải nghiệm thực tế của nhân viên
-      có thể giúp ứng viên hình dung rõ hơn về môi trường làm việc.
+      Những câu chuyện và trải nghiệm của nhân viên
+      có thể giúp ứng viên hình dung rõ hơn về nơi làm việc.
     </p>
 
   </div>
@@ -452,7 +490,7 @@ description: >
     </h3>
 
     <p>
-      Thương hiệu tuyển dụng không nên chỉ được xây dựng
+      Employer branding không nên chỉ được xây dựng
       khi doanh nghiệp đang cần lấp đầy một vị trí.
     </p>
 
@@ -491,7 +529,7 @@ description: >
 
   <p>
     Bài viết trên VnExpress phân tích những thay đổi trong kỳ vọng
-    của Gen Z và cách các doanh nghiệp cần thích ứng trong tuyển dụng.
+    của Gen Z và cách doanh nghiệp cần thích ứng trong tuyển dụng.
   </p>
 
   <a
