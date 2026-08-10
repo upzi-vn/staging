@@ -1,5 +1,5 @@
 ---
-layout: frame1
+layout: index
 title: Tránh cuộc đua tăng lương bằng cách tuyển Fresher
 category: RECRUITMENT
 ---
