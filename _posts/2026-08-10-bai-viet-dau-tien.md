@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: frame2
 title: "Gen Z tìm hiểu doanh nghiệp từ lâu trước khi tìm việc"
 description: "Gen Z không chỉ bắt đầu tìm hiểu doanh nghiệp khi đã sẵn sàng ứng tuyển. Họ quan sát văn hóa, môi trường làm việc và trải nghiệm nhân viên từ rất sớm."
 category: "Insights"
