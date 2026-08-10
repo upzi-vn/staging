@@ -175,13 +175,19 @@ footer{background:var(--off);padding:48px 0 28px;border-top:1px solid #eae5f3;co
     </div>
 
     <div class="article-list">
-      <article class="article">
-        <div class="article-img"><span>RECRUITMENT</span></div>
-        <div class="article-body">
-          <div class="meta">03 PHÚT ĐỌC</div>
-          <h3>JD thế nào để thu hút đúng ứng viên trẻ?</h3>
-          <p>Những điểm cần kiểm tra trước khi đưa tin tuyển dụng lên nền tảng.</p>
-        </div>
+  {% for post in site.posts %}
+    <article class="article">
+      <div class="article-img">
+        <span>{{ post.category | default: "INSIGHTS" | upcase }}</span>
+      </div>
+      <div class="article-body">
+        <div class="meta">{{ post.date | date: "%d/%m/%Y" }}</div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+      </div>
+    </article>
+  {% endfor %}
+</div>
       </article>
 
       <article class="article">
