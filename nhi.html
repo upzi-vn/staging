@@ -1,5 +1,3 @@
----
----
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -88,6 +86,12 @@ footer{background:var(--off);padding:48px 0 28px;border-top:1px solid #eae5f3;co
 .f-col h4{font:700 11px var(--font-sub);text-transform:uppercase;letter-spacing:.06em;color:#a49db4;margin-bottom:10px}
 .f-bot{padding-top:20px;font-size:12px;color:#a49db4;display:flex;justify-content:space-between}
 
+
+/* ===== success stories ===== */
+.story-card .article-img{position:relative;height:300px;padding:26px;display:flex;align-items:flex-end;overflow:hidden}.story-card .article-img::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 75% 25%,rgba(255,255,255,.55),transparent 28%),linear-gradient(135deg,rgba(147,69,255,.16),transparent 52%);transform:rotate(-8deg)}.story-card .story-visual{position:relative;z-index:1;width:100%}.story-card .story-kicker{display:inline-block;background:rgba(255,255,255,.82);color:var(--purple-deep);padding:7px 12px;border-radius:999px;font:800 11px var(--font-sub);margin-bottom:12px}.story-card .story-number{font:700 64px/1 var(--font-display);color:var(--purple-deep);letter-spacing:-.05em}.story-card .story-number small{font:700 17px var(--font-sub);letter-spacing:0}.story-card .story-body{padding:28px}.story-card .story-body h3{font-size:25px;line-height:1.18;margin:9px 0 12px}.story-card .story-body p{color:var(--body);font-size:14.5px;line-height:1.65}.story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px}.story-stat{background:var(--off);border-radius:14px;padding:12px 11px}.story-stat strong{display:block;font:800 17px var(--font-display);color:var(--purple)}.story-stat span{display:block;margin-top:3px;font:600 10.5px/1.35 var(--font-sub);color:#81788e}.story-link{display:inline-block;margin-top:22px;font:800 13px var(--font-sub);color:var(--purple)}.story-card.retail .article-img{background:linear-gradient(135deg,#f1e7ff 0%,#e9f8f2 100%)}.story-card.construction .article-img{background:linear-gradient(135deg,#fff0df 0%,#f1e7ff 100%)}
+@media(max-width:850px){.story-card .article-img{height:260px}}
+@media(max-width:540px){.story-stats{grid-template-columns:1fr 1fr}}
+
 @media(max-width:850px){
   .nav-links{display:none}
   .hero-grid,.feature-grid,.topic-grid,.newsletter{grid-template-columns:1fr}
@@ -174,19 +178,13 @@ footer{background:var(--off);padding:48px 0 28px;border-top:1px solid #eae5f3;co
     </div>
 
     <div class="article-list">
-  {% for post in site.posts %}
-    <article class="article">
-      <div class="article-img">
-        <span>{{ post.category | default: "INSIGHTS" | upcase }}</span>
-      </div>
-      <div class="article-body">
-        <div class="meta">{{ post.date | date: "%d/%m/%Y" }}</div>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-      </div>
-    </article>
-  {% endfor %}
-</div>
+      <article class="article">
+        <div class="article-img"><span>RECRUITMENT</span></div>
+        <div class="article-body">
+          <div class="meta">03 PHÚT ĐỌC</div>
+          <h3>JD thế nào để thu hút đúng ứng viên trẻ?</h3>
+          <p>Những điểm cần kiểm tra trước khi đưa tin tuyển dụng lên nền tảng.</p>
+        </div>
       </article>
 
       <article class="article">
@@ -229,28 +227,28 @@ footer{background:var(--off);padding:48px 0 28px;border-top:1px solid #eae5f3;co
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">Success stories</div>
-      <h2>Doanh nghiệp đang tuyển dụng Gen Z như thế nào?</h2>
-      <p>Câu chuyện thực tế từ những doanh nghiệp đã thử những cách tiếp cận mới để xây dựng pipeline ứng viên trẻ.</p>
+      <h2>Những thay đổi nhỏ tạo ra khác biệt trong tuyển dụng</h2>
+      <p>Hai câu chuyện thực tế cho thấy doanh nghiệp có thể mở rộng nguồn ứng viên trẻ bằng cách thay đổi cách tiếp cận, nội dung và phân bổ tin tuyển dụng.</p>
     </div>
-
     <div class="feature-grid">
-      <article class="article large">
-        <div class="article-img"><span>CASE STUDY</span></div>
-        <div class="article-body">
-          <div class="meta">SUCCESS STORY</div>
-          <h3>Từ thiếu ứng viên Fresher đến xây dựng nguồn ứng viên ổn định</h3>
-          <p>Doanh nghiệp thay đổi cách tiếp cận ứng viên trẻ và xây dựng hiện diện sớm hơn trong hành trình tìm việc.</p>
-          <div class="meta">Xem case study →</div>
+      <article class="article story-card large retail">
+        <div class="article-img"><div class="story-visual"><div class="story-kicker">CHUỖI BÁN LẺ · PART-TIME</div><div class="story-number">1,9x <small>lượt xem</small></div></div></div>
+        <div class="story-body">
+          <div class="meta">SUCCESS STORY · GẦN 1 THÁNG TRIỂN KHAI</div>
+          <h3>Khi Facebook không còn đủ, doanh nghiệp mở rộng nguồn ứng viên bằng một cách tiếp cận khác</h3>
+          <p>Thay vì chỉ dùng một tin tuyển dụng cho toàn thành phố, doanh nghiệp cùng Upzi phân bổ tin theo khu vực và điều chỉnh JD theo góc nhìn ứng viên.</p>
+          <div class="story-stats"><div class="story-stat"><strong>1.290</strong><span>Lượt xem</span></div><div class="story-stat"><strong>34</strong><span>Hồ sơ ứng tuyển</span></div><div class="story-stat"><strong>150+</strong><span>Cửa hàng</span></div></div>
+          <div class="story-link">Xem success story →</div>
         </div>
       </article>
-
-      <article class="article">
-        <div class="article-img"><span>CASE STUDY</span></div>
-        <div class="article-body">
-          <div class="meta">SUCCESS STORY</div>
-          <h3>Tối ưu JD để tiếp cận đúng nhóm ứng viên</h3>
-          <p>Một ví dụ thực tế về cách thay đổi thông điệp tuyển dụng có thể cải thiện hiệu quả tin đăng.</p>
-          <div class="meta">Xem case study →</div>
+      <article class="article story-card construction">
+        <div class="article-img"><div class="story-visual"><div class="story-kicker">XÂY DỰNG · FRESHER</div><div class="story-number">19 <small>hồ sơ</small></div></div></div>
+        <div class="story-body">
+          <div class="meta">SUCCESS STORY · THÁNG ĐẦU TRIỂN KHAI</div>
+          <h3>Khi cuộc đua lương ngày càng khốc liệt, doanh nghiệp bắt đầu xây dựng đội ngũ từ Fresher</h3>
+          <p>Doanh nghiệp mở thêm các vị trí Fresher và làm rõ đào tạo, mentor cùng lộ trình phát triển thay vì tiếp tục cạnh tranh trong nhóm ứng viên giàu kinh nghiệm.</p>
+          <div class="story-stats"><div class="story-stat"><strong>5</strong><span>Vị trí Fresher</span></div><div class="story-stat"><strong>790</strong><span>Lượt xem</span></div><div class="story-stat"><strong>19</strong><span>Hồ sơ ứng tuyển</span></div></div>
+          <div class="story-link">Xem success story →</div>
         </div>
       </article>
     </div>
