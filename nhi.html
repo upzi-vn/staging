@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upzi — Blog tuyển dụng & Employer Branding</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --purple: #9345FF;
+      --purple-dark: #551caf;
+      --purple-deep: #2E0F5C;
+      --purple-deeper: #1d0940;
+      --purple-tint: #F4EDFF;
+      --yellow: #E0E722;
+      --mint: #5FE0BB;
+      --coral: #FF968C;
+      --ink: #111111;
+      --body: #4b5563;
+      --white: #ffffff;
+      --off: #F7F5FB;
+
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-sub: 'Manrope', sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* =========================
+       NAV
+    ========================= */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #efecf5;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--purple-dark);
+      letter-spacing: -.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-family: var(--font-sub);
+      font-size: 13px;
+      font-weight: 700;
+      color: #5d5966;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background: var(--purple);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-family: var(--font-sub);
+      font-size: 13px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--purple-dark);
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          135deg,
+          var(--purple) 0%,
+          #7B32E0 52%,
+          var(--purple-dark) 100%
+        );
+      color: white;
+      padding: 95px 0 105px;
+    }
+
+    .hero-decoration {
+      position: absolute;
+      pointer-events: none;
+      opacity: .18;
+    }
+
+    .hero-decoration.one {
+      width: 520px;
+      height: 520px;
+      right: -180px;
+      top: -160px;
+      border: 85px solid white;
+      border-radius: 50%;
+    }
+
+    .hero-decoration.two {
+      width: 340px;
+      height: 340px;
+      left: -170px;
+      bottom: -190px;
+      border: 65px solid var(--yellow);
+      border-radius: 50%;
+      opacity: .1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--purple-deep);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: var(--font-sub);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: rgba(255,255,255,.78);
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .hero-tags span {
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,.85);
+    }
+
+    /* =========================
+       CATEGORY NAV
+    ========================= */
+
+    .category-bar {
+      border-bottom: 1px solid #ebe7f2;
+      background: white;
+    }
+
+    .categories {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      overflow-x: auto;
+      min-height: 70px;
+      white-space: nowrap;
+    }
+
+    .category {
+      border: none;
+      background: none;
+      color: #77727f;
+      font-family: var(--font-sub);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 25px 0;
+      position: relative;
+    }
+
+    .category.active {
+      color: var(--purple);
+    }
+
+    .category.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      background: var(--purple);
+    }
+
+    /* =========================
+       FEATURED
+    ========================= */
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .section.off {
+      background: var(--off);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+
+    .section-head-left {
+      max-width: 690px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--purple);
+      background: var(--purple-tint);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-family: var(--font-sub);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(31px, 4vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+    }
+
+    .section-intro {
+      margin-top: 14px;
+      color: var(--body);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .view-all {
+      color: var(--purple);
+      font-family: var(--font-sub);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .view-all:hover {
+      text-decoration: underline;
+    }
+
+    .featured {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 22px;
+    }
+
+    .featured-main {
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      background: var(--purple-deep);
+    }
+
+    .featured-main img {
+      height: 100%;
+      object-fit: cover;
+      opacity: .8;
+      transition: transform .5s ease;
+    }
+
+    .featured-main:hover img {
+      transform: scale(1.04);
+    }
+
+    .featured-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 38px;
+      background: linear-gradient(
+        transparent 25%,
+        rgba(29,9,64,.92) 100%
+      );
+      color: white;
+    }
+
+    .article-tag {
+      align-self: flex-start;
+      display: inline-flex;
+      background: var(--yellow);
+      color: var(--purple-deep);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-family: var(--font-sub);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 15px;
+    }
+
+    .featured-overlay h3 {
+      max-width: 650px;
+      font-family: var(--font-display);
+      font-size: clamp(27px, 3.5vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+      margin-bottom: 14px;
+    }
+
+    .featured-overlay p {
+      max-width: 600px;
+      color: rgba(255,255,255,.76);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      color: #918b9d;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .featured-overlay .article-meta {
+      color: rgba(255,255,255,.6);
+    }
+
+    .featured-side {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .mini-feature {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      min-height: 238px;
+      background: var(--purple-tint);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: transform .25s ease;
+    }
+
+    .mini-feature:hover {
+      transform: translateY(-4px);
+    }
+
+    .mini-feature img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mini-content {
+      padding: 25px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mini-content .article-tag {
+      background: white;
+      color: var(--purple);
+      margin-bottom: 11px;
+    }
+
+    .mini-content h3 {
+      font-family: var(--font-display);
+      font-size: 21px;
+      line-height: 1.15;
+      letter-spacing: -.015em;
+      margin-bottom: 13px;
+    }
+
+    .mini-content p {
+      color: var(--body);
+      font-size: 12.5px;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    /* =========================
+       ARTICLE GRID
+    ========================= */
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid #ebe7f1;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 45px rgba(46,15,92,.1);
+    }
+
+    .article-image {
+      height: 220px;
+      overflow: hidden;
+      background: var(--purple-tint);
+    }
+
+    .article-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .article-card:hover .article-image img {
+      transform: scale(1.05);
+    }
+
+    .article-content {
+      padding: 25px 25px 27px;
+    }
+
+    .article-content .article-tag {
+      background: var(--purple-tint);
+      color: var(--purple);
+      margin-bottom: 14px;
+    }
+
+    .article-content h3 {
+      font-family: var(--font-display);
+      font-size: 23px;
+      line-height: 1.16;
+      letter-spacing: -.018em;
+      margin-bottom: 12px;
+    }
+
+    .article-content p {
+      color: var(--body);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 19px;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--purple);
+      font-family: var(--font-sub);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .read-more span {
+      transition: transform .2s ease;
+    }
+
+    .article-card:hover .read-more span {
+      transform: translateX(4px);
+    }
+
+    /* =========================
+       INSIGHT BAND
+    ========================= */
+
+    .insight-band {
+      position: relative;
+      overflow: hidden;
+      background: var(--purple-deep);
+      color: white;
+      padding: 85px 0;
+    }
+
+    .insight-band::after {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      right: -180px;
+      top: -220px;
+      border: 70px solid var(--purple);
+      border-radius: 50%;
+      opacity: .35;
+    }
+
+    .insight-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .insight-inner h2 {
+      max-width: 690px;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 45px);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+      margin-bottom: 15px;
+    }
+
+    .insight-inner h2 span {
+      color: var(--yellow);
+    }
+
+    .insight-inner p {
+      max-width: 650px;
+      color: rgba(255,255,255,.68);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .insight-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--yellow);
+      color: var(--purple-deep);
+      border-radius: 999px;
+      padding: 15px 25px;
+      font-family: var(--font-sub);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: transform .2s ease;
+    }
+
+    .insight-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .newsletter {
+      padding: 100px 0;
+      background: var(--purple-tint);
+    }
+
+    .newsletter-card {
+      background: white;
+      border-radius: 34px;
+      padding: 55px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .newsletter-card h2 {
+      font-family: var(--font-display);
+      font-size: 38px;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      margin-bottom: 13px;
+    }
+
+    .newsletter-card p {
+      color: var(--body);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      min-width: 0;
+      flex: 1;
+      border: 2px solid #ece8f4;
+      background: var(--off);
+      border-radius: 999px;
+      padding: 14px 18px;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 13px;
+    }
+
+    .newsletter-form input:focus {
+      border-color: var(--purple);
+    }
+
+    .newsletter-form button {
+      border: none;
+      background: var(--purple);
+      color: white;
+      border-radius: 999px;
+      padding: 0 24px;
+      font-family: var(--font-sub);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .newsletter-form button:hover {
+      background: var(--purple-dark);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--off);
+      border-top: 1px solid #e8e3ef;
+      padding: 48px 0 28px;
+      color: #7a7488;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e4deec;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 21px;
+      color: var(--purple-dark);
+      margin-bottom: 10px;
+    }
+
+    .footer-col {
+      max-width: 300px;
+    }
+
+    .footer-col p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      font-family: var(--font-sub);
+      color: #a49db4;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      font-size: 11.5px;
+      color: #a49db4;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .featured {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-main {
+        min-height: 450px;
+      }
+
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .insight-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .newsletter-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .wrap {
+        padding: 0 20px;
+      }
+
+      .hero {
+        padding: 70px 0 75px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .view-all {
+        display: inline-block;
+        margin-top: 18px;
+      }
+
+      .featured-main {
+        min-height: 470px;
+      }
+
+      .featured-overlay {
+        padding: 27px;
+      }
+
+      .featured-overlay h3 {
+        font-size: 29px;
+      }
+
+      .mini-feature {
+        grid-template-columns: 120px 1fr;
+      }
+
+      .mini-content {
+        padding: 20px 17px;
+      }
+
+      .mini-content h3 {
+        font-size: 18px;
+      }
+
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-image {
+        height: 230px;
+      }
+
+      .newsletter {
+        padding: 65px 0;
+      }
+
+      .newsletter-card {
+        padding: 32px 25px;
+        border-radius: 27px;
+      }
+
+      .newsletter-card h2 {
+        font-size: 31px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form button {
+        height: 46px;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAV
+  ========================= -->
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+
+      <a href="#" class="logo">upzi</a>
+
+      <div class="nav-links">
+        <a href="#featured">Nổi bật</a>
+        <a href="#recruitment">Tuyển dụng</a>
+        <a href="#employer-branding">Employer Branding</a>
+        <a href="#genz">Gen Z</a>
+        <a href="#success">Success Stories</a>
+      </div>
+
+      <a href="#" class="nav-cta">
+        Đăng tin miễn phí
+      </a>
+
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header class="hero">
+
+    <div class="hero-decoration one"></div>
+    <div class="hero-decoration two"></div>
+
+    <div class="wrap">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Upzi Insights
+        </div>
+
+        <h1>
+          Tuyển dụng Gen Z
+          <span>không chỉ bắt đầu</span>
+          từ một JD.
+        </h1>
+
+        <p class="hero-description">
+          Những góc nhìn, xu hướng và câu chuyện thực tế giúp doanh nghiệp
+          hiểu ứng viên trẻ hơn, xây Employer Branding tốt hơn và tạo
+          pipeline tuyển dụng dài hạn.
+        </p>
+
+        <div class="hero-tags">
+          <span>Tuyển dụng Gen Z</span>
+          <span>Employer Branding</span>
+          <span>Recruitment Tips</span>
+          <span>Success Stories</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       CATEGORY
+  ========================= -->
+
+  <div class="category-bar">
+
+    <div class="wrap">
+
+      <div class="categories">
+
+        <button class="category active">
+          Tất cả
+        </button>
+
+        <button class="category">
+          Tuyển dụng
+        </button>
+
+        <button class="category">
+          Employer Branding
+        </button>
+
+        <button class="category">
+          Gen Z
+        </button>
+
+        <button class="category">
+          Recruitment Tips
+        </button>
+
+        <button class="category">
+          Success Stories
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       FEATURED
+  ========================= -->
+
+  <section class="section" id="featured">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-head-left">
+
+          <div class="section-label">
+            Featured
+          </div>
+
+          <h2>
+            Những góc nhìn đáng đọc
+          </h2>
+
+          <p class="section-intro">
+            Những bài viết nổi bật dành cho doanh nghiệp đang tìm cách
+            tiếp cận và tuyển dụng thế hệ nhân sự trẻ.
+          </p>
+
+        </div>
+
+        <a href="#" class="view-all">
+          Xem tất cả bài viết →
+        </a>
+
+      </div>
+
+
+      <div class="featured">
+
+        <!-- MAIN FEATURE -->
+
+        <a href="#" class="featured-main">
+
+          <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85"
+            alt="Đội ngũ làm việc">
+
+          <div class="featured-overlay">
+
+            <span class="article-tag">
+              Employer Branding
+            </span>
+
+            <h3>
+              Gen Z tìm hiểu doanh nghiệp từ rất lâu trước khi họ tìm việc
+            </h3>
+
+            <p>
+              Vì sao doanh nghiệp không nên chỉ xuất hiện khi ứng viên bắt đầu
+              tìm JD — và cách xây dựng hiện diện sớm hơn trong hành trình
+              tìm việc của Gen Z.
+            </p>
+
+            <div class="article-meta">
+              <span>8 phút đọc</span>
+              <span>•</span>
+              <span>Upzi Insights</span>
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- SIDE FEATURES -->
+
+        <div class="featured-side">
+
+          <a href="#" class="mini-feature">
+
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=85"
+              alt="Sinh viên">
+
+            <div class="mini-content">
+
+              <span class="article-tag">
+                Gen Z
+              </span>
+
+              <h3>
+                5 điều Gen Z quan tâm trước khi apply
+              </h3>
+
+              <p>
+                Những yếu tố khiến ứng viên trẻ quyết định
+                doanh nghiệp có đáng để tìm hiểu hay không.
+              </p>
+
+              <div class="article-meta">
+                6 phút đọc
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <a href="#" class="mini-feature">
+
+            <img
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=700&q=85"
+              alt="Team meeting">
+
+            <div class="mini-content">
+
+              <span class="article-tag">
+                Tuyển dụng
+              </span>
+
+              <h3>
+                JD tốt chưa chắc đã đủ để tuyển được người
+              </h3>
+
+              <p>
+                Khi ứng viên đã có nhiều lựa chọn,
+                doanh nghiệp cần làm gì khác ngoài việc tối ưu JD?
+              </p>
+
+              <div class="article-meta">
+                5 phút đọc
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ARTICLE GRID
+  ========================= -->
+
+  <section class="section off" id="recruitment">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-head-left">
+
+          <div class="section-label">
+            Recruitment
+          </div>
+
+          <h2>
+            Tuyển dụng hiệu quả hơn
+          </h2>
+
+          <p class="section-intro">
+            Tips và góc nhìn thực tế để doanh nghiệp cải thiện cách
+            thu hút, tiếp cận và tuyển chọn ứng viên trẻ.
+          </p>
+
+        </div>
+
+        <a href="#" class="view-all">
+          Xem thêm →
+        </a>
+
+      </div>
+
+
+      <div class="article-grid">
+
+        <article class="article-card">
+
+          <a href="#">
+
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85"
+                alt="Tuyển dụng">
+            </div>
+
+            <div class="article-content">
+
+              <span class="article-tag">
+                Tuyển dụng
+              </span>
+
+              <h3>
+                Làm thế nào để tin tuyển dụng thu hút đúng ứng viên?
+              </h3>
+
+              <p>
+                Từ headline, nội dung công việc đến quyền lợi —
+                đâu là những yếu tố ứng viên thực sự quan tâm?
+              </p>
+
+              <div class="article-meta">
+                5 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+
+            </div>
+
+          </a>
+
+        </article>
+
+
+        <article class="article-card">
+
+          <a href="#">
+
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=85"
+                alt="Đội ngũ doanh nghiệp">
+            </div>
+
+            <div class="article-content">
+
+              <span class="article-tag">
+                Recruitment Tips
+              </span>
+
+              <h3>
+                7 lỗi doanh nghiệp thường gặp khi tuyển Fresher
+              </h3>
+
+              <p>
+                Những điểm tưởng nhỏ nhưng có thể khiến ứng viên
+                trẻ rời khỏi quy trình tuyển dụng.
+              </p>
+
+              <div class="article-meta">
+                7 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+
+            </div>
+
+          </a>
+
+        </article>
+
+
+        <article class="article-card">
+
+          <a href="#">
+
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=85"
+                alt="Làm việc nhóm">
+            </div>
+
+            <div class="article-content">
+
+              <span class="article-tag">
+                Gen Z
+              </span>
+
+              <h3>
+                Gen Z muốn gì ở công việc đầu tiên?
+              </h3>
+
+              <p>
+                Một góc nhìn về kỳ vọng của sinh viên và ứng viên
+                dưới 2 năm kinh nghiệm khi bước vào thị trường lao động.
+              </p>
+
+              <div class="article-meta">
+                6 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+
+            </div>
+
+          </a>
+
+        </article>
+
+
+        <article class="article-card">
+
+          <a href="#">
+
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=85"
+                alt="Doanh nghiệp">
+            </div>
+
+            <div class="article-content">
+
+              <span class="article-tag">
+                Employer Branding
+              </span>
+
+              <h3>
+                Employer Branding nên bắt đầu từ đâu?
+              </h3>
+
+              <p>
+                Không cần bắt đầu bằng một chiến dịch lớn.
+                Doanh nghiệp có thể xây hiện diện từ những điểm chạm nhỏ.
+              </p>
+
+              <div class="article-meta">
+                8 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+
+            </div>
+
+          </a>
+
+        </article>
+
+
+        <article class="article-card">
+
+          <a href="#">
+
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=900&q=85"
+                alt="Nhân sự">
+            </div>
+
+            <div class="article-content">
+
+              <span class="article-tag">
+                Tuyển dụng
+              </span>
+
+              <h3>
+                Vì sao pipeline ứng viên trẻ cần được xây quanh năm?
+              </h3>
+
+              <p>
+                Đừng chỉ bắt đầu tuyển khi vị trí đã trống.
+                Một pipeline tốt giúp doanh nghiệp chủ động hơn.
+              </p>
+
+              <div class="article-meta">
+                5 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+
+            </div>
+
+          </a>
+
+        </article>
+
+
+        <article class="article-card">
+
+          <a href="#">
+
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=85"
+                alt="Success story">
+            </div>
+
+            <div class="article-content">
+
+              <span class="article-tag">
+                Success Stories
+              </span>
+
+              <h3>
+                Doanh nghiệp đã thay đổi cách tuyển Fresher như thế nào?
+              </h3>
+
+              <p>
+                Câu chuyện thực tế từ doanh nghiệp đang xây dựng
+                nguồn ứng viên trẻ ổn định hơn.
+              </p>
+
+              <div class="article-meta">
+                4 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc câu chuyện <span>→</span>
+              </div>
+
+            </div>
+
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       EMPLOYER BRANDING
+  ========================= -->
+
+  <section class="section" id="employer-branding">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-head-left">
+
+          <div class="section-label">
+            Employer Branding
+          </div>
+
+          <h2>
+            Để ứng viên biết đến bạn trước khi họ cần một công việc
+          </h2>
+
+          <p class="section-intro">
+            Employer Branding không chỉ là hình ảnh đẹp.
+            Đó là cách doanh nghiệp xây dựng niềm tin trước thời điểm tuyển dụng.
+          </p>
+
+        </div>
+
+        <a href="#" class="view-all">
+          Xem thêm →
+        </a>
+
+      </div>
+
+
+      <div class="article-grid">
+
+        <article class="article-card">
+          <a href="#">
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85"
+                alt="Employer branding">
+            </div>
+
+            <div class="article-content">
+              <span class="article-tag">
+                Employer Branding
+              </span>
+
+              <h3>
+                Employer Branding có thực sự ảnh hưởng đến quyết định apply?
+              </h3>
+
+              <p>
+                Khi ứng viên tìm hiểu doanh nghiệp trước cả khi có ý định ứng tuyển.
+              </p>
+
+              <div class="article-meta">
+                7 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+
+        <article class="article-card">
+          <a href="#">
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=85"
+                alt="Company culture">
+            </div>
+
+            <div class="article-content">
+              <span class="article-tag">
+                Gen Z
+              </span>
+
+              <h3>
+                Văn hóa doanh nghiệp nào thực sự hấp dẫn Gen Z?
+              </h3>
+
+              <p>
+                Những gì doanh nghiệp nói và những gì ứng viên nhìn thấy
+                cần cùng kể một câu chuyện.
+              </p>
+
+              <div class="article-meta">
+                6 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+
+        <article class="article-card">
+          <a href="#">
+            <div class="article-image">
+              <img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=85"
+                alt="Team">
+            </div>
+
+            <div class="article-content">
+              <span class="article-tag">
+                Recruitment Tips
+              </span>
+
+              <h3>
+                5 điểm chạm giúp doanh nghiệp hiện diện sớm hơn
+              </h3>
+
+              <p>
+                Từ trường đại học, social media đến cộng đồng ứng viên trẻ.
+              </p>
+
+              <div class="article-meta">
+                5 phút đọc · Upzi
+              </div>
+
+              <div class="read-more">
+                Đọc bài viết <span>→</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       INSIGHT CTA
+  ========================= -->
+
+  <section class="insight-band" id="genz">
+
+    <div class="wrap">
+
+      <div class="insight-inner">
+
+        <div>
+
+          <h2>
+            Muốn tuyển Gen Z hiệu quả hơn?
+            <span>Bắt đầu từ cách họ tìm việc.</span>
+          </h2>
+
+          <p>
+            Khám phá thêm các góc nhìn về hành vi ứng viên trẻ,
+            Employer Branding và cách xây dựng pipeline tuyển dụng dài hạn.
+          </p>
+
+        </div>
+
+        <a href="#" class="insight-button">
+          Khám phá Upzi
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SUCCESS STORIES
+  ========================= -->
+
+  <section class="section off" id="success">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-head-left">
+
+          <div class="section-label">
+            Success Stories
+          </div>
+
+          <h2>
+            Doanh nghiệp đang tuyển dụng thế nào?
+          </h2>
+
+          <p class="section-intro">
+            Những câu chuyện thực tế về cách doanh nghiệp tiếp cận
+            ứng viên trẻ và cải thiện hiệu quả tuyển dụng.
+          </p>
+
+        </div>
+
+        <a href="#" class="view-all">
+          Xem tất cả →
+        </a>
+
+      </div>
+
+
+      <div class="featured">
+
+        <a href="#" class="featured-main">
+
+          <img
+            src="https://images.unsplash.com/photo-1524751634774-8f4f9f4f2d8c?auto=format&fit=crop&w=1400&q=85"
+            alt="Doanh nghiệp tuyển dụng">
+
+          <div class="featured-overlay">
+
+            <span class="article-tag">
+              Success Story
+            </span>
+
+            <h3>
+              Tuyển Fresher thay vì chạy đua mức lương cho ứng viên có kinh nghiệm
+            </h3>
+
+            <p>
+              Một câu chuyện thực tế về cách doanh nghiệp thay đổi
+              chiến lược tuyển dụng để tiếp cận nguồn nhân sự trẻ.
+            </p>
+
+            <div class="article-meta">
+              <span>Case Study</span>
+              <span>•</span>
+              <span>Upzi</span>
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <div class="featured-side">
+
+          <a href="#" class="mini-feature">
+
+            <img
+              src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=700&q=85"
+              alt="Recruitment team">
+
+            <div class="mini-content">
+
+              <span class="article-tag">
+                Case Study
+              </span>
+
+              <h3>
+                Xây pipeline ứng viên trẻ thay vì tuyển theo mùa
+              </h3>
+
+              <p>
+                Cách doanh nghiệp chủ động tạo nguồn ứng viên quanh năm.
+              </p>
+
+              <div class="article-meta">
+                Success Story
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <a href="#" class="mini-feature">
+
+            <img
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=700&q=85"
+              alt="Business meeting">
+
+            <div class="mini-content">
+
+              <span class="article-tag">
+                Case Study
+              </span>
+
+              <h3>
+                Khi Employer Branding trở thành một phần của tuyển dụng
+              </h3>
+
+              <p>
+                Không chỉ tuyển người, doanh nghiệp còn cần được ứng viên nhớ đến.
+              </p>
+
+              <div class="article-meta">
+                Success Story
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       NEWSLETTER
+  ========================= -->
+
+  <section class="newsletter">
+
+    <div class="wrap">
+
+      <div class="newsletter-card">
+
+        <div>
+
+          <div class="section-label">
+            Upzi Insights
+          </div>
+
+          <h2>
+            Nhận những góc nhìn tuyển dụng mới nhất
+          </h2>
+
+          <p>
+            Cập nhật xu hướng tuyển dụng Gen Z, Employer Branding
+            và các câu chuyện thực tế từ doanh nghiệp.
+          </p>
+
+        </div>
+
+        <form
+          class="newsletter-form"
+          onsubmit="event.preventDefault(); alert('Cảm ơn Anh/Chị đã đăng ký!');"
+        >
+
+          <input
+            type="email"
+            placeholder="Email công việc của Anh/Chị"
+            required
+          >
+
+          <button type="submit">
+            Đăng ký
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="wrap">
+
+      <div class="footer-top">
+
+        <div class="footer-col">
+
+          <div class="footer-logo">
+            upzi
+          </div>
+
+          <p>
+            Một sản phẩm của Công Ty Cổ Phần Navigos Group Việt Nam.
+          </p>
+
+          <p style="margin-top:10px;">
+            Tầng 20, tòa nhà E.Town Central,
+            11 Đoàn Văn Bơ, Phường Xóm Chiếu, TP.HCM.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <div class="footer-title">
+            Liên hệ
+          </div>
+
+          <p>
+            Hotline: 028 7305 8500
+          </p>
+
+          <p>
+            Zalo: 070 3377 017
+          </p>
+
+          <p>
+            Email: upzi-support@navigosgroup.com
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <div class="footer-title">
+            Kết nối
+          </div>
+
+          <p>
+            Facebook: Upzi Fanpage
+          </p>
+
+          <p>
+            www.upzi.vn
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © Navigos Group Vietnam Joint Stock Company
+        </span>
+
+        <span>
+          Upzi Insights
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SIMPLE CATEGORY FILTER
+  ========================= -->
+
+  <script>
+
+    const categories = document.querySelectorAll('.category');
+
+    categories.forEach(category => {
+
+      category.addEventListener('click', () => {
+
+        categories.forEach(item => {
+          item.classList.remove('active');
+        });
+
+        category.classList.add('active');
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
