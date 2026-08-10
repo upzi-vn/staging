@@ -1,163 +1,87 @@
 ---
-layout: index
-title: Tránh cuộc đua tăng lương bằng cách tuyển Fresher
-category: RECRUITMENT
+layout: frame1
+
+title: "Tránh cuộc đua tăng lương bằng cách tuyển Fresher"
+
+category: "Success Story"
+
+description: >
+  Một công ty xây dựng Nhật Bản tại Việt Nam chuyển hướng
+  từ tuyển ứng viên giàu kinh nghiệm sang tiếp cận Fresher
+  để giải quyết bài toán thiếu hụt nhân sự và chi phí tuyển dụng tăng cao.
+
+industry: "Xây dựng"
+target: "Fresher"
+market: "Việt Nam"
+period: "Tháng đầu tiên"
+
+date: 2026-08-10
 ---
 
-<section class="hero">
+<section class="story-section white">
 
-  <div class="wrap hero-inner">
+  <div class="wrap">
 
-    <div class="eyebrow">
-      Success Story · Construction
-    </div>
+    <div class="section-grid">
 
-    <h1>
-      Tránh cuộc đua <span>tăng lương</span>
-      bằng cách tuyển Fresher
-    </h1>
+      <div>
 
-    <p class="hero-lead">
-      Một công ty xây dựng Nhật Bản tại Việt Nam chuyển hướng
-      từ tuyển ứng viên giàu kinh nghiệm sang tiếp cận Fresher
-      để giải quyết bài toán thiếu hụt nhân sự và chi phí tuyển dụng tăng cao.
-    </p>
-
-    <div class="meta">
-      <span>Ngành: Xây dựng</span>
-      <span>Đối tượng: Fresher</span>
-      <span>Thị trường: Việt Nam</span>
-      <span>Thời gian: Tháng đầu tiên</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     BỐI CẢNH + THÁCH THỨC
-========================= -->
-
-<section class="section">
-
-  <div class="wrap grid-2">
-
-    <div>
-
-      <div class="eyebrow-light">
-        Bối cảnh
-      </div>
-
-      <h2>
-        Khi tuyển người có kinh nghiệm
-        trở thành cuộc đua về lương
-      </h2>
-
-      <p>
-        Thị trường xây dựng Việt Nam đang thiếu hụt nhân sự
-        có kinh nghiệm trong bối cảnh đầu tư hạ tầng gia tăng.
-        Các doanh nghiệp lớn trong nước đưa ra mức lương hấp dẫn,
-        khiến việc thu hút ứng viên giàu kinh nghiệm ngày càng
-        khó khăn và tốn kém.
-      </p>
-
-    </div>
-
-
-    <div class="challenge-card">
-
-      <h3>
-        Thách thức
-      </h3>
-
-      <ul>
-
-        <li>
-          <span class="check">✓</span>
-          <span>
-            Chi phí tuyển dụng ứng viên có kinh nghiệm ngày càng cao.
-          </span>
-        </li>
-
-        <li>
-          <span class="check">✓</span>
-          <span>
-            Khó cạnh tranh với mức lương từ các tập đoàn lớn trong nước.
-          </span>
-        </li>
-
-        <li>
-          <span class="check">✓</span>
-          <span>
-            Nguồn ứng viên có kinh nghiệm trong ngành đang thiếu hụt.
-          </span>
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     BÀI TOÁN
-========================= -->
-
-<section class="highlight">
-
-  <div class="wrap highlight-grid">
-
-    <div>
-
-      <div class="eyebrow" style="margin-bottom:22px">
-        Bài toán
-      </div>
-
-      <h2>
-        Thay vì cạnh tranh để giành người đã có kinh nghiệm,
-        <span class="accent">
-          hãy xây dựng nguồn nhân lực từ sớm.
-        </span>
-      </h2>
-
-      <p>
-        Doanh nghiệp lựa chọn mở rộng nhóm ứng viên mục tiêu
-        sang Fresher, thiết kế tin tuyển dụng phù hợp với nhóm
-        ứng viên trẻ và phối hợp cùng Upzi để tiếp cận nguồn
-        ứng viên này.
-      </p>
-
-    </div>
-
-
-    <div class="stat-box">
-
-      <div class="stat">
-
-        <div class="num">
-          5
+        <div class="eyebrow-light">
+          Bối cảnh
         </div>
 
+        <h2>
+          Khi tuyển người có kinh nghiệm
+          trở thành cuộc đua về lương
+        </h2>
+
         <p>
-          Vị trí tuyển dụng được triển khai
+          Thị trường xây dựng Việt Nam đang thiếu hụt nhân sự
+          có kinh nghiệm trong bối cảnh đầu tư hạ tầng gia tăng.
+          Các doanh nghiệp lớn trong nước đưa ra mức lương hấp dẫn,
+          khiến việc thu hút ứng viên giàu kinh nghiệm ngày càng
+          khó khăn và tốn kém.
         </p>
 
       </div>
 
 
-      <div class="stat">
+      <div class="challenge-card">
 
-        <div class="num">
-          01
-        </div>
+        <h3>
+          Thách thức
+        </h3>
 
-        <p>
-          Tháng đầu tiên triển khai
-        </p>
+        <ul>
+
+          <li>
+            <span class="check">✓</span>
+
+            <span>
+              Chi phí tuyển dụng ứng viên có kinh nghiệm
+              ngày càng cao.
+            </span>
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+
+            <span>
+              Khó cạnh tranh với mức lương từ các tập đoàn
+              lớn trong nước.
+            </span>
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+
+            <span>
+              Nguồn ứng viên có kinh nghiệm trong ngành
+              đang thiếu hụt.
+            </span>
+          </li>
+
+        </ul>
 
       </div>
 
@@ -168,11 +92,74 @@ category: RECRUITMENT
 </section>
 
 
-<!-- =========================
-     GIẢI PHÁP
-========================= -->
 
-<section class="section off">
+<section class="story-section off">
+
+  <div class="wrap">
+
+    <div class="section-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          Bài toán
+        </div>
+
+        <h2>
+          Thay vì cạnh tranh để giành người đã có kinh nghiệm,
+          <span class="accent">
+            hãy xây dựng nguồn nhân lực từ sớm.
+          </span>
+        </h2>
+
+        <p>
+          Doanh nghiệp lựa chọn mở rộng nhóm ứng viên mục tiêu
+          sang Fresher, thiết kế tin tuyển dụng phù hợp với nhóm
+          ứng viên trẻ và phối hợp cùng Upzi để tiếp cận nguồn
+          ứng viên này.
+        </p>
+
+      </div>
+
+
+      <div class="stat-box">
+
+        <div class="stat">
+
+          <div class="num">
+            5
+          </div>
+
+          <p>
+            Vị trí tuyển dụng được triển khai
+          </p>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="num">
+            01
+          </div>
+
+          <p>
+            Tháng đầu tiên triển khai
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section class="story-section white">
 
   <div class="wrap">
 
@@ -276,11 +263,8 @@ category: RECRUITMENT
 </section>
 
 
-<!-- =========================
-     CÁC CON SỐ QUAN TRỌNG
-========================= -->
 
-<section class="section">
+<section class="results-section">
 
   <div class="wrap">
 
@@ -364,11 +348,8 @@ category: RECRUITMENT
 </section>
 
 
-<!-- =========================
-     NỘI DUNG CHI TIẾT
-========================= -->
 
-<section class="section off">
+<section class="story-section off">
 
   <div class="wrap">
 
@@ -472,57 +453,28 @@ category: RECRUITMENT
 </section>
 
 
-<!-- =========================
-     TAKEAWAY
-========================= -->
 
-<section class="section">
-
-  <div class="wrap takeaway">
-
-    <div class="eyebrow-light">
-      Điểm đáng chú ý
-    </div>
-
-    <div class="quote">
-      “Không nhất thiết phải trả mức lương cao hơn để tuyển được người.
-      Doanh nghiệp có thể thay đổi nhóm ứng viên mục tiêu
-      và xây dựng nguồn nhân lực từ sớm.”
-    </div>
-
-    <div class="source">
-      Success Story · Upzi
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta">
+<section class="quote-section">
 
   <div class="wrap">
 
-    <h2>
-      Đang gặp bài toán tuyển Fresher
-      hoặc nhân sự trẻ?
-    </h2>
+    <div class="quote-wrap">
 
-    <p>
-      Khám phá cách Upzi có thể giúp doanh nghiệp
-      tiếp cận nguồn ứng viên trẻ phù hợp hơn.
-    </p>
+      <div class="eyebrow-light">
+        Điểm đáng chú ý
+      </div>
 
-    <a
-      class="btn"
-      href="{{ '/' | relative_url }}#leadform"
-    >
-      Trao đổi với Upzi
-    </a>
+      <div class="quote">
+        “Không nhất thiết phải trả mức lương cao hơn để tuyển được người.
+        Doanh nghiệp có thể thay đổi nhóm ứng viên mục tiêu
+        và xây dựng nguồn nhân lực từ sớm.”
+      </div>
+
+      <div class="source">
+        Success Story · Upzi
+      </div>
+
+    </div>
 
   </div>
 
