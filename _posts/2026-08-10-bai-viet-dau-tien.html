@@ -48,122 +48,6 @@ description: >
 
 
 /* =========================================================
-   HERO
-========================================================= */
-
-.insight-hero{
-  position:relative;
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(151,82,255,.35),
-      transparent 32%
-    ),
-    linear-gradient(
-      135deg,
-      var(--purple) 0%,
-      #7B32E0 52%,
-      var(--purple-dark) 100%
-    );
-
-  color:var(--white);
-  padding:92px 0 105px;
-}
-
-.insight-hero::before{
-  content:"";
-  position:absolute;
-
-  width:520px;
-  height:520px;
-
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:50%;
-
-  right:-180px;
-  top:-220px;
-}
-
-.insight-hero::after{
-  content:"";
-  position:absolute;
-
-  width:380px;
-  height:380px;
-
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:50%;
-
-  left:-220px;
-  bottom:-260px;
-}
-
-.insight-hero-inner{
-  position:relative;
-  z-index:2;
-  max-width:850px;
-}
-
-.insight-eyebrow{
-  display:inline-flex;
-  align-items:center;
-
-  background:var(--yellow);
-  color:var(--purple-deep);
-
-  border-radius:999px;
-  padding:8px 16px;
-  margin-bottom:26px;
-
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.07em;
-}
-
-.insight-hero h1{
-  margin:0;
-  max-width:900px;
-
-  font-size:clamp(40px,6vw,68px);
-  line-height:1.04;
-  letter-spacing:-.035em;
-  font-weight:750;
-}
-
-.insight-hero h1 span{
-  color:var(--yellow);
-}
-
-.insight-hero-desc{
-  max-width:720px;
-  margin:26px 0 34px;
-
-  color:rgba(255,255,255,.78);
-  font-size:18px;
-  line-height:1.7;
-}
-
-.insight-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.insight-meta span{
-  padding:9px 14px;
-
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:999px;
-
-  font-size:13px;
-  color:rgba(255,255,255,.76);
-  background:rgba(255,255,255,.07);
-}
-
-
-/* =========================================================
    GENERAL SECTIONS
 ========================================================= */
 
@@ -771,93 +655,6 @@ description: >
 
 
 /* =========================================================
-   CTA
-========================================================= */
-
-.insight-cta{
-  position:relative;
-  overflow:hidden;
-
-  padding:90px 0;
-
-  background:
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(147,69,255,.35),
-      transparent 30%
-    ),
-    var(--purple-deep);
-
-  color:var(--white);
-}
-
-.insight-cta::after{
-  content:"";
-
-  position:absolute;
-
-  width:420px;
-  height:420px;
-
-  right:-220px;
-  bottom:-250px;
-
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:50%;
-}
-
-.insight-cta-content{
-  position:relative;
-  z-index:2;
-
-  max-width:720px;
-}
-
-.insight-cta .insight-label{
-  background:var(--yellow);
-  color:var(--purple-deep);
-}
-
-.insight-cta h2{
-  margin-bottom:18px;
-  color:var(--white);
-}
-
-.insight-cta h2 span{
-  color:var(--yellow);
-}
-
-.insight-cta p{
-  max-width:650px;
-  margin-bottom:30px;
-
-  color:rgba(255,255,255,.7);
-}
-
-.insight-cta-button{
-  display:inline-flex;
-
-  padding:16px 28px;
-
-  background:var(--yellow);
-  color:var(--purple-deep);
-
-  border-radius:999px;
-
-  text-decoration:none;
-
-  font-size:15px;
-  font-weight:800;
-
-  transition:transform .2s ease;
-}
-
-.insight-cta-button:hover{
-  transform:translateY(-2px);
-}
-
-
-/* =========================================================
    RESPONSIVE
 ========================================================= */
 
@@ -892,18 +689,6 @@ description: >
 
   .insight-container{
     width:min(100% - 32px,1120px);
-  }
-
-  .insight-hero{
-    padding:65px 0 78px;
-  }
-
-  .insight-hero h1{
-    font-size:40px;
-  }
-
-  .insight-hero-desc{
-    font-size:16px;
   }
 
   .insight-section,
@@ -950,54 +735,12 @@ description: >
     width:100%;
   }
 
-  .insight-cta{
-    padding:70px 0;
-  }
-
 }
 
 </style>
 
 
 <div class="insight-page">
-
-
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
-
-  <section class="insight-hero">
-
-    <div class="insight-container">
-
-      <div class="insight-hero-inner">
-
-        <div class="insight-eyebrow">
-          INSIGHT · GEN Z
-        </div>
-
-        <h1>
-          Gen Z tìm hiểu doanh nghiệp
-          <span>từ rất lâu trước khi tìm việc</span>
-        </h1>
-
-        <p class="insight-hero-desc">
-          Với Gen Z, hành trình tìm việc không bắt đầu từ lúc họ nhìn thấy
-          một tin tuyển dụng. Họ quan sát và đánh giá doanh nghiệp từ trước đó,
-          thông qua văn hóa, môi trường làm việc và trải nghiệm của nhân viên.
-        </p>
-
-        <div class="insight-meta">
-          <span>Chủ đề: Gen Z & Employer Brand</span>
-          <span>Loại: Insight</span>
-          <span>Nguồn: VnExpress</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
 
 
   <!-- =====================================================
@@ -1556,44 +1299,6 @@ description: >
           rel="noopener"
         >
           Đọc bài viết gốc →
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       CTA
-  ====================================================== -->
-
-  <section class="insight-cta">
-
-    <div class="insight-container">
-
-      <div class="insight-cta-content">
-
-        <div class="insight-label">
-          UPZI
-        </div>
-
-        <h2>
-          Đang tìm cách tiếp cận
-          <span>ứng viên trẻ hiệu quả hơn?</span>
-        </h2>
-
-        <p>
-          Khám phá cách Upzi giúp doanh nghiệp tiếp cận
-          đúng nhóm ứng viên và tối ưu hành trình tuyển dụng.
-        </p>
-
-        <a
-          class="insight-cta-button"
-          href="{{ '/' | relative_url }}#leadform"
-        >
-          Trao đổi với Upzi
         </a>
 
       </div>
