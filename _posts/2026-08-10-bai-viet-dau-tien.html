@@ -9,7 +9,6 @@ description: >
   Với Gen Z, hành trình tìm việc không bắt đầu từ lúc họ nhìn thấy
   một tin tuyển dụng. Họ quan sát và đánh giá doanh nghiệp từ trước đó,
   thông qua văn hóa, môi trường làm việc và trải nghiệm của nhân viên.
-
 ---
 
 <style>
@@ -47,6 +46,7 @@ description: >
   margin:0 auto;
 }
 
+
 /* =========================================================
    HERO
 ========================================================= */
@@ -54,6 +54,7 @@ description: >
 .insight-hero{
   position:relative;
   overflow:hidden;
+
   background:
     radial-gradient(
       circle at 85% 20%,
@@ -66,6 +67,7 @@ description: >
       #7B32E0 52%,
       var(--purple-dark) 100%
     );
+
   color:var(--white);
   padding:92px 0 105px;
 }
@@ -73,10 +75,13 @@ description: >
 .insight-hero::before{
   content:"";
   position:absolute;
+
   width:520px;
   height:520px;
+
   border:1px solid rgba(255,255,255,.12);
   border-radius:50%;
+
   right:-180px;
   top:-220px;
 }
@@ -84,10 +89,13 @@ description: >
 .insight-hero::after{
   content:"";
   position:absolute;
+
   width:380px;
   height:380px;
+
   border:1px solid rgba(255,255,255,.08);
   border-radius:50%;
+
   left:-220px;
   bottom:-260px;
 }
@@ -101,8 +109,10 @@ description: >
 .insight-eyebrow{
   display:inline-flex;
   align-items:center;
+
   background:var(--yellow);
   color:var(--purple-deep);
+
   border-radius:999px;
   padding:8px 16px;
   margin-bottom:26px;
@@ -143,6 +153,7 @@ description: >
 
 .insight-meta span{
   padding:9px 14px;
+
   border:1px solid rgba(255,255,255,.2);
   border-radius:999px;
 
@@ -150,6 +161,7 @@ description: >
   color:rgba(255,255,255,.76);
   background:rgba(255,255,255,.07);
 }
+
 
 /* =========================================================
    GENERAL SECTIONS
@@ -210,6 +222,7 @@ description: >
   line-height:1.72;
 }
 
+
 /* =========================================================
    INTRO VISUAL CARD
 ========================================================= */
@@ -229,10 +242,13 @@ description: >
 .insight-intro-card::before{
   content:"";
   position:absolute;
+
   width:250px;
   height:250px;
+
   border:1px solid rgba(255,255,255,.12);
   border-radius:50%;
+
   right:-80px;
   top:-80px;
 }
@@ -240,12 +256,16 @@ description: >
 .insight-intro-card::after{
   content:"";
   position:absolute;
+
   width:180px;
   height:180px;
+
   border-radius:50%;
   background:rgba(108,43,217,.35);
+
   left:-70px;
   bottom:-90px;
+
   filter:blur(10px);
 }
 
@@ -256,9 +276,11 @@ description: >
 
 .insight-intro-card .mini{
   color:var(--yellow);
+
   font-size:12px;
   font-weight:800;
   letter-spacing:.08em;
+
   margin-bottom:45px;
 }
 
@@ -275,6 +297,7 @@ description: >
   color:var(--yellow);
 }
 
+
 /* =========================================================
    KEY INSIGHT
 ========================================================= */
@@ -286,6 +309,7 @@ description: >
 
 .insight-key-box{
   position:relative;
+
   max-width:900px;
   margin:0 auto;
 
@@ -294,24 +318,31 @@ description: >
   padding:56px 64px;
 
   box-shadow:0 22px 60px rgba(71,35,120,.08);
+
   overflow:hidden;
 }
 
 .insight-key-box::before{
   content:"";
+
   position:absolute;
+
   left:0;
   top:0;
   bottom:0;
+
   width:7px;
+
   background:var(--purple);
 }
 
 .insight-highlight-label{
   color:var(--purple);
+
   font-size:11.5px;
   font-weight:800;
   letter-spacing:.08em;
+
   margin-bottom:18px;
 }
 
@@ -323,6 +354,7 @@ description: >
 .insight-key-box p{
   max-width:760px;
 }
+
 
 /* =========================================================
    GEN Z PRIORITIES
@@ -344,6 +376,7 @@ description: >
   gap:22px;
 
   padding:30px;
+
   background:var(--white);
 
   border:2px solid var(--purple-line);
@@ -357,7 +390,9 @@ description: >
 
 .insight-list-item:hover{
   transform:translateY(-5px);
+
   border-color:var(--purple);
+
   box-shadow:0 18px 40px rgba(85,28,175,.09);
 }
 
@@ -391,6 +426,7 @@ description: >
   font-size:14.5px;
   line-height:1.6;
 }
+
 
 /* =========================================================
    DATA / STATS
@@ -432,7 +468,9 @@ description: >
   border:1px solid rgba(255,255,255,.1);
   border-radius:26px;
 
-  transition:transform .25s ease, background .25s ease;
+  transition:
+    transform .25s ease,
+    background .25s ease;
 }
 
 .insight-stat:hover{
@@ -455,15 +493,18 @@ description: >
   margin:0 0 10px;
 
   color:var(--white);
+
   font-size:17px;
   line-height:1.3;
 }
 
 .insight-stat p{
   color:rgba(255,255,255,.65);
+
   font-size:13.5px;
   line-height:1.55;
 }
+
 
 /* =========================================================
    GAP SECTION
@@ -483,6 +524,7 @@ description: >
 
 .insight-gap-card{
   background:var(--white);
+
   border-radius:32px;
   padding:38px;
 
@@ -498,6 +540,7 @@ description: >
 
 .insight-gap-card ul{
   list-style:none;
+
   padding:0;
   margin:0;
 
@@ -512,6 +555,7 @@ description: >
   gap:13px;
 
   color:var(--body);
+
   font-size:15px;
   line-height:1.55;
 }
@@ -533,6 +577,7 @@ description: >
   font-size:12px;
   font-weight:800;
 }
+
 
 /* =========================================================
    EMPLOYER IMPLICATION
@@ -560,6 +605,7 @@ description: >
   padding:34px 30px;
 
   border-radius:30px;
+
   background:var(--purple-soft);
 
   overflow:hidden;
@@ -571,10 +617,14 @@ description: >
 
 .insight-implication-card::after{
   content:"";
+
   position:absolute;
+
   width:120px;
   height:120px;
+
   border-radius:50%;
+
   right:-55px;
   bottom:-55px;
 
@@ -583,6 +633,7 @@ description: >
 
 .insight-implication-card:hover{
   transform:translateY(-7px);
+
   box-shadow:0 20px 40px rgba(85,28,175,.1);
 }
 
@@ -590,6 +641,7 @@ description: >
   margin-bottom:42px;
 
   color:var(--purple);
+
   font-size:13px;
   font-weight:800;
   letter-spacing:.05em;
@@ -607,6 +659,7 @@ description: >
   line-height:1.6;
 }
 
+
 /* =========================================================
    TAKEAWAY
 ========================================================= */
@@ -619,6 +672,7 @@ description: >
 .insight-takeaway-box{
   max-width:900px;
   margin:0 auto;
+
   text-align:center;
 }
 
@@ -641,8 +695,10 @@ description: >
   margin-top:28px !important;
 
   color:#898293 !important;
+
   font-size:13px !important;
 }
+
 
 /* =========================================================
    SOURCE
@@ -655,13 +711,16 @@ description: >
 
 .insight-source-box{
   display:flex;
+
   justify-content:space-between;
   align-items:center;
+
   gap:40px;
 
   padding:42px 46px;
 
   background:var(--off);
+
   border:1px solid #ebe7f1;
   border-radius:30px;
 }
@@ -682,6 +741,7 @@ description: >
 
 .insight-source-button{
   display:inline-flex;
+
   align-items:center;
   justify-content:center;
 
@@ -695,6 +755,7 @@ description: >
   border-radius:999px;
 
   text-decoration:none;
+
   font-size:14px;
   font-weight:750;
 
@@ -707,6 +768,7 @@ description: >
   background:var(--purple-dark);
   transform:translateY(-2px);
 }
+
 
 /* =========================================================
    CTA
@@ -731,6 +793,7 @@ description: >
 
 .insight-cta::after{
   content:"";
+
   position:absolute;
 
   width:420px;
@@ -792,6 +855,7 @@ description: >
 .insight-cta-button:hover{
   transform:translateY(-2px);
 }
+
 
 /* =========================================================
    RESPONSIVE
@@ -896,6 +960,7 @@ description: >
 
 
 <div class="insight-page">
+
 
   <!-- =====================================================
        HERO
@@ -1536,5 +1601,6 @@ description: >
     </div>
 
   </section>
+
 
 </div>
