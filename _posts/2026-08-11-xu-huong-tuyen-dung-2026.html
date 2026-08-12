@@ -1,6 +1,7 @@
 <style>
 /* =========================================================
    UPZI INSIGHT ARTICLE
+   PLAIN HTML VERSION
    5 TRENDS - YOUNG TALENT & RECRUITMENT 2026
 ========================================================= */
 
@@ -823,13 +824,12 @@
 
 /* =========================================================
    UPZI CTA
-   Lấy từ SUCCESS STORY TEMPLATE
 ========================================================= */
 
 .insight-footer {
   position: relative;
 
-  padding: 95px 0;
+  padding: 92px 0;
 
   background: var(--purple-deep);
 
@@ -843,14 +843,28 @@
 
   position: absolute;
 
-  width: 520px;
-  height: 520px;
+  width: 460px;
+  height: 460px;
 
-  right: -220px;
+  right: -95px;
   top: -300px;
 
-  border: 70px solid rgba(147,69,255,.25);
+  border: 1px solid rgba(147,69,255,.45);
+  border-radius: 50%;
+}
 
+.insight-footer::after {
+  content: "";
+
+  position: absolute;
+
+  width: 310px;
+  height: 310px;
+
+  right: -10px;
+  top: -220px;
+
+  border: 1px solid rgba(147,69,255,.4);
   border-radius: 50%;
 }
 
@@ -858,7 +872,7 @@
   position: relative;
   z-index: 2;
 
-  max-width: 760px;
+  max-width: 850px;
 
   margin: 0 auto;
 
@@ -868,13 +882,13 @@
 .insight-footer h2 {
   max-width: 800px;
 
-  margin: 0 auto 18px;
+  margin: 0 auto 20px;
 
   color: var(--white);
 
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.15;
-  letter-spacing: -.035em;
+  font-size: clamp(35px, 5vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -.04em;
   font-weight: 780;
 }
 
@@ -883,9 +897,9 @@
 
   margin: 0 auto 30px;
 
-  color: rgba(255,255,255,.7);
+  color: rgba(255,255,255,.68);
 
-  font-size: 16px;
+  font-size: 15.5px;
   line-height: 1.65;
 }
 
@@ -896,7 +910,7 @@
 
   min-height: 55px;
 
-  padding: 15px 28px;
+  padding: 0 28px;
 
   background: var(--lime);
   color: var(--purple-deep);
@@ -905,7 +919,7 @@
 
   text-decoration: none;
 
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
 
   transition:
@@ -915,13 +929,14 @@
 
 .insight-footer-button:hover {
   transform: translateY(-2px);
+
   background: #EBF13B;
 }
 
 
 /* =========================================================
    FOOTER CONTACT
-   Lấy từ SUCCESS STORY TEMPLATE
+   Taken from Success Story layout
 ========================================================= */
 
 .insight-footer-bottom {
@@ -932,7 +947,7 @@
 
   background: var(--off-white);
 
-  border-top: 1px solid #eae5f3;
+  border-top: 1px solid #EAE5F3;
 }
 
 .insight-footer-bottom-inner {
@@ -946,11 +961,11 @@
 
   padding-bottom: 28px;
 
-  border-bottom: 1px solid #e6e1ef;
+  border-bottom: 1px solid #E6E1EF;
 }
 
 .insight-footer-brand-column {
-  max-width: 420px;
+  flex: 1 1 420px;
 }
 
 .insight-footer-brand {
@@ -965,18 +980,31 @@
 }
 
 .insight-footer-description {
+  max-width: 440px;
+
   margin: 0;
 
-  color: #7a7488;
+  color: #7A7488;
 
   font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.insight-footer-contact,
+.insight-footer-social {
+  flex: 0 1 auto;
+
+  color: #7A7488;
+
+  font-size: 13.5px;
+
   line-height: 1.75;
 }
 
 .insight-footer-column-title {
   margin: 0 0 8px;
 
-  color: #a49db4;
+  color: #A49DB4;
 
   font-size: 11.5px;
   line-height: 1;
@@ -990,14 +1018,14 @@
 .insight-footer-social p {
   margin: 0;
 
-  color: #7a7488;
+  color: #7A7488;
 
   font-size: 13.5px;
   line-height: 1.75;
 }
 
 .insight-footer-social a {
-  color: #7a7488;
+  color: #7A7488;
 
   text-decoration: none;
 
@@ -1013,7 +1041,7 @@
 
   font-size: 12px;
 
-  color: #a49db4;
+  color: #A49DB4;
 }
 
 
@@ -1063,8 +1091,9 @@
   }
 
   .insight-footer-bottom-inner {
-    gap: 40px;
+    gap: 30px;
   }
+
 }
 
 
@@ -1190,17 +1219,23 @@
   }
 
   .insight-footer-bottom {
-    padding: 36px 0 24px;
+    padding: 36px 0 26px;
   }
 
   .insight-footer-bottom-inner {
+    display: flex;
     flex-direction: column;
     gap: 28px;
   }
 
   .insight-footer-brand-column {
+    flex: none;
+  }
+
+  .insight-footer-description {
     max-width: 100%;
   }
+
 }
 </style>
 
@@ -1217,7 +1252,7 @@
     <div class="insight-container">
 
       <a href="https://upzi-vn.github.io/staging/dung/#insights">
-        - Quay lại Insights
+        ← Quay lại Insights
       </a>
 
     </div>
@@ -1918,7 +1953,7 @@
 
 
   <!-- =====================================================
-       UPZI CTA
+       UPZI CTA FOOTER
   ====================================================== -->
 
   <section class="insight-footer">
@@ -1938,7 +1973,7 @@
         </p>
 
         <a
-          href="#contact"
+          href="{{ '/' | relative_url }}#leadform"
           class="insight-footer-button"
         >
           Trao đổi với Upzi
@@ -1960,7 +1995,6 @@
     <div class="insight-container">
 
       <div class="insight-footer-bottom-inner">
-
 
         <!-- BRAND -->
 
@@ -2021,11 +2055,8 @@
 
         </div>
 
-
       </div>
 
-
-      <!-- COPYRIGHT -->
 
       <div class="insight-footer-copyright">
 
