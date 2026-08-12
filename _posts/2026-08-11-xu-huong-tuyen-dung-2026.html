@@ -31,20 +31,23 @@ description: >
 
     :root {
       --purple: #9345FF;
-      --purple-dark: #551caf;
+      --purple-dark: #551CAF;
       --purple-deep: #2E0F5C;
-      --purple-deeper: #1d0940;
+      --purple-deeper: #1D0940;
       --purple-tint: #F4EDFF;
 
       --yellow: #E0E722;
+      --green: #89BF00;
       --mint: #5FE0BB;
+      --warm-yellow: #FFD364;
+      --orange: #FF8F3C;
       --coral: #FF968C;
 
       --ink: #111111;
-      --body: #4b5563;
+      --body: #4B5563;
       --muted: #8C8597;
 
-      --white: #ffffff;
+      --white: #FFFFFF;
       --off: #F7F5FB;
 
       --purple-soft: #F5F0FF;
@@ -52,6 +55,26 @@ description: >
 
       --light-green-1: #E5E5E5;
       --light-green-2: #E1EFBD;
+
+      /* Brand gradients */
+      --gradient-purple: linear-gradient(
+        0deg,
+        #551CAF,
+        #9345FF
+      );
+
+      --gradient-green-lime: linear-gradient(
+        0deg,
+        #89BF00,
+        #E0E722
+      );
+
+      /* Light green gradient */
+      --gradient-light-green: linear-gradient(
+        180deg,
+        #E5E5E5,
+        #E1EFBD
+      );
 
       --font-display: 'Bricolage Grotesque', sans-serif;
       --font-sub: 'Manrope', sans-serif;
@@ -213,6 +236,54 @@ description: >
 
       font-size: 12px;
       background: var(--off);
+    }
+
+    .insight-meta span:last-child {
+      color: var(--green);
+      border-color: rgba(137, 191, 0, .28);
+    }
+
+
+    /* =========================================================
+       ARTICLE IMAGES
+       Crop / positioning only
+    ========================================================= */
+
+    .insight-article-image {
+      display: block;
+      width: 100%;
+
+      object-fit: cover;
+
+      border-radius: 26px;
+
+      overflow: hidden;
+
+      background: var(--off);
+    }
+
+    .insight-image-opening {
+      height: 320px;
+      margin-top: 34px;
+      object-position: center 42%;
+    }
+
+    .insight-image-career {
+      height: 340px;
+      margin: 0 0 34px;
+      object-position: center 35%;
+    }
+
+    .insight-image-employer {
+      height: 340px;
+      margin: 0 0 34px;
+      object-position: center 40%;
+    }
+
+    .insight-image-pipeline {
+      height: 340px;
+      margin: 0 0 34px;
+      object-position: center 38%;
     }
 
 
@@ -380,6 +451,14 @@ description: >
       letter-spacing: -.035em;
     }
 
+    .insight-data-item:nth-child(2) .insight-data-number {
+      color: var(--green);
+    }
+
+    .insight-data-item:nth-child(3) .insight-data-number {
+      color: var(--orange);
+    }
+
     .insight-data-item h3 {
       margin: 0 0 7px;
 
@@ -433,11 +512,7 @@ description: >
       align-items: center;
       justify-content: center;
 
-      background: linear-gradient(
-        0deg,
-        var(--purple-dark),
-        var(--purple)
-      );
+      background: var(--gradient-purple);
 
       color: var(--white);
 
@@ -463,6 +538,10 @@ description: >
       font-size: 10.5px;
       font-weight: 800;
       letter-spacing: .09em;
+    }
+
+    .insight-trend:nth-of-type(5) .insight-trend-label {
+      color: var(--green);
     }
 
     .insight-trend h2 {
@@ -566,12 +645,7 @@ description: >
 
       padding: 25px 28px;
 
-      background:
-        linear-gradient(
-          180deg,
-          var(--light-green-1),
-          var(--light-green-2)
-        );
+      background: var(--gradient-light-green);
 
       border-radius: 22px;
     }
@@ -617,6 +691,18 @@ description: >
 
       font-size: 11px;
       font-weight: 800;
+    }
+
+    .insight-touchpoint:nth-child(2) .insight-touchpoint-number {
+      color: var(--green);
+    }
+
+    .insight-touchpoint:nth-child(3) .insight-touchpoint-number {
+      color: var(--orange);
+    }
+
+    .insight-touchpoint:nth-child(4) .insight-touchpoint-number {
+      color: var(--coral);
     }
 
     .insight-touchpoint h3 {
@@ -677,6 +763,18 @@ description: >
       font-size: 10px;
       font-weight: 800;
       letter-spacing: .07em;
+    }
+
+    .insight-journey-item:nth-child(2) .insight-journey-step {
+      color: var(--green);
+    }
+
+    .insight-journey-item:nth-child(3) .insight-journey-step {
+      color: var(--orange);
+    }
+
+    .insight-journey-item:nth-child(4) .insight-journey-step {
+      color: var(--coral);
     }
 
     .insight-journey-item h3 {
@@ -1005,7 +1103,7 @@ description: >
 
       background: var(--off);
 
-      border-top: 1px solid #eae5f3;
+      border-top: 1px solid #EAE5F3;
     }
 
     .insight-footer-bottom-inner {
@@ -1019,7 +1117,7 @@ description: >
 
       padding-bottom: 28px;
 
-      border-bottom: 1px solid #e6e1ef;
+      border-bottom: 1px solid #E6E1EF;
     }
 
     .insight-footer-brand-column {
@@ -1041,7 +1139,7 @@ description: >
     .insight-footer-description {
       margin: 0;
 
-      color: #7a7488;
+      color: #7A7488;
 
       font-size: 13.5px;
       line-height: 1.75;
@@ -1050,7 +1148,7 @@ description: >
     .insight-footer-column-title {
       margin: 0 0 8px;
 
-      color: #a49db4;
+      color: #A49DB4;
 
       font-family: var(--font-sub);
       font-size: 11.5px;
@@ -1064,14 +1162,14 @@ description: >
     .insight-footer-social p {
       margin: 0;
 
-      color: #7a7488;
+      color: #7A7488;
 
       font-size: 13.5px;
       line-height: 1.75;
     }
 
     .insight-footer-social a {
-      color: #7a7488;
+      color: #7A7488;
       text-decoration: none;
 
       transition: color .2s ease;
@@ -1086,7 +1184,7 @@ description: >
 
       font-size: 12px;
 
-      color: #a49db4;
+      color: #A49DB4;
     }
 
 
@@ -1272,6 +1370,11 @@ description: >
         max-width: 100%;
       }
 
+      .insight-article-image {
+        height: 260px;
+        border-radius: 22px;
+      }
+
     }
 
   </style>
@@ -1350,7 +1453,11 @@ description: >
 
         <div class="insight-opening-copy">
 
-    <img src="{{ '/images/business-meeting.jpg' | relative_url }}" alt="Business meeting" style="display:block;width:100%;height:320px;object-fit:cover;border-radius:26px;margin-top:34px;">
+          <img
+            src="{{ '/images/business-meeting.jpg' | relative_url }}"
+            alt="Business meeting"
+            class="insight-article-image insight-image-opening"
+          >
 
           <p>
             Theo khảo sát của Navigos Group, Gen Z chiếm
@@ -1586,7 +1693,11 @@ description: >
             CAREER VALUE
           </div>
 
-          <img src="{{ '/images/business-people-standing-near-office-city.jpg' | relative_url }}" alt="Business people near office" style="display:block;width:100%;height:340px;object-fit:cover;border-radius:26px;margin:34px 0;">
+          <img
+            src="{{ '/images/business-people-standing-near-office-city.jpg' | relative_url }}"
+            alt="Business people near office"
+            class="insight-article-image insight-image-career"
+          >
 
           <h2>
             Ứng viên trẻ đánh giá cơ hội nghề nghiệp
@@ -1646,7 +1757,11 @@ description: >
             EMPLOYER BRANDING
           </div>
 
-          <img src="{{ '/images/happy-young-asian-colleagues-casual-clothes-taking-selfie-office.jpg' | relative_url }}" alt="Young colleagues in office" style="display:block;width:100%;height:340px;object-fit:cover;border-radius:26px;margin:34px 0;">
+          <img
+            src="{{ '/images/happy-young-asian-colleagues-casual-clothes-taking-selfie-office.jpg' | relative_url }}"
+            alt="Young colleagues in office"
+            class="insight-article-image insight-image-employer"
+          >
 
           <h2>
             Employer Branding trở thành
@@ -1882,7 +1997,11 @@ description: >
             TALENT PIPELINE
           </div>
 
-          <img src="{{ '/images/togetherness-adult-office-corporate-meeting.jpg' | relative_url }}" alt="Corporate team meeting" style="display:block;width:100%;height:340px;object-fit:cover;border-radius:26px;margin:34px 0;">
+          <img
+            src="{{ '/images/togetherness-adult-office-corporate-meeting.jpg' | relative_url }}"
+            alt="Corporate team meeting"
+            class="insight-article-image insight-image-pipeline"
+          >
 
           <h2>
             Doanh nghiệp chuyển từ tuyển khi cần
