@@ -6,6 +6,7 @@ category: "Insight"
 description: >
   Từ cách tìm việc, đánh giá doanh nghiệp đến cách chuẩn bị cho sự nghiệp, hành vi của ứng viên trẻ đang thay đổi nhanh chóng.
 ---
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -162,6 +163,29 @@ description: >
 
 
     /* =========================================================
+       HERO IMAGE
+    ========================================================= */
+
+    .insight-hero {
+      padding: 34px 0 0;
+      background: var(--white);
+    }
+
+    .insight-hero-image {
+      display: block;
+      width: 100%;
+      height: 420px;
+
+      object-fit: cover;
+      object-position: center center;
+
+      border-radius: 26px;
+
+      background: var(--off);
+    }
+
+
+    /* =========================================================
        ARTICLE INTRO
     ========================================================= */
 
@@ -241,49 +265,6 @@ description: >
     .insight-meta span:last-child {
       color: var(--green);
       border-color: rgba(137, 191, 0, .28);
-    }
-
-
-    /* =========================================================
-       ARTICLE S
-       Crop / positioning only
-    ========================================================= */
-
-    .insight-article-image {
-      display: block;
-      width: 100%;
-
-      object-fit: cover;
-
-      border-radius: 26px;
-
-      overflow: hidden;
-
-      background: var(--off);
-    }
-
-    .insight-image-opening {
-      height: 320px;
-      margin-top: 34px;
-      object-position: center 42%;
-    }
-
-    .insight-image-career {
-      height: 340px;
-      margin: 0 0 34px;
-      object-position: center 35%;
-    }
-
-    .insight-image-employer {
-      height: 340px;
-      margin: 0 0 34px;
-      object-position: center 40%;
-    }
-
-    .insight-image-pipeline {
-      height: 340px;
-      margin: 0 0 34px;
-      object-position: center 38%;
     }
 
 
@@ -1246,6 +1227,15 @@ description: >
         padding-top: 20px;
       }
 
+      .insight-hero {
+        padding-top: 24px;
+      }
+
+      .insight-hero-image {
+        height: 260px;
+        border-radius: 22px;
+      }
+
       .insight-intro {
         padding: 50px 0 60px;
       }
@@ -1370,11 +1360,6 @@ description: >
         max-width: 100%;
       }
 
-      .insight-article-image {
-        height: 260px;
-        border-radius: 22px;
-      }
-
     }
 
   </style>
@@ -1398,6 +1383,26 @@ description: >
       <a href="{{ '/' | relative_url }}">
         ← Quay lại trang chủ
       </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       HERO IMAGE
+       ONLY IMAGE IN THE ARTICLE
+  ====================================================== -->
+
+  <section class="insight-hero">
+
+    <div class="insight-container">
+
+      <img
+        src="{{ '/images/intern-girl.jpg' | relative_url }}"
+        alt="Vietnamese Gen Z intern"
+        class="insight-hero-image"
+      >
 
     </div>
 
@@ -1452,13 +1457,6 @@ description: >
       <div class="insight-opening-grid">
 
         <div class="insight-opening-copy">
-
-          <img
-            src="{{ '/images/business-meeting.jpg' | relative_url }}"
-            alt="Business meeting"
-            class="insight-article-image insight-image-opening"
-            style="transform: translateY(-20px);"
-          >
 
           <p>
             Theo khảo sát của Navigos Group, Gen Z chiếm
@@ -1694,12 +1692,6 @@ description: >
             CAREER VALUE
           </div>
 
-          <img
-            src="{{ '/images/business-people-standing-near-office-city.jpg' | relative_url }}"
-            alt="Business people near office"
-            class="insight-article-image insight-image-career"
-          >
-
           <h2>
             Ứng viên trẻ đánh giá cơ hội nghề nghiệp
             <span>bằng giá trị dài hạn</span>
@@ -1757,12 +1749,6 @@ description: >
           <div class="insight-trend-label">
             EMPLOYER BRANDING
           </div>
-
-          <img
-            src="{{ '/images/happy-young-asian-colleagues-casual-clothes-taking-selfie-office.jpg' | relative_url }}"
-            alt="Young colleagues in office"
-            class="insight-article-image insight-image-employer"
-          >
 
           <h2>
             Employer Branding trở thành
@@ -1998,12 +1984,6 @@ description: >
             TALENT PIPELINE
           </div>
 
-          <img
-            src="{{ '/images/togetherness-adult-office-corporate-meeting.jpg' | relative_url }}"
-            alt="Corporate team meeting"
-            class="insight-article-image insight-image-pipeline"
-          >
-
           <h2>
             Doanh nghiệp chuyển từ tuyển khi cần
             <span>sang xây dựng nguồn talent từ sớm</span>
@@ -2158,7 +2138,7 @@ description: >
 
   <!-- =====================================================
        FOOTER CONTACT
-       Same structure as Success Story
+       Same footer structure as Success Story
   ====================================================== -->
 
   <div class="insight-footer-bottom">
