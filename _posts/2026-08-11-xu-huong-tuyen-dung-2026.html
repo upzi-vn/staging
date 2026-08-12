@@ -374,9 +374,9 @@
   justify-content: center;
 
   background: linear-gradient(
-    135deg,
-    var(--purple),
-    var(--purple-dark)
+    0deg,
+    var(--purple-dark),
+    var(--purple)
   );
 
   color: var(--white);
@@ -697,7 +697,6 @@
 
 /* =========================================================
    RELATED INSIGHT
-   - Inspired by Code 2
 ========================================================= */
 
 .insight-related {
@@ -719,6 +718,7 @@
 .insight-related-card {
   position: relative;
 
+  display: block;
   max-width: 760px;
 
   padding: 27px 27px 30px;
@@ -732,6 +732,9 @@
     0 18px 45px rgba(47, 18, 92, .07);
 
   overflow: hidden;
+
+  text-decoration: none;
+  color: inherit;
 
   transition:
     transform .2s ease,
@@ -816,7 +819,6 @@
 
 /* =========================================================
    UPZI CTA FOOTER
-   - Inspired by Code 2
 ========================================================= */
 
 .insight-footer {
@@ -885,10 +887,6 @@
   font-weight: 780;
 }
 
-.insight-footer h2 span {
-  color: var(--white);
-}
-
 .insight-footer-desc {
   max-width: 690px;
 
@@ -910,7 +908,6 @@
   padding: 0 28px;
 
   background: var(--lime);
-
   color: var(--purple-deep);
 
   border-radius: 999px;
@@ -1017,7 +1014,6 @@
   }
 
 }
-
 
 @media (max-width: 650px) {
 
@@ -1165,7 +1161,7 @@
     <div class="insight-container">
 
       <a href="https://upzi-vn.github.io/staging/dung/#insights">
-        ← Quay lại Insights
+        - Quay lại Insights
       </a>
 
     </div>
@@ -1825,7 +1821,6 @@
 
   <!-- =====================================================
        RELATED INSIGHT
-       CODE 2 STYLE
   ====================================================== -->
 
   <section class="insight-related">
@@ -1837,9 +1832,8 @@
       </div>
 
       <a
-        href="https://upzi-vn.github.io/staging/dung/#insights"
+        href="https://upzi-vn.github.io/staging/dung/bai-viet-dau-tien/"
         class="insight-related-card"
-        style="display:block; text-decoration:none; color:inherit;"
       >
 
         <div class="insight-related-date">
@@ -1852,8 +1846,8 @@
         </h3>
 
         <p>
-          Với Gen Z, hành trình tìm việc không bắt đầu từ một tin tuyển dụng.
-          Họ quan sát, tìm hiểu và đánh giá doanh nghiệp trước khi quyết định ứng tuyển.
+          Với Gen Z, hành trình tìm việc không bắt đầu từ lúc họ nhìn thấy
+          một tin tuyển dụng. Họ quan sát...
         </p>
 
         <span class="insight-related-link">
@@ -1869,7 +1863,6 @@
 
   <!-- =====================================================
        UPZI CTA FOOTER
-       CODE 2 STYLE
   ====================================================== -->
 
   <section class="insight-footer">
