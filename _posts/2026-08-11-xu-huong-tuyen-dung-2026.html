@@ -166,23 +166,35 @@ description: >
        HERO IMAGE
     ========================================================= */
 
-    .insight-hero {
-      padding: 34px 0 0;
-      background: var(--white);
-    }
+   .insight-hero {
+  padding: 34px 0 0;
+  background: var(--white);
+}
 
-    .insight-hero-image {
-      display: block;
-      width: 100%;
-      height: 420px;
+.insight-image-opening {
+  position: relative;
 
-      object-fit: cover;
-      object-position: center center;
+  display: block;
+  width: 100%;
+  height: 360px;
 
-      border-radius: 26px;
+  margin-top: 34px;
 
-      background: var(--off);
-    }
+  object-fit: contain;
+  object-position: center bottom;
+
+  border-radius: 26px;
+
+  background: linear-gradient(
+    180deg,
+    #E5E5E5 0%,
+    #E1EFBD 100%
+  );
+
+  overflow: visible;
+
+  z-index: 2;
+}
 
 
     /* =========================================================
