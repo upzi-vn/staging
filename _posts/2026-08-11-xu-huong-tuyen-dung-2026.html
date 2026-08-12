@@ -1,1265 +1,1175 @@
-<style>
-/* =========================================================
-   UPZI INSIGHT ARTICLE
-   PLAIN HTML VERSION
-   5 TRENDS - YOUNG TALENT & RECRUITMENT 2026
-========================================================= */
-
-.insight-page {
-  --purple: #9345FF;
-  --purple-dark: #551CAF;
-  --purple-deep: #2F125C;
-
-  --lime: #E0E722;
-  --lime-dark: #89BF00;
-
-  --light-green-1: #E5E5E5;
-  --light-green-2: #E1EFBD;
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ page.title }} | Upzi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       UPZI SUCCESS STORY
+       Shared layout for all Success Story articles
+    ===================================================== */
+
+    :root {
+      --purple: #9345FF;
+      --purple-dark: #551CAF;
+      --purple-deep: #2F125C;
+      --purple-deeper: #1D0940;
+      --purple-tint: #F5F0FF;
+      --purple-line: #E6DAF8;
+
+      --lime: #E0E722;
+      --lime-dark: #89BF00;
+
+      --light-green-1: #E5E5E5;
+      --light-green-2: #E1EFBD;
+
+      --ink: #15111C;
+      --body: #625B6F;
+      --muted: #8C8597;
+
+      --white: #FFFFFF;
+      --off: #FAF9FC;
+
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-sub: 'Manrope', sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+
+    /* =====================================================
+       NAV
+    ===================================================== */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid #EFEAF5;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-  --mint: #50D5B2;
-  --yellow: #FFD166;
-  --orange: #FF873D;
-  --coral: #FF8F8A;
+      padding: 15px 28px;
+    }
 
-  --ink: #15111C;
-  --body: #625B6F;
-  --muted: #8C8597;
+    .logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--purple-dark);
+      letter-spacing: -0.02em;
+    }
 
-  --purple-soft: #F5F0FF;
-  --purple-line: #E6DAF8;
+    .nav-cta {
+      background: var(--purple);
+      color: var(--white);
 
-  --off-white: #FAF9FC;
-  --white: #FFFFFF;
+      font-family: var(--font-sub);
+      font-size: 14px;
+      font-weight: 700;
 
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--ink);
-  background: var(--white);
-  overflow: hidden;
-}
+      padding: 11px 22px;
+      border-radius: 999px;
 
-.insight-page *,
-.insight-page *::before,
-.insight-page *::after {
-  box-sizing: border-box;
-}
+      transition: .2s ease;
+    }
 
-.insight-container {
-  width: min(1120px, calc(100% - 48px));
-  margin: 0 auto;
-}
+    .nav-cta:hover {
+      background: var(--purple-dark);
+      transform: translateY(-1px);
+    }
 
 
-/* =========================================================
-   BACK TO INSIGHTS
-========================================================= */
+    /* =====================================================
+       ARTICLE HERO
+    ===================================================== */
 
-.insight-back {
-  padding: 24px 0 0;
-  background: var(--white);
-}
+    .story-hero {
+      position: relative;
+      overflow: hidden;
 
-.insight-back a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+      background:
+        linear-gradient(
+          0deg,
+          var(--purple-dark) 0%,
+          var(--purple) 100%
+        );
 
-  color: #6D6578;
-  text-decoration: none;
+      color: var(--white);
 
-  font-size: 14px;
-  font-weight: 600;
+      padding: 92px 0 100px;
+    }
 
-  transition:
-    color .2s ease,
-    transform .2s ease;
-}
+    .story-hero::before {
+      content: "";
+      position: absolute;
 
-.insight-back a:hover {
-  color: var(--purple);
-  transform: translateX(-3px);
-}
+      width: 500px;
+      height: 500px;
 
+      right: -180px;
+      top: -220px;
 
-/* =========================================================
-   ARTICLE INTRO
-========================================================= */
+      border: 70px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+    }
 
-.insight-intro {
-  padding: 62px 0 76px;
-  background: var(--white);
-}
+    .story-hero::after {
+      content: "";
+      position: absolute;
 
-.insight-intro-inner {
-  max-width: 920px;
-}
+      width: 360px;
+      height: 360px;
 
-.insight-eyebrow {
-  display: inline-flex;
-  align-items: center;
+      left: -180px;
+      bottom: -240px;
 
-  padding: 8px 14px;
-  margin-bottom: 22px;
+      border: 60px solid rgba(255,255,255,.06);
+      border-radius: 50%;
+    }
 
-  background: var(--purple-soft);
-  color: var(--purple-dark);
+    .story-hero-inner {
+      position: relative;
+      z-index: 2;
 
-  border-radius: 999px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .07em;
-}
+    .eyebrow {
+      display: inline-block;
 
-.insight-intro h1 {
-  max-width: 900px;
+      font-family: var(--font-sub);
+      font-size: 12.5px;
+      font-weight: 700;
 
-  margin: 0 0 24px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
 
-  color: var(--ink);
+      color: var(--purple-deep);
+      background: var(--lime);
 
-  font-size: clamp(40px, 5.8vw, 66px);
-  line-height: 1.05;
-  letter-spacing: -.045em;
-  font-weight: 780;
-}
+      padding: 7px 15px;
+      border-radius: 999px;
 
-.insight-intro h1 span {
-  color: var(--purple);
-}
+      margin-bottom: 22px;
+    }
 
-.insight-intro-desc {
-  max-width: 760px;
+    .story-hero h1 {
+      font-family: var(--font-display);
 
-  margin: 0 0 28px;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.04;
 
-  color: var(--body);
+      font-weight: 700;
+      letter-spacing: -.025em;
 
-  font-size: 17px;
-  line-height: 1.7;
-}
+      max-width: 850px;
 
-.insight-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-}
+      margin-bottom: 26px;
+    }
 
-.insight-meta span {
-  padding: 8px 13px;
+    .hero-lead {
+      max-width: 780px;
 
-  border: 1px solid var(--purple-line);
-  border-radius: 999px;
+      font-size: 18px;
+      line-height: 1.65;
 
-  color: var(--body);
+      color: rgba(255,255,255,.78);
 
-  font-size: 12px;
-  background: var(--off-white);
-}
+      margin-bottom: 32px;
+    }
 
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-/* =========================================================
-   OPENING
-========================================================= */
+    .meta span {
+      font-family: var(--font-sub);
 
-.insight-opening {
-  padding: 0 0 92px;
-  background: var(--white);
-}
+      font-size: 12px;
+      font-weight: 600;
 
-.insight-opening-grid {
-  display: grid;
-  grid-template-columns: 1.08fr .92fr;
-  gap: 48px;
-  align-items: stretch;
-}
+      color: rgba(255,255,255,.85);
 
-.insight-opening-copy {
-  padding: 32px 0;
-}
+      padding: 8px 13px;
 
-.insight-opening-copy p {
-  margin: 0 0 18px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+    }
 
-  color: var(--body);
 
-  font-size: 15.5px;
-  line-height: 1.75;
-}
+    /* =====================================================
+       ARTICLE
+    ===================================================== */
 
-.insight-opening-copy p:last-child {
-  margin-bottom: 0;
-}
+    .story-content {
+      overflow: hidden;
+    }
 
-.insight-opening-copy strong {
-  color: var(--ink);
-}
 
-.insight-opening-card {
-  position: relative;
+    /* =====================================================
+       STANDARD SECTION
+    ===================================================== */
 
-  padding: 38px;
+    .story-section {
+      padding: 105px 0;
+    }
 
-  background: var(--purple-deep);
-  color: var(--white);
+    .story-section.off {
+      background: var(--off);
+    }
 
-  border-radius: 30px;
+    .story-section.white {
+      background: var(--white);
+    }
 
-  overflow: hidden;
-}
+    .section-grid {
+      display: grid;
 
-.insight-opening-card::before {
-  content: "";
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
-  position: absolute;
+      gap: 70px;
 
-  width: 330px;
-  height: 330px;
+      align-items: center;
+    }
 
-  right: -135px;
-  top: -165px;
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
 
-  border: 1px solid rgba(147, 69, 255, .45);
-  border-radius: 50%;
-}
+    .story-section h2 {
+      font-family: var(--font-display);
 
-.insight-opening-card::after {
-  content: "";
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
 
-  position: absolute;
+      font-weight: 700;
+      letter-spacing: -.022em;
 
-  width: 210px;
-  height: 210px;
+      color: var(--ink);
 
-  left: -105px;
-  bottom: -125px;
+      margin-bottom: 18px;
+    }
 
-  background: rgba(147, 69, 255, .25);
+    .story-section h2 .accent {
+      color: var(--purple);
+    }
 
-  border-radius: 50%;
-}
+    .story-section p {
+      font-size: 16px;
+      line-height: 1.7;
 
-.insight-opening-card-content {
-  position: relative;
-  z-index: 2;
-}
+      color: var(--body);
+    }
 
-.insight-opening-mini {
-  margin-bottom: 46px;
+    .eyebrow-light {
+      display: inline-block;
 
-  color: var(--lime);
+      font-family: var(--font-sub);
+      font-size: 12.5px;
+      font-weight: 700;
 
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .08em;
-}
+      letter-spacing: .06em;
+      text-transform: uppercase;
 
-.insight-opening-big {
-  max-width: 430px;
+      color: var(--purple-dark);
 
-  margin-bottom: 30px;
+      background: var(--purple-tint);
 
-  font-size: 30px;
-  line-height: 1.2;
-  letter-spacing: -.025em;
-  font-weight: 750;
-}
+      padding: 7px 15px;
+      border-radius: 999px;
 
-.insight-opening-big span {
-  color: var(--lime);
-}
+      margin-bottom: 18px;
+    }
 
-.insight-opening-note {
-  max-width: 390px;
 
-  padding-top: 20px;
+    /* =====================================================
+       CHALLENGE CARD
+    ===================================================== */
 
-  border-top: 1px solid rgba(255,255,255,.15);
+    .challenge-card {
+      background: var(--purple-deep);
 
-  color: rgba(255,255,255,.68);
+      color: var(--white);
 
-  font-size: 13px;
-  line-height: 1.6;
-}
+      border-radius: 30px;
 
+      padding: 38px 36px;
+    }
 
-/* =========================================================
-   KEY DATA
-========================================================= */
+    .challenge-card h3 {
+      font-family: var(--font-display);
 
-.insight-data-strip {
-  padding: 0 0 92px;
-  background: var(--white);
-}
+      font-size: 26px;
+      font-weight: 700;
 
-.insight-data-box {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
+      margin-bottom: 24px;
+    }
 
-  overflow: hidden;
+    .challenge-card ul {
+      list-style: none;
 
-  background: var(--purple-line);
+      display: flex;
+      flex-direction: column;
 
-  border: 1px solid var(--purple-line);
-  border-radius: 26px;
-}
+      gap: 18px;
+    }
 
-.insight-data-item {
-  padding: 30px 28px;
-  background: var(--off-white);
-}
+    .challenge-card li {
+      display: flex;
 
-.insight-data-number {
-  margin-bottom: 10px;
+      align-items: flex-start;
+      gap: 13px;
 
-  color: var(--purple);
+      font-size: 14.5px;
+      line-height: 1.6;
 
-  font-size: 40px;
-  line-height: 1;
-  font-weight: 780;
-  letter-spacing: -.035em;
-}
+      color: rgba(255,255,255,.78);
+    }
 
-.insight-data-item h3 {
-  margin: 0 0 7px;
+    .check {
+      width: 25px;
+      height: 25px;
 
-  font-size: 15px;
-  line-height: 1.35;
-}
+      flex-shrink: 0;
 
-.insight-data-item p {
-  margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  color: var(--body);
+      border-radius: 8px;
 
-  font-size: 13px;
-  line-height: 1.5;
-}
+      background: var(--lime);
+      color: var(--purple-deep);
 
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-/* =========================================================
-   TREND SECTIONS
-========================================================= */
 
-.insight-trend {
-  padding: 92px 0;
-  background: var(--white);
-}
+    /* =====================================================
+       STAT BOX
+    ===================================================== */
 
-.insight-trend.alt {
-  background: var(--off-white);
-}
+    .stat-box {
+      display: grid;
 
-.insight-trend.soft {
-  background:
-    linear-gradient(
-      180deg,
-      #FAF9FC 0%,
-      #F5F0FF 100%
-    );
-}
+      grid-template-columns: repeat(2,1fr);
 
-.insight-trend-grid {
-  display: grid;
-  grid-template-columns: 74px 1fr;
-  gap: 34px;
-}
+      gap: 18px;
+    }
 
-.insight-trend-number {
-  width: 58px;
-  height: 58px;
+    .stat {
+      background:
+        linear-gradient(
+          180deg,
+          var(--light-green-1),
+          var(--light-green-2)
+        );
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      border-radius: 28px;
 
-  background: linear-gradient(
-    0deg,
-    var(--purple-dark),
-    var(--purple)
-  );
+      padding: 32px 28px;
+    }
 
-  color: var(--white);
+    .stat .num {
+      font-family: var(--font-display);
 
-  border-radius: 18px;
+      font-size: 52px;
+      font-weight: 700;
 
-  font-size: 15px;
-  font-weight: 800;
+      line-height: 1;
 
-  box-shadow: 0 10px 25px rgba(85, 28, 175, .15);
-}
+      color: var(--purple-dark);
 
-.insight-trend-content {
-  max-width: 900px;
-}
+      margin-bottom: 14px;
+    }
 
-.insight-trend-label {
-  display: inline-block;
+    .stat p {
+      font-family: var(--font-sub);
 
-  margin-bottom: 15px;
+      font-size: 14px;
+      font-weight: 600;
 
-  color: var(--purple-dark);
+      color: var(--body);
+    }
 
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: .09em;
-}
 
-.insight-trend h2 {
-  max-width: 850px;
+    /* =====================================================
+       SOLUTION GRID
+    ===================================================== */
 
-  margin: 0 0 22px;
+    .solution-grid {
+      display: grid;
 
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.12;
-  letter-spacing: -.035em;
-  font-weight: 760;
-}
+      grid-template-columns: repeat(2,1fr);
 
-.insight-trend h2 span {
-  color: var(--purple);
-}
+      gap: 20px;
+    }
 
-.insight-trend p {
-  max-width: 820px;
+    .solution {
+      position: relative;
 
-  margin: 0 0 17px;
+      background: var(--white);
 
-  color: var(--body);
+      border: 1px solid var(--purple-line);
 
-  font-size: 15.5px;
-  line-height: 1.75;
-}
+      border-radius: 28px;
 
-.insight-trend p:last-child {
-  margin-bottom: 0;
-}
+      padding: 32px;
 
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+    }
 
-/* =========================================================
-   AI SECTION
-========================================================= */
+    .solution:hover {
+      transform: translateY(-5px);
 
-.insight-ai-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+      border-color: var(--purple);
 
-  margin-top: 34px;
-}
+      box-shadow:
+        0 18px 40px rgba(85,28,175,.10);
+    }
 
-.insight-ai-card {
-  padding: 27px;
+    .solution-number {
+      font-family: var(--font-display);
 
-  background: var(--white);
+      font-size: 13px;
+      font-weight: 700;
 
-  border: 1px solid var(--purple-line);
-  border-radius: 23px;
-}
+      color: var(--purple);
 
-.insight-ai-card.highlight {
-  background: var(--purple-deep);
-  border-color: var(--purple-deep);
-  color: var(--white);
-}
+      margin-bottom: 18px;
+    }
 
-.insight-ai-card-label {
-  margin-bottom: 20px;
+    .solution h3 {
+      font-family: var(--font-display);
 
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .08em;
+      font-size: 22px;
+      line-height: 1.25;
 
-  color: var(--purple-dark);
-}
+      margin-bottom: 12px;
+    }
 
-.insight-ai-card.highlight .insight-ai-card-label {
-  color: var(--lime);
-}
+    .solution p {
+      font-size: 14px;
+      line-height: 1.65;
+    }
 
-.insight-ai-card h3 {
-  margin: 0 0 10px;
 
-  font-size: 20px;
-  line-height: 1.25;
-}
+    /* =====================================================
+       RESULTS
+    ===================================================== */
 
-.insight-ai-card p {
-  margin: 0;
+    .results-section {
+      background:
+        linear-gradient(
+          180deg,
+          var(--off) 0%,
+          var(--purple-tint) 100%
+        );
 
-  font-size: 13.5px;
-  line-height: 1.6;
-}
+      padding: 105px 0;
+    }
 
-.insight-ai-card.highlight p {
-  color: rgba(255,255,255,.68);
-}
+    .results-title {
+      max-width: 700px;
 
+      margin-bottom: 48px;
+    }
 
-/* =========================================================
-   QUOTE
-========================================================= */
+    .results-title h2 {
+      font-family: var(--font-display);
 
-.insight-quote {
-  margin: 34px 0 0;
+      font-size: clamp(30px,4vw,44px);
 
-  padding: 25px 28px;
+      line-height: 1.15;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--light-green-1),
-      var(--light-green-2)
-    );
+      margin-bottom: 15px;
+    }
 
-  border-radius: 22px;
-}
+    .results-title p {
+      font-size: 16px;
+      color: var(--body);
+    }
 
-.insight-quote p {
-  margin: 0;
+    .results {
+      display: grid;
 
-  color: var(--purple-deep);
+      grid-template-columns: repeat(3,1fr);
 
-  font-size: 19px;
-  line-height: 1.45;
-  font-weight: 700;
-  letter-spacing: -.015em;
-}
+      gap: 20px;
+    }
 
+    .result {
+      background: var(--white);
 
-/* =========================================================
-   EMPLOYER BRANDING
-========================================================= */
+      border-radius: 28px;
 
-.insight-touchpoints {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+      padding: 36px 30px;
 
-  margin-top: 36px;
-}
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
 
-.insight-touchpoint {
-  padding: 22px 19px;
+    .result:hover {
+      transform: translateY(-5px);
 
-  background: var(--white);
+      box-shadow:
+        0 18px 40px rgba(85,28,175,.10);
+    }
 
-  border-radius: 20px;
+    .result.featured {
+      background: var(--purple-deep);
 
-  border: 1px solid var(--purple-line);
-}
+      color: var(--white);
+    }
 
-.insight-touchpoint-number {
-  margin-bottom: 21px;
+    .result .big {
+      font-family: var(--font-display);
 
-  color: var(--purple);
+      font-size: clamp(48px,5vw,68px);
 
-  font-size: 11px;
-  font-weight: 800;
-}
+      font-weight: 700;
 
-.insight-touchpoint h3 {
-  margin: 0 0 7px;
+      line-height: 1;
 
-  font-size: 15px;
-  line-height: 1.3;
-}
+      color: var(--purple);
 
-.insight-touchpoint p {
-  margin: 0;
+      margin-bottom: 14px;
+    }
 
-  font-size: 12.5px;
-  line-height: 1.5;
-}
+    .result.featured .big {
+      color: var(--lime);
+    }
 
+    .result h3 {
+      font-family: var(--font-display);
 
-/* =========================================================
-   CANDIDATE EXPERIENCE
-========================================================= */
+      font-size: 22px;
 
-.insight-journey {
-  display: flex;
-  align-items: stretch;
+      margin-bottom: 10px;
+    }
 
-  margin-top: 38px;
-}
+    .result p {
+      font-size: 14px;
+      line-height: 1.6;
 
-.insight-journey-item {
-  position: relative;
+      color: var(--body);
+    }
 
-  flex: 1;
+    .result.featured p {
+      color: rgba(255,255,255,.7);
+    }
 
-  padding: 25px 21px;
 
-  background: var(--white);
+    /* =====================================================
+       QUOTE
+    ===================================================== */
 
-  border: 1px solid var(--purple-line);
-}
+    .quote-section {
+      background: var(--white);
 
-.insight-journey-item:first-child {
-  border-radius: 22px 0 0 22px;
-}
+      padding: 105px 0;
+    }
 
-.insight-journey-item:last-child {
-  border-radius: 0 22px 22px 0;
-}
+    .quote-wrap {
+      max-width: 850px;
+      margin: 0 auto;
 
-.insight-journey-item + .insight-journey-item {
-  border-left: 0;
-}
+      text-align: center;
+    }
 
-.insight-journey-step {
-  margin-bottom: 17px;
+    .quote {
+      font-family: var(--font-sub);
 
-  color: var(--purple);
+      font-size: clamp(24px,3vw,34px);
 
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .07em;
-}
+      line-height: 1.45;
 
-.insight-journey-item h3 {
-  margin: 0 0 8px;
+      font-weight: 700;
 
-  font-size: 15px;
-  line-height: 1.3;
-}
+      color: var(--purple-deep);
 
-.insight-journey-item p {
-  margin: 0;
+      margin: 22px 0 22px;
+    }
 
-  font-size: 12.5px;
-  line-height: 1.5;
-}
+    .source {
+      font-size: 13px;
 
+      color: #8A8495;
+    }
 
-/* =========================================================
-   TALENT PIPELINE
-========================================================= */
 
-.insight-pipeline {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    /* =====================================================
+       CTA
+    ===================================================== */
 
-  gap: 17px;
+    .story-cta {
+      position: relative;
 
-  margin-top: 38px;
-}
+      overflow: hidden;
 
-.insight-pipeline-card {
-  padding: 29px;
+      background: var(--purple-deep);
 
-  border-radius: 25px;
+      color: var(--white);
 
-  background: var(--white);
+      padding: 95px 0;
+    }
 
-  border: 1px solid var(--purple-line);
-}
+    .story-cta::before {
+      content: "";
 
-.insight-pipeline-card.dark {
-  background: var(--purple-deep);
-  color: var(--white);
-  border-color: var(--purple-deep);
-}
+      position: absolute;
 
-.insight-pipeline-number {
-  margin-bottom: 32px;
+      width: 520px;
+      height: 520px;
 
-  color: var(--purple-dark);
+      right: -220px;
+      top: -300px;
 
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .08em;
-}
+      border: 70px solid rgba(147,69,255,.25);
 
-.insight-pipeline-card.dark .insight-pipeline-number {
-  color: var(--lime);
-}
+      border-radius: 50%;
+    }
 
-.insight-pipeline-card h3 {
-  margin: 0 0 11px;
+    .cta-inner {
+      position: relative;
+      z-index: 2;
 
-  font-size: 21px;
-  line-height: 1.25;
-}
+      max-width: 760px;
 
-.insight-pipeline-card p {
-  margin: 0;
+      margin: 0 auto;
 
-  font-size: 13.5px;
-  line-height: 1.6;
-}
+      text-align: center;
+    }
 
-.insight-pipeline-card.dark p {
-  color: rgba(255,255,255,.67);
-}
+    .cta-inner h2 {
+      font-family: var(--font-display);
 
+      font-size: clamp(32px,4vw,48px);
 
-/* =========================================================
-   RELATED INSIGHT
-========================================================= */
+      line-height: 1.15;
 
-.insight-related {
-  padding: 76px 0 86px;
-  background: var(--white);
-}
+      margin-bottom: 18px;
+    }
 
-.insight-related-heading {
-  margin-bottom: 20px;
+    .cta-inner p {
+      color: rgba(255,255,255,.7);
 
-  color: var(--muted);
+      font-size: 16px;
 
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+      margin-bottom: 30px;
+    }
 
-.insight-related-card {
-  position: relative;
+    .btn {
+      display: inline-block;
 
-  display: block;
-  max-width: 760px;
+      background: var(--lime);
 
-  padding: 27px 27px 30px;
+      color: var(--purple-deep);
 
-  background: var(--white);
+      font-family: var(--font-sub);
 
-  border: 1px solid #E9E4EF;
-  border-radius: 24px;
+      font-size: 15px;
+      font-weight: 700;
 
-  box-shadow:
-    0 18px 45px rgba(47, 18, 92, .07);
+      padding: 15px 28px;
 
-  overflow: hidden;
+      border-radius: 999px;
 
-  text-decoration: none;
-  color: inherit;
+      transition:
+        transform .2s ease,
+        background .2s ease;
+    }
 
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #EBF13B;
+    }
 
-.insight-related-card:hover {
-  transform: translateY(-3px);
 
-  box-shadow:
-    0 22px 50px rgba(47, 18, 92, .11);
-}
+    /* =====================================================
+       UPZI CONTACT
+       Frame 2 style - contact block before footer bottom
+    ===================================================== */
 
-.insight-related-card::after {
-  content: "";
+    .upzi-contact {
+      background: var(--white);
 
-  position: absolute;
+      padding: 64px 0 58px;
 
-  width: 110px;
-  height: 110px;
+      border-bottom: 1px solid #EAE5F3;
+    }
 
-  right: -35px;
-  bottom: -45px;
+    .upzi-contact-inner {
+      display: grid;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(224,231,34,.12),
-      rgba(137,191,0,.16)
-    );
+      grid-template-columns: 1.15fr .85fr .85fr;
 
-  border-radius: 50%;
-}
+      gap: 55px;
 
-.insight-related-date {
-  margin-bottom: 13px;
+      align-items: start;
+    }
 
-  color: var(--purple);
+    .upzi-contact-brand {
+      max-width: 360px;
+    }
 
-  font-size: 11px;
-  font-weight: 700;
-}
+    .upzi-contact-logo {
+      font-family: var(--font-display);
 
-.insight-related-card h3 {
-  max-width: 650px;
+      font-size: 25px;
+      font-weight: 800;
 
-  margin: 0 0 13px;
+      color: var(--purple-dark);
 
-  font-size: 25px;
-  line-height: 1.2;
-  letter-spacing: -.025em;
-}
+      letter-spacing: -.03em;
 
-.insight-related-card p {
-  max-width: 610px;
+      margin-bottom: 14px;
+    }
 
-  margin: 0 0 20px;
+    .upzi-contact-intro {
+      color: var(--body);
 
-  color: var(--body);
+      font-size: 13.5px;
 
-  font-size: 14px;
-  line-height: 1.65;
-}
+      line-height: 1.7;
 
-.insight-related-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+      margin-bottom: 18px;
+    }
 
-  color: var(--purple);
+    .upzi-contact-heading {
+      font-family: var(--font-sub);
 
-  text-decoration: none;
+      font-size: 11px;
 
-  font-size: 13px;
-  font-weight: 700;
-}
+      font-weight: 800;
 
-.insight-related-link:hover {
-  color: var(--purple-dark);
-}
+      text-transform: uppercase;
 
+      letter-spacing: .07em;
 
-/* =========================================================
-   UPZI CTA FOOTER
-========================================================= */
+      color: var(--muted);
 
-.insight-footer {
-  position: relative;
+      margin-bottom: 12px;
+    }
 
-  padding: 92px 0;
+    .upzi-contact-list {
+      list-style: none;
 
-  background: var(--purple-deep);
+      display: flex;
+      flex-direction: column;
 
-  color: var(--white);
+      gap: 8px;
+    }
 
-  overflow: hidden;
-}
+    .upzi-contact-list li {
+      color: var(--body);
 
-.insight-footer::before {
-  content: "";
+      font-size: 13.5px;
 
-  position: absolute;
+      line-height: 1.6;
+    }
 
-  width: 460px;
-  height: 460px;
+    .upzi-contact-list a {
+      transition: color .2s ease;
+    }
 
-  right: -95px;
-  top: -300px;
+    .upzi-contact-list a:hover {
+      color: var(--purple);
+    }
 
-  border: 1px solid rgba(147,69,255,.45);
-  border-radius: 50%;
-}
+    .upzi-contact-cta {
+      display: inline-flex;
 
-.insight-footer::after {
-  content: "";
+      align-items: center;
+      justify-content: center;
 
-  position: absolute;
+      margin-top: 8px;
 
-  width: 310px;
-  height: 310px;
+      padding: 11px 20px;
 
-  right: -10px;
-  top: -220px;
+      background:
+        linear-gradient(
+          0deg,
+          var(--purple-dark),
+          var(--purple)
+        );
 
-  border: 1px solid rgba(147,69,255,.4);
-  border-radius: 50%;
-}
+      color: var(--white);
 
-.insight-footer-inner {
-  position: relative;
-  z-index: 2;
+      border-radius: 999px;
 
-  max-width: 850px;
+      font-family: var(--font-sub);
 
-  margin: 0 auto;
+      font-size: 13px;
 
-  text-align: center;
-}
+      font-weight: 700;
 
-.insight-footer h2 {
-  max-width: 800px;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
 
-  margin: 0 auto 20px;
+    .upzi-contact-cta:hover {
+      transform: translateY(-2px);
 
-  color: var(--white);
+      box-shadow:
+        0 10px 24px rgba(85,28,175,.18);
+    }
 
-  font-size: clamp(35px, 5vw, 52px);
-  line-height: 1.08;
-  letter-spacing: -.04em;
-  font-weight: 780;
-}
 
-.insight-footer-desc {
-  max-width: 690px;
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
-  margin: 0 auto 30px;
+    footer {
+      background: var(--off);
 
-  color: rgba(255,255,255,.68);
+      padding: 38px 0 24px;
+    }
 
-  font-size: 15.5px;
-  line-height: 1.65;
-}
+    .footer-top {
+      display: flex;
 
-.insight-footer-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+      justify-content: space-between;
 
-  min-height: 55px;
+      flex-wrap: wrap;
 
-  padding: 0 28px;
+      gap: 30px;
 
-  background: var(--lime);
-  color: var(--purple-deep);
+      padding-bottom: 25px;
 
-  border-radius: 999px;
+      border-bottom: 1px solid #E6E1EF;
+    }
 
-  text-decoration: none;
+    .footer-logo {
+      font-family: var(--font-display);
 
-  font-size: 14px;
-  font-weight: 800;
+      font-size: 21px;
+      font-weight: 700;
 
-  transition:
-    transform .2s ease,
-    background .2s ease;
-}
+      color: var(--purple-dark);
 
-.insight-footer-button:hover {
-  transform: translateY(-2px);
+      margin-bottom: 8px;
+    }
 
-  background: #EBF13B;
-}
+    .footer-col {
+      font-size: 13px;
 
+      color: #7A7488;
 
-/* =========================================================
-   FOOTER BOTTOM
-========================================================= */
+      line-height: 1.75;
+    }
 
-.insight-footer-bottom {
-  position: relative;
-  z-index: 2;
+    .footer-col h4 {
+      font-family: var(--font-sub);
 
-  padding: 20px 0;
+      font-size: 11px;
 
-  background: var(--white);
+      text-transform: uppercase;
 
-  border-top: 1px solid rgba(255,255,255,.08);
-}
+      letter-spacing: .06em;
 
-.insight-footer-bottom-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
+      color: #A49DB4;
 
-.insight-footer-brand {
-  color: var(--purple);
+      margin-bottom: 8px;
+    }
 
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -.03em;
-}
+    .footer-col a {
+      transition: color .2s ease;
+    }
 
-.insight-footer-copy {
-  color: #A09AA9;
+    .footer-col a:hover {
+      color: var(--purple);
+    }
 
-  font-size: 10px;
-  line-height: 1.4;
-  text-align: right;
-}
+    .footer-bottom {
+      display: flex;
 
+      align-items: center;
+      justify-content: space-between;
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+      gap: 20px;
 
-@media (max-width: 900px) {
+      padding-top: 20px;
 
-  .insight-opening-grid {
-    grid-template-columns: 1fr;
-  }
+      font-size: 12px;
 
-  .insight-data-box {
-    grid-template-columns: 1fr;
-  }
+      color: #A49DB4;
+    }
 
-  .insight-touchpoints {
-    grid-template-columns: 1fr 1fr;
-  }
+    .footer-bottom-brand {
+      font-family: var(--font-display);
 
-  .insight-journey {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+      color: var(--purple);
 
-  .insight-journey-item:first-child {
-    border-radius: 22px 0 0 0;
-  }
+      font-size: 15px;
 
-  .insight-journey-item:nth-child(2) {
-    border-radius: 0 22px 0 0;
-  }
+      font-weight: 800;
 
-  .insight-journey-item:nth-child(3) {
-    border-left: 1px solid var(--purple-line);
-    border-top: 0;
-    border-radius: 0 0 0 22px;
-  }
+      letter-spacing: -.03em;
+    }
 
-  .insight-journey-item:last-child {
-    border-radius: 0 0 22px 0;
-  }
+    .footer-bottom-copy {
+      text-align: right;
+    }
 
-  .insight-journey-item + .insight-journey-item {
-    border-left: 1px solid var(--purple-line);
-  }
 
-}
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
 
-@media (max-width: 650px) {
+    @media (max-width: 850px) {
 
-  .insight-container {
-    width: min(100% - 32px, 1120px);
-  }
+      .section-grid {
+        grid-template-columns: 1fr;
 
-  .insight-back {
-    padding-top: 20px;
-  }
+        gap: 35px;
+      }
 
-  .insight-intro {
-    padding: 50px 0 60px;
-  }
+      .results {
+        grid-template-columns: 1fr;
+      }
 
-  .insight-intro h1 {
-    font-size: 39px;
-  }
+      .solution-grid {
+        grid-template-columns: 1fr;
+      }
 
-  .insight-intro-desc {
-    font-size: 15px;
-  }
+      .upzi-contact-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+      }
 
-  .insight-opening,
-  .insight-data-strip,
-  .insight-trend,
-  .insight-related,
-  .insight-footer {
-    padding-top: 65px;
-    padding-bottom: 65px;
-  }
+      .upzi-contact-brand {
+        grid-column: 1 / -1;
+        max-width: 600px;
+      }
 
-  .insight-opening-card {
-    padding: 30px;
-  }
+    }
 
-  .insight-opening-big {
-    font-size: 27px;
-  }
 
-  .insight-data-item {
-    padding: 27px;
-  }
+    @media (max-width: 560px) {
 
-  .insight-data-number {
-    font-size: 36px;
-  }
+      .wrap {
+        padding: 0 20px;
+      }
 
-  .insight-trend-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+      .nav-inner {
+        padding: 14px 20px;
+      }
 
-  .insight-trend-number {
-    width: 52px;
-    height: 52px;
+      .story-hero {
+        padding: 65px 0 75px;
+      }
 
-    border-radius: 16px;
+      .story-hero h1 {
+        font-size: 40px;
+      }
 
-    font-size: 13px;
-  }
+      .hero-lead {
+        font-size: 16px;
+      }
 
-  .insight-trend h2 {
-    font-size: 31px;
-  }
+      .story-section,
+      .results-section,
+      .quote-section,
+      .story-cta {
+        padding: 70px 0;
+      }
 
-  .insight-trend p {
-    font-size: 15px;
-  }
+      .stat-box {
+        grid-template-columns: 1fr;
+      }
 
-  .insight-ai-layout,
-  .insight-pipeline {
-    grid-template-columns: 1fr;
-  }
+      .challenge-card {
+        padding: 30px 25px;
+      }
 
-  .insight-touchpoints {
-    grid-template-columns: 1fr;
-  }
+      .solution {
+        padding: 27px 24px;
+      }
 
-  .insight-journey {
-    display: flex;
-    flex-direction: column;
-  }
+      .result {
+        padding: 30px 25px;
+      }
 
-  .insight-journey-item,
-  .insight-journey-item:first-child,
-  .insight-journey-item:nth-child(2),
-  .insight-journey-item:nth-child(3),
-  .insight-journey-item:last-child {
-    border: 1px solid var(--purple-line);
-    border-radius: 20px;
-  }
+      .meta {
+        gap: 7px;
+      }
 
-  .insight-journey-item + .insight-journey-item {
-    border-top: 0;
-    border-radius: 0;
-  }
+      .meta span {
+        font-size: 11px;
+      }
 
-  .insight-journey-item:first-child {
-    border-radius: 20px 20px 0 0;
-  }
+      .upzi-contact {
+        padding: 55px 0 45px;
+      }
 
-  .insight-journey-item:last-child {
-    border-radius: 0 0 20px 20px;
-  }
+      .upzi-contact-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
 
-  .insight-related-card {
-    padding: 24px;
-  }
+      .upzi-contact-brand {
+        grid-column: auto;
+      }
 
-  .insight-related-card h3 {
-    font-size: 22px;
-  }
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
 
-  .insight-footer h2 {
-    font-size: 36px;
-  }
+      .footer-bottom-copy {
+        text-align: left;
+      }
 
-  .insight-footer-desc {
-    font-size: 14px;
-  }
+    }
 
-  .insight-footer-bottom-inner {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+  </style>
+</head>
 
-  .insight-footer-copy {
-    text-align: left;
-  }
 
-}
-</style>
-
-
-<div class="insight-page">
+<body>
 
 
   <!-- =====================================================
-       BACK TO INSIGHTS
-  ====================================================== -->
+       NAV
+  ===================================================== -->
 
-  <section class="insight-back">
+  <div class="nav">
 
-    <div class="insight-container">
+    <div class="wrap nav-inner">
 
-      <a href="https://upzi-vn.github.io/staging/dung/#insights">
-        - Quay lại Insights
+      <a href="{{ '/' | relative_url }}" class="logo">
+        upzi
+      </a>
+
+      <a
+        href="{{ '/' | relative_url }}#leadform"
+        class="nav-cta"
+      >
+        Tư vấn miễn phí
       </a>
 
     </div>
 
-  </section>
+  </div>
+
 
 
   <!-- =====================================================
-       ARTICLE INTRO
-  ====================================================== -->
+       HERO
+  ===================================================== -->
 
-  <section class="insight-intro">
+  <section class="story-hero">
 
-    <div class="insight-container">
+    <div class="wrap">
 
-      <div class="insight-intro-inner">
+      <div class="story-hero-inner">
 
-        <div class="insight-eyebrow">
-          INSIGHT · RECRUITMENT 2026
+        <div class="eyebrow">
+          {{ page.category | default: "Success Story" }}
         </div>
 
         <h1>
-          5 xu hướng ứng viên trẻ đang thay đổi
-          <span>cách doanh nghiệp tuyển dụng trong 2026</span>
+          {{ page.title }}
         </h1>
 
-        <p class="insight-intro-desc">
-          Từ cách tìm việc, đánh giá doanh nghiệp đến cách chuẩn bị cho sự nghiệp,
-          hành vi của ứng viên trẻ đang thay đổi nhanh chóng.
+        {% if page.description %}
+        <p class="hero-lead">
+          {{ page.description }}
         </p>
+        {% endif %}
 
-        <div class="insight-meta">
-          <span>Young Talent</span>
-          <span>Intern & Fresher</span>
-          <span>2026</span>
-        </div>
+        <div class="meta">
 
-      </div>
+          {% if page.industry %}
+          <span>
+            Ngành: {{ page.industry }}
+          </span>
+          {% endif %}
 
-    </div>
+          {% if page.target %}
+          <span>
+            Đối tượng: {{ page.target }}
+          </span>
+          {% endif %}
 
-  </section>
+          {% if page.market %}
+          <span>
+            Thị trường: {{ page.market }}
+          </span>
+          {% endif %}
 
-
-  <!-- =====================================================
-       OPENING
-  ====================================================== -->
-
-  <section class="insight-opening">
-
-    <div class="insight-container">
-
-      <div class="insight-opening-grid">
-
-        <div class="insight-opening-copy">
-
-          <p>
-            Theo khảo sát của Navigos Group, Gen Z chiếm
-            <strong>23,73%</strong> số ứng viên/người lao động tham gia khảo sát.
-          </p>
-
-          <p>
-            Trong đó, <strong>4,16% là Fresher/Entry-level</strong> và
-            <strong>2,79% là Intern</strong> - những nhóm đang ở giai đoạn đầu
-            của hành trình nghề nghiệp.
-          </p>
-
-          <p>
-            Với nhóm này, tìm việc không chỉ là tìm một vị trí phù hợp.
-            Họ đang thay đổi cách <strong>tìm kiếm, đánh giá và lựa chọn
-            cơ hội nghề nghiệp</strong>.
-          </p>
-
-          <p>
-            Đây cũng là nhóm talent Upzi tập trung đồng hành.
-          </p>
-
-        </div>
-
-
-        <div class="insight-opening-card">
-
-          <div class="insight-opening-card-content">
-
-            <div class="insight-opening-mini">
-              THE YOUNG TALENT SHIFT
-            </div>
-
-            <div class="insight-opening-big">
-              Ứng viên trẻ đang thay đổi
-              <span>cách doanh nghiệp cần tuyển dụng.</span>
-            </div>
-
-            <div class="insight-opening-note">
-              5 thay đổi đáng chú ý trong hành vi của Intern & Fresher.
-            </div>
-
-          </div>
+          {% if page.period %}
+          <span>
+            Thời gian: {{ page.period }}
+          </span>
+          {% endif %}
 
         </div>
 
@@ -1270,620 +1180,42 @@
   </section>
 
 
+
   <!-- =====================================================
-       KEY DATA
-  ====================================================== -->
+       ARTICLE CONTENT
+  ===================================================== -->
 
-  <section class="insight-data-strip">
+  <main class="story-content">
 
-    <div class="insight-container">
+    {{ content }}
 
-      <div class="insight-data-box">
+  </main>
 
-        <div class="insight-data-item">
-
-          <div class="insight-data-number">
-            23,73%
-          </div>
-
-          <h3>
-            Gen Z trong nhóm khảo sát
-          </h3>
-
-          <p>
-            Nhóm ứng viên trẻ ngày càng quan trọng trên thị trường lao động.
-          </p>
-
-        </div>
-
-
-        <div class="insight-data-item">
-
-          <div class="insight-data-number">
-            4,16%
-          </div>
-
-          <h3>
-            Fresher / Entry-level
-          </h3>
-
-          <p>
-            Những talent đang bắt đầu hành trình nghề nghiệp.
-          </p>
-
-        </div>
-
-
-        <div class="insight-data-item">
-
-          <div class="insight-data-number">
-            2,79%
-          </div>
-
-          <h3>
-            Intern
-          </h3>
-
-          <p>
-            Nhóm ứng viên đang xây dựng trải nghiệm nghề nghiệp đầu tiên.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
 
 
   <!-- =====================================================
-       TREND 01
-  ====================================================== -->
+       CTA
+  ===================================================== -->
 
-  <section class="insight-trend">
+  <section class="story-cta">
 
-    <div class="insight-container">
+    <div class="wrap">
 
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          01
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            AI & RECRUITMENT
-          </div>
-
-          <h2>
-            AI đang thay đổi cách ứng viên tìm việc
-            <span>- và cách HR nhìn nhận hồ sơ</span>
-          </h2>
-
-          <p>
-            AI đang trở thành một phần quen thuộc trong quá trình tìm việc.
-            <strong>52,33%</strong> ứng viên sử dụng AI để viết hoặc chỉnh sửa
-            CV/cover letter.
-          </p>
-
-          <p>
-            Khi hồ sơ ngày càng dễ được tạo ra chỉn chu, một CV đẹp không còn
-            đủ để cho thấy ứng viên có thực sự phù hợp hay không.
-          </p>
-
-          <div class="insight-ai-layout">
-
-            <div class="insight-ai-card">
-
-              <div class="insight-ai-card-label">
-                ỨNG VIÊN
-              </div>
-
-              <h3>
-                Hồ sơ ngày càng chỉn chu
-              </h3>
-
-              <p>
-                AI giúp chuẩn bị và cá nhân hóa hồ sơ nhanh hơn.
-              </p>
-
-            </div>
-
-
-            <div class="insight-ai-card highlight">
-
-              <div class="insight-ai-card-label">
-                BÀI TOÁN CỦA HR
-              </div>
-
-              <h3>
-                Chỉn chu không đồng nghĩa với phù hợp
-              </h3>
-
-              <p>
-                Doanh nghiệp cần nhìn sâu hơn vào năng lực và tiềm năng.
-              </p>
-
-            </div>
-
-          </div>
-
-          <div class="insight-quote">
-
-            <p>
-              "Một CV được trình bày tốt chưa chắc đồng nghĩa với một ứng viên phù hợp."
-            </p>
-
-          </div>
-
-          <p style="margin-top:28px;">
-            Đặc biệt với Intern & Fresher, khi kinh nghiệm còn hạn chế,
-            kỹ năng, tiềm năng và mức độ phù hợp càng trở nên quan trọng.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       TREND 02
-  ====================================================== -->
-
-  <section class="insight-trend alt">
-
-    <div class="insight-container">
-
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          02
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            CAREER VALUE
-          </div>
-
-          <h2>
-            Ứng viên trẻ đánh giá cơ hội nghề nghiệp
-            <span>bằng giá trị dài hạn</span>
-          </h2>
-
-          <p>
-            Một công việc phù hợp ngày càng được nhìn nhận bằng nhiều yếu tố
-            hơn mức lương.
-          </p>
-
-          <p>
-            Theo khảo sát nội bộ của Navigos, <strong>24,71%</strong> người lao động
-            cho biết thiếu cơ hội học hỏi và phát triển là một trong những lý do
-            khiến họ cân nhắc nghỉ việc.
-          </p>
-
-          <div class="insight-quote">
-
-            <p>
-              "Công việc này giúp tôi phát triển như thế nào?"
-            </p>
-
-          </div>
-
-          <p style="margin-top:28px;">
-            Với Intern & Fresher, môi trường, cơ hội học hỏi và khả năng phát triển
-            có thể là những tín hiệu quan trọng để họ lựa chọn doanh nghiệp.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       TREND 03
-  ====================================================== -->
-
-  <section class="insight-trend soft">
-
-    <div class="insight-container">
-
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          03
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            EMPLOYER BRANDING
-          </div>
-
-          <h2>
-            Employer Branding trở thành
-            <span>một phần của chiến lược tuyển dụng</span>
-          </h2>
-
-          <p>
-            Ứng viên có thể tìm hiểu doanh nghiệp trước cả khi họ nhìn thấy một JD.
-          </p>
-
-          <p>
-            Social media, nhân viên hiện tại, trường đại học, cộng đồng nghề nghiệp
-            và nội dung doanh nghiệp chia sẻ đều có thể trở thành điểm chạm.
-          </p>
-
-          <div class="insight-touchpoints">
-
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                01
-              </div>
-
-              <h3>
-                Social
-              </h3>
-
-              <p>
-                Doanh nghiệp xuất hiện như thế nào?
-              </p>
-
-            </div>
-
-
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                02
-              </div>
-
-              <h3>
-                Nhân viên
-              </h3>
-
-              <p>
-                Trải nghiệm thực tế nói gì?
-              </p>
-
-            </div>
-
-
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                03
-              </div>
-
-              <h3>
-                Trường đại học
-              </h3>
-
-              <p>
-                Talent trẻ gặp doanh nghiệp ở đâu?
-              </p>
-
-            </div>
-
-
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                04
-              </div>
-
-              <h3>
-                Cộng đồng
-              </h3>
-
-              <p>
-                Ứng viên khám phá cơ hội ở đâu?
-              </p>
-
-            </div>
-
-          </div>
-
-          <p style="margin-top:28px;">
-            Với Intern & Fresher, việc xuất hiện đúng nơi họ học tập,
-            tìm hiểu và khám phá cơ hội có thể tạo ra lợi thế đáng kể.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       TREND 04
-  ====================================================== -->
-
-  <section class="insight-trend alt">
-
-    <div class="insight-container">
-
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          04
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            CANDIDATE EXPERIENCE
-          </div>
-
-          <h2>
-            Candidate Experience trở thành
-            <span>một phần của năng lực tuyển dụng</span>
-          </h2>
-
-          <p>
-            Thu hút được ứng viên chỉ là bước đầu. Doanh nghiệp còn phải giữ họ
-            trong suốt quá trình tuyển dụng.
-          </p>
-
-          <div class="insight-journey">
-
-            <div class="insight-journey-item">
-
-              <div class="insight-journey-step">
-                STEP 01
-              </div>
-
-              <h3>
-                JD
-              </h3>
-
-              <p>
-                Đủ thông tin để hiểu cơ hội?
-              </p>
-
-            </div>
-
-
-            <div class="insight-journey-item">
-
-              <div class="insight-journey-step">
-                STEP 02
-              </div>
-
-              <h3>
-                Ứng tuyển
-              </h3>
-
-              <p>
-                Có đơn giản và dễ tiếp cận?
-              </p>
-
-            </div>
-
-
-            <div class="insight-journey-item">
-
-              <div class="insight-journey-step">
-                STEP 03
-              </div>
-
-              <h3>
-                Phỏng vấn
-              </h3>
-
-              <p>
-                Có phản ánh đúng doanh nghiệp?
-              </p>
-
-            </div>
-
-
-            <div class="insight-journey-item">
-
-              <div class="insight-journey-step">
-                STEP 04
-              </div>
-
-              <h3>
-                Phản hồi
-              </h3>
-
-              <p>
-                Có duy trì kết nối?
-              </p>
-
-            </div>
-
-          </div>
-
-          <p style="margin-top:28px;">
-            Với Intern & Fresher, trải nghiệm tuyển dụng có thể là một trong
-            những tín hiệu đầu tiên giúp họ đánh giá nơi mình có thể làm việc.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       TREND 05
-  ====================================================== -->
-
-  <section class="insight-trend">
-
-    <div class="insight-container">
-
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          05
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            TALENT PIPELINE
-          </div>
-
-          <h2>
-            Doanh nghiệp chuyển từ tuyển khi cần
-            <span>sang xây dựng nguồn talent từ sớm</span>
-          </h2>
-
-          <p>
-            Với nhân sự trẻ, doanh nghiệp không nhất thiết phải đợi đến khi
-            một vị trí trống mới bắt đầu tìm kiếm ứng viên.
-          </p>
-
-          <p>
-            <strong>60,4%</strong> doanh nghiệp nhận định cơ hội học hỏi và phát triển
-            là yếu tố Gen Z ưu tiên hàng đầu.
-          </p>
-
-          <div class="insight-pipeline">
-
-            <div class="insight-pipeline-card">
-
-              <div class="insight-pipeline-number">
-                CÁCH TIẾP CẬN CŨ
-              </div>
-
-              <h3>
-                Có vị trí trống → Tìm ứng viên
-              </h3>
-
-              <p>
-                Bắt đầu tuyển khi nhu cầu nhân sự đã phát sinh.
-              </p>
-
-            </div>
-
-
-            <div class="insight-pipeline-card dark">
-
-              <div class="insight-pipeline-number">
-                CÁCH TIẾP CẬN MỚI
-              </div>
-
-              <h3>
-                Talent pool → Chủ động tuyển dụng
-              </h3>
-
-              <p>
-                Xây dựng quan hệ với talent tiềm năng từ sớm.
-              </p>
-
-            </div>
-
-          </div>
-
-          <p style="margin-top:28px;">
-            Talent pipeline không chỉ là một danh sách ứng viên.
-            Đó là quá trình doanh nghiệp chủ động tiếp cận, xây dựng quan hệ
-            và phát triển nguồn talent theo nhu cầu dài hạn.
-          </p>
-
-          <div class="insight-quote">
-
-            <p>
-              "Ai có tiềm năng trở thành nhân sự phù hợp trong tương lai?"
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       RELATED INSIGHT
-  ====================================================== -->
-
-  <section class="insight-related">
-
-    <div class="insight-container">
-
-      <div class="insight-related-heading">
-        Có thể bạn quan tâm
-      </div>
-
-      <a
-        href="https://upzi-vn.github.io/staging/dung/bai-viet-dau-tien/"
-        class="insight-related-card"
-      >
-
-        <div class="insight-related-date">
-          10/08/2026 · UPZI INSIGHTS
-        </div>
-
-        <h3>
-          Gen Z tìm hiểu doanh nghiệp
-          từ rất lâu trước khi tìm việc
-        </h3>
-
-        <p>
-          Với Gen Z, hành trình tìm việc không bắt đầu từ lúc họ nhìn thấy
-          một tin tuyển dụng. Họ quan sát...
-        </p>
-
-        <span class="insight-related-link">
-          Đọc bài viết →
-        </span>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       UPZI CTA FOOTER
-  ====================================================== -->
-
-  <section class="insight-footer">
-
-    <div class="insight-container">
-
-      <div class="insight-footer-inner">
+      <div class="cta-inner">
 
         <h2>
           Đang gặp bài toán tuyển Fresher
           hoặc nhân sự trẻ?
         </h2>
 
-        <p class="insight-footer-desc">
+        <p>
           Khám phá cách Upzi có thể giúp doanh nghiệp
           tiếp cận nguồn ứng viên trẻ phù hợp hơn.
         </p>
 
         <a
-          href="#contact"
-          class="insight-footer-button"
+          class="btn"
+          href="{{ '/' | relative_url }}#leadform"
         >
           Trao đổi với Upzi
         </a>
@@ -1895,29 +1227,194 @@
   </section>
 
 
+
   <!-- =====================================================
-       FOOTER BOTTOM
-  ====================================================== -->
+       CONTACT UPZI
+       Added from Frame 2 structure
+  ===================================================== -->
 
-  <div class="insight-footer-bottom">
+  <section class="upzi-contact">
 
-    <div class="insight-container">
+    <div class="wrap">
 
-      <div class="insight-footer-bottom-inner">
+      <div class="upzi-contact-inner">
 
-        <div class="insight-footer-brand">
+
+        <!-- BRAND -->
+
+        <div class="upzi-contact-brand">
+
+          <div class="upzi-contact-logo">
+            upzi
+          </div>
+
+          <p class="upzi-contact-intro">
+            Nền tảng tuyển dụng giúp doanh nghiệp
+            tiếp cận và xây dựng nguồn nhân sự trẻ
+            phù hợp hơn.
+          </p>
+
+          <a
+            href="{{ '/' | relative_url }}#leadform"
+            class="upzi-contact-cta"
+          >
+            Liên hệ Upzi
+          </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div>
+
+          <div class="upzi-contact-heading">
+            Liên hệ
+          </div>
+
+          <ul class="upzi-contact-list">
+
+            <li>
+              Hotline:
+              <a href="tel:02873058500">
+                028 7305 8500
+              </a>
+            </li>
+
+            <li>
+              Zalo:
+              <a href="https://zalo.me/0703377017" target="_blank" rel="noopener">
+                070 3377 017
+              </a>
+            </li>
+
+            <li>
+              Email:
+              <a href="mailto:upzi-support@navigosgroup.com">
+                upzi-support@navigosgroup.com
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- CONNECT -->
+
+        <div>
+
+          <div class="upzi-contact-heading">
+            Kết nối
+          </div>
+
+          <ul class="upzi-contact-list">
+
+            <li>
+              <a
+                href="https://facebook.com/UpziFanpage"
+                target="_blank"
+                rel="noopener"
+              >
+                Facebook
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       FOOTER
+    ===================================================== -->
+
+  <footer>
+
+    <div class="wrap">
+
+      <div class="footer-top">
+
+        <div class="footer-col">
+
+          <div class="footer-logo">
+            upzi
+          </div>
+
+          <p>
+            Một sản phẩm của Công Ty Cổ Phần
+            Navigos Group Việt Nam.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Liên hệ
+          </h4>
+
+          <p>
+            Hotline: 028 7305 8500
+          </p>
+
+          <p>
+            Zalo: 070 3377 017
+          </p>
+
+          <p>
+            Email: upzi-support@navigosgroup.com
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Kết nối
+          </h4>
+
+          <p>
+            <a
+              href="https://facebook.com/UpziFanpage"
+              target="_blank"
+              rel="noopener"
+            >
+              Facebook
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <div class="footer-bottom-brand">
           upzi
         </div>
 
-        <div class="insight-footer-copy">
-          © 2026 Upzi · A Navigos Group product
+        <div class="footer-bottom-copy">
+          © 2026 Upzi - Member of Navigos Group. All rights reserved.
         </div>
 
       </div>
 
     </div>
 
-  </div>
+  </footer>
 
 
-</div>
+</body>
+</html>
