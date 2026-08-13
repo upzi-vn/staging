@@ -99,15 +99,15 @@ date: 2026-08-13
 
   </div>
 
-</>
+</section>
 
 
 
-< class="story- off">
+<section class="story-section off">
 
   <div class="wrap">
 
-    <div class="-grid">
+    <div class="section-grid">
 
       <div>
 
@@ -170,15 +170,15 @@ date: 2026-08-13
 
   </div>
 
-</>
+</section>
 
 
 
-< class="story- white">
+<section class="story-section white">
 
   <div class="wrap">
 
-    <div class="-head">
+    <div class="section-head">
 
       <div class="eyebrow-light">
         Giải pháp
@@ -277,11 +277,11 @@ date: 2026-08-13
 
   </div>
 
-</>
+</section>
 
 
 
-< class="results-">
+<section class="results-section">
 
   <div class="wrap">
 
@@ -363,15 +363,15 @@ date: 2026-08-13
 
   </div>
 
-</>
+</section>
 
 
 
-< class="story- off">
+<section class="story-section off">
 
   <div class="wrap">
 
-    <div class="-head">
+    <div class="section-head">
 
       <div class="eyebrow-light">
         Kết quả theo khu vực
@@ -389,119 +389,105 @@ date: 2026-08-13
     </div>
 
 
-    <div class="area-results-table">
+    <div class="solution-grid">
 
-  <div class="area-results-header">
+      <div class="solution">
 
-    <div>
-      Khu vực
-    </div>
+        <div class="solution-number">
+          01
+        </div>
 
-    <div>
-      Lượt xem
-    </div>
+        <h3>
+          Quận 6, 7, 8, Nhà Bè
+        </h3>
 
-    <div>
-      Hồ sơ
-    </div>
+        <p>
+          340 lượt xem · 7 hồ sơ ứng tuyển
+        </p>
 
-  </div>
-
-
-  <div class="area-results-row">
-
-    <div class="area-results-area">
-      Quận 6, 7, 8, Nhà Bè
-    </div>
-
-    <div class="area-results-value">
-      340
-    </div>
-
-    <div class="area-results-value">
-      7
-    </div>
-
-  </div>
+      </div>
 
 
-  <div class="area-results-row">
+      <div class="solution">
 
-    <div class="area-results-area">
-      Quận 10, 11, Gò Vấp, Tân Bình
-    </div>
+        <div class="solution-number">
+          02
+        </div>
 
-    <div class="area-results-value">
-      250
-    </div>
+        <h3>
+          Quận 1, 3, 4, 5, Phú Nhuận
+        </h3>
 
-    <div class="area-results-value">
-      9
-    </div>
+        <p>
+          285 lượt xem · 6 hồ sơ ứng tuyển
+        </p>
 
-  </div>
-
-
-  <div class="area-results-row">
-
-    <div class="area-results-area">
-      Quận 1, 3, 4, 5, Phú Nhuận
-    </div>
-
-    <div class="area-results-value">
-      285
-    </div>
-
-    <div class="area-results-value">
-      6
-    </div>
-
-  </div>
+      </div>
 
 
-  <div class="area-results-row">
+      <div class="solution">
 
-    <div class="area-results-area">
-      Bình Thạnh, Thủ Đức...
-    </div>
+        <div class="solution-number">
+          03
+        </div>
 
-    <div class="area-results-value">
-      235
-    </div>
+        <h3>
+          Toàn thành phố
+        </h3>
 
-    <div class="area-results-value">
-      8
-    </div>
+        <p>
+          180 lượt xem · 4 hồ sơ ứng tuyển
+        </p>
 
-  </div>
+      </div>
 
 
-  <div class="area-results-row">
+      <div class="solution">
 
-    <div class="area-results-area">
-      Toàn thành phố
-    </div>
+        <div class="solution-number">
+          04
+        </div>
 
-    <div class="area-results-value">
-      180
-    </div>
+        <h3>
+          Quận 10, 11, Gò Vấp, Tân Bình
+        </h3>
 
-    <div class="area-results-value">
-      4
+        <p>
+          250 lượt xem · 9 hồ sơ ứng tuyển
+        </p>
+
+      </div>
+
+
+      <div class="solution">
+
+        <div class="solution-number">
+          05
+        </div>
+
+        <h3>
+          Bình Thạnh, Thủ Đức...
+        </h3>
+
+        <p>
+          235 lượt xem · 8 hồ sơ ứng tuyển
+        </p>
+
+      </div>
+
     </div>
 
   </div>
 
-</div>
-</>
+</section>
 
 
 
-< class="story- white">
+<section class="story-section white">
 
   <div class="wrap">
 
-    <div class="-head">
+    <div class="section-head">
 
       <div class="eyebrow-light">
         Early Career Insight
@@ -594,11 +580,11 @@ date: 2026-08-13
 
   </div>
 
-</>
+</section>
 
 
 
-< class="quote-">
+<section class="quote-section">
 
   <div class="wrap">
 
@@ -622,7 +608,7 @@ date: 2026-08-13
 
   </div>
 
-</>
+</section>
 
 
 
@@ -658,7 +644,7 @@ date: 2026-08-13
 
   </div>
 
-</>
+</section>
 
 
 
@@ -685,101 +671,6 @@ date: 2026-08-13
 
   </div>
 
-</>
-<style>
-  /* =========================================================
-     AREA RESULTS TABLE
-  ========================================================= */
+</section>
 
-  .area-results-table {
-    width: 100%;
-    overflow: hidden;
 
-    background: #FFFFFF;
-
-    border: 1px solid #E6DAF8;
-    border-radius: 20px;
-  }
-
-  .area-results-header,
-  .area-results-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 150px 120px;
-    align-items: center;
-  }
-
-  .area-results-header {
-    padding: 16px 20px;
-
-    background: #F4EDFF;
-
-    color: #111111;
-
-    font-size: 13px;
-    font-weight: 800;
-  }
-
-  .area-results-row {
-    min-height: 66px;
-
-    padding: 0 20px;
-
-    border-top: 1px solid #E6DAF8;
-
-    background: #FFFFFF;
-
-    color: #4B5563;
-
-    font-size: 14px;
-  }
-
-  .area-results-row:hover {
-    background: #FAF8FD;
-  }
-
-  .area-results-area {
-    font-weight: 600;
-    color: #4B5563;
-  }
-
-  .area-results-value {
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 700;
-    color: #551CAF;
-  }
-
-  .area-results-header > div:nth-child(2),
-  .area-results-header > div:nth-child(3),
-  .area-results-row > .area-results-value {
-    text-align: center;
-  }
-
-  .area-results-header > div:first-child,
-  .area-results-row > .area-results-area {
-    text-align: left;
-  }
-
-  @media (max-width: 650px) {
-
-    .area-results-header,
-    .area-results-row {
-      grid-template-columns: minmax(0, 1fr) 80px 70px;
-    }
-
-    .area-results-header {
-      padding: 14px 15px;
-      font-size: 11px;
-    }
-
-    .area-results-row {
-      min-height: 62px;
-      padding: 0 15px;
-      font-size: 13px;
-    }
-
-    .area-results-value {
-      font-size: 17px;
-    }
-  }
-</style>
