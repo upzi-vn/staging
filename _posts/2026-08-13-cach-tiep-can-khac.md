@@ -99,11 +99,11 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 
 
 
-< section class="story-section off">
+< class="story- off">
 
   <div class="wrap">
 
@@ -170,11 +170,11 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 
 
 
-< section class="story-section white">
+< class="story- white">
 
   <div class="wrap">
 
@@ -277,11 +277,11 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 
 
 
-< section class="results-section">
+< class="results-">
 
   <div class="wrap">
 
@@ -363,11 +363,11 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 
 
 
-< section class="story-section off">
+< class="story- off">
 
   <div class="wrap">
 
@@ -493,11 +493,11 @@ date: 2026-08-13
   </div>
 
 </div>
-</section>
+</>
 
 
 
-< section class="story-section white">
+< class="story- white">
 
   <div class="wrap">
 
@@ -594,11 +594,11 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 
 
 
-< section class="quote-section">
+< class="quote-">
 
   <div class="wrap">
 
@@ -622,7 +622,7 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 
 
 
@@ -658,7 +658,7 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 
 
 
@@ -685,7 +685,7 @@ date: 2026-08-13
 
   </div>
 
-</section>
+</>
 <style>
   /* =========================================================
      AREA RESULTS TABLE
