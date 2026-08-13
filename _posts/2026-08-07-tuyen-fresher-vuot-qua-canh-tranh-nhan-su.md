@@ -15,7 +15,7 @@ target: "Fresher"
 market: "Việt Nam"
 period: "Tháng đầu tiên"
 
-date: 2026-08-10
+date: 2026-08-07
 ---
 
 <section class="story-section white">
