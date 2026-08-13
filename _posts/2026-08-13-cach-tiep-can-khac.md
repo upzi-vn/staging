@@ -681,34 +681,6 @@ date: 2026-08-13
 </section>
 
 
-
-<section class="quote-section">
-
-  <div class="wrap">
-
-    <div class="quote-wrap">
-
-      <div class="eyebrow-light">
-        Đáng chú ý
-      </div>
-
-      <div class="quote">
-        “Với nhóm nhân sự trẻ, một thông điệp phù hợp thường tạo ra
-        nhiều khác biệt hơn việc chỉ mở rộng thêm một kênh tuyển dụng.”
-      </div>
-
-      <div class="source">
-        Success Story · Upzi
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
 <style>
 
   /* =========================================================
