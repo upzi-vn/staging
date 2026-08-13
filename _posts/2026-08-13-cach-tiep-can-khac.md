@@ -367,6 +367,11 @@ date: 2026-08-13
 
 
 
+<!-- =========================================================
+     KẾT QUẢ THEO KHU VỰC
+     THAY FORMAT CARD CŨ BẰNG BẢNG
+========================================================= -->
+
 <section class="story-section off">
 
   <div class="wrap">
@@ -389,89 +394,118 @@ date: 2026-08-13
     </div>
 
 
-    <div class="solution-grid">
+    <div class="area-results-table">
 
-      <div class="solution">
+      <!-- HEADER -->
 
-        <div class="solution-number">
-          01
+      <div class="area-results-header">
+
+        <div>
+          Khu vực
         </div>
 
-        <h3>
+        <div>
+          Lượt xem
+        </div>
+
+        <div>
+          Hồ sơ
+        </div>
+
+      </div>
+
+
+      <!-- ROW 01 -->
+
+      <div class="area-results-row">
+
+        <div class="area-results-area">
           Quận 6, 7, 8, Nhà Bè
-        </h3>
+        </div>
 
-        <p>
-          340 lượt xem · 7 hồ sơ ứng tuyển
-        </p>
+        <div class="area-results-value">
+          340
+        </div>
+
+        <div class="area-results-value">
+          7
+        </div>
 
       </div>
 
 
-      <div class="solution">
+      <!-- ROW 02 -->
 
-        <div class="solution-number">
-          02
-        </div>
+      <div class="area-results-row">
 
-        <h3>
-          Quận 1, 3, 4, 5, Phú Nhuận
-        </h3>
-
-        <p>
-          285 lượt xem · 6 hồ sơ ứng tuyển
-        </p>
-
-      </div>
-
-
-      <div class="solution">
-
-        <div class="solution-number">
-          03
-        </div>
-
-        <h3>
-          Toàn thành phố
-        </h3>
-
-        <p>
-          180 lượt xem · 4 hồ sơ ứng tuyển
-        </p>
-
-      </div>
-
-
-      <div class="solution">
-
-        <div class="solution-number">
-          04
-        </div>
-
-        <h3>
+        <div class="area-results-area">
           Quận 10, 11, Gò Vấp, Tân Bình
-        </h3>
+        </div>
 
-        <p>
-          250 lượt xem · 9 hồ sơ ứng tuyển
-        </p>
+        <div class="area-results-value">
+          250
+        </div>
+
+        <div class="area-results-value">
+          9
+        </div>
 
       </div>
 
 
-      <div class="solution">
+      <!-- ROW 03 -->
 
-        <div class="solution-number">
-          05
+      <div class="area-results-row">
+
+        <div class="area-results-area">
+          Quận 1, 3, 4, 5, Phú Nhuận
         </div>
 
-        <h3>
-          Bình Thạnh, Thủ Đức...
-        </h3>
+        <div class="area-results-value">
+          285
+        </div>
 
-        <p>
-          235 lượt xem · 8 hồ sơ ứng tuyển
-        </p>
+        <div class="area-results-value">
+          6
+        </div>
+
+      </div>
+
+
+      <!-- ROW 04 -->
+
+      <div class="area-results-row">
+
+        <div class="area-results-area">
+          Bình Thạnh, Thủ Đức...
+        </div>
+
+        <div class="area-results-value">
+          235
+        </div>
+
+        <div class="area-results-value">
+          8
+        </div>
+
+      </div>
+
+
+      <!-- ROW 05 -->
+
+      <div class="area-results-row">
+
+        <div class="area-results-area">
+          Toàn thành phố
+        </div>
+
+        <div class="area-results-value">
+          180
+        </div>
+
+        <div class="area-results-value">
+          4
+        </div>
 
       </div>
 
@@ -674,3 +708,142 @@ date: 2026-08-13
 </section>
 
 
+
+<style>
+
+  /* =========================================================
+     AREA RESULTS TABLE
+  ========================================================= */
+
+  .area-results-table {
+    width: 100%;
+    overflow: hidden;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E6DAF8;
+    border-radius: 20px;
+  }
+
+
+  .area-results-header,
+  .area-results-row {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      150px
+      120px;
+
+    align-items: center;
+  }
+
+
+  /* HEADER */
+
+  .area-results-header {
+    padding: 16px 20px;
+
+    background: #F4EDFF;
+
+    color: #111111;
+
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+
+  /* ROW */
+
+  .area-results-row {
+    min-height: 66px;
+
+    padding: 0 20px;
+
+    border-top: 1px solid #E6DAF8;
+
+    background: #FFFFFF;
+
+    color: #4B5563;
+
+    font-size: 14px;
+  }
+
+
+  .area-results-row:hover {
+    background: #FAF8FD;
+  }
+
+
+  /* AREA */
+
+  .area-results-area {
+    font-weight: 600;
+
+    color: #4B5563;
+  }
+
+
+  /* NUMBERS */
+
+  .area-results-value {
+    font-family: var(--font-display);
+
+    font-size: 19px;
+    font-weight: 700;
+
+    color: #551CAF;
+  }
+
+
+  /* ALIGNMENT */
+
+  .area-results-header > div:nth-child(2),
+  .area-results-header > div:nth-child(3),
+  .area-results-row > .area-results-value {
+    text-align: center;
+  }
+
+
+  .area-results-header > div:first-child,
+  .area-results-row > .area-results-area {
+    text-align: left;
+  }
+
+
+  /* MOBILE */
+
+  @media (max-width: 650px) {
+
+    .area-results-header,
+    .area-results-row {
+      grid-template-columns:
+        minmax(0, 1fr)
+        80px
+        70px;
+    }
+
+
+    .area-results-header {
+      padding: 14px 15px;
+
+      font-size: 11px;
+    }
+
+
+    .area-results-row {
+      min-height: 62px;
+
+      padding: 0 15px;
+
+      font-size: 13px;
+    }
+
+
+    .area-results-value {
+      font-size: 17px;
+    }
+
+  }
+
+</style>
