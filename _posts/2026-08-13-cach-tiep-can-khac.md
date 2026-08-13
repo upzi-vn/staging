@@ -372,7 +372,7 @@ date: 2026-08-13
      THAY FORMAT CARD CŨ BẰNG BẢNG
 ========================================================= -->
 
-<section class="story-section off">
+<section class="story-section white">
 
   <div class="wrap">
 
@@ -517,7 +517,7 @@ date: 2026-08-13
 
 
 
-<section class="story-section white">
+<section class="story-section off">
 
   <div class="wrap">
 
