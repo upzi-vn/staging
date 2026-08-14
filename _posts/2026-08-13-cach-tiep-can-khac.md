@@ -17,17 +17,7 @@ period: "Tháng 7/2026"
 
 date: 2026-08-13
 ---
-<section class="insight-back">
 
-  <div class="insight-container">
-
-    <a href="{{ '/' | relative_url }}">
-      ← Quay lại trang chủ
-    </a>
-
-  </div>
-
-</section>
 <section class="story-section white">
 
   <div class="wrap">
@@ -829,28 +819,3 @@ date: 2026-08-13
   }
 
 </style>
-.insight-back {
-  padding: 24px 0 0;
-  background: var(--white);
-}
-
-.insight-back a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  color: #6D6578;
-  text-decoration: none;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition:
-    color .2s ease,
-    transform .2s ease;
-}
-
-.insight-back a:hover {
-  color: var(--purple);
-  transform: translateX(-3px);
-}
