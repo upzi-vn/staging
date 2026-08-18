@@ -1,8 +1,6 @@
 ---
 title: "Tại sao doanh nghiệp nên tuyển Intern?"
-
 category: "Insight"
-
 description: >
   Internship không chỉ là cơ hội để sinh viên tích lũy kinh nghiệm. Với doanh nghiệp,
   đây cũng là cách tiếp cận nhân tài sớm, kiểm chứng năng lực qua thực tế và xây dựng
@@ -11,7 +9,9 @@ description: >
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -29,14 +29,15 @@ description: >
 
     /* =========================================================
        UPZI INSIGHT ARTICLE
-       WHY COMPANIES SHOULD HIRE INTERNS
+       WHY HIRE INTERNS?
     ========================================================= */
 
     :root {
+
       --purple: #9345FF;
-      --purple-dark: #551caf;
+      --purple-dark: #551CAF;
       --purple-deep: #2E0F5C;
-      --purple-deeper: #1d0940;
+      --purple-deeper: #1D0940;
       --purple-tint: #F4EDFF;
 
       --yellow: #E0E722;
@@ -46,23 +47,44 @@ description: >
       --orange: #FF8F3C;
       --coral: #FF968C;
 
+      --lavender: #D9D4ED;
+
       --ink: #111111;
-      --body: #4b5563;
+      --body: #4B5563;
       --muted: #8C8597;
 
-      --white: #ffffff;
+      --white: #FFFFFF;
       --off: #F7F5FB;
 
       --purple-soft: #F5F0FF;
       --purple-line: #E6DAF8;
 
-      --light-green-1: #E5E5E5;
-      --light-green-2: #E1EFBD;
+      --light-green-gradient:
+        linear-gradient(
+          180deg,
+          #E5E5E5 0%,
+          #E1EFBD 100%
+        );
+
+      --purple-gradient:
+        linear-gradient(
+          0deg,
+          #551CAF 0%,
+          #9345FF 100%
+        );
+
+      --green-gradient:
+        linear-gradient(
+          0deg,
+          #89BF00 0%,
+          #E0E722 100%
+        );
 
       --font-display: 'Bricolage Grotesque', sans-serif;
       --font-sub: 'Manrope', sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
 
     * {
       box-sizing: border-box;
@@ -87,44 +109,45 @@ description: >
       color: inherit;
     }
 
+
     /* =========================================================
        PAGE WRAP
     ========================================================= */
 
-    .insight-page {
+    .intern-page {
       font-family: var(--font-body);
       color: var(--ink);
       background: var(--white);
       overflow: hidden;
     }
 
-    .insight-page *,
-    .insight-page *::before,
-    .insight-page *::after {
+    .intern-page *,
+    .intern-page *::before,
+    .intern-page *::after {
       box-sizing: border-box;
     }
 
-    .insight-container {
+    .intern-container {
       width: min(1120px, calc(100% - 48px));
       margin: 0 auto;
     }
+
 
     /* =========================================================
        BACK TO HOME
     ========================================================= */
 
-    .insight-back {
+    .intern-back {
       padding: 24px 0 0;
       background: var(--white);
     }
 
-    .insight-back a {
+    .intern-back a {
       display: inline-flex;
       align-items: center;
       gap: 8px;
 
       color: #6D6578;
-      text-decoration: none;
 
       font-size: 14px;
       font-weight: 600;
@@ -134,25 +157,33 @@ description: >
         transform .2s ease;
     }
 
-    .insight-back a:hover {
+    .intern-back a:hover {
       color: var(--purple);
       transform: translateX(-3px);
     }
 
+
     /* =========================================================
-       ARTICLE INTRO
+       HERO
     ========================================================= */
 
-    .insight-intro {
-      padding: 62px 0 76px;
+    .intern-hero {
+      padding: 62px 0 82px;
       background: var(--white);
     }
 
-    .insight-intro-inner {
-      max-width: 920px;
+    .intern-hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 58px;
+      align-items: center;
     }
 
-    .insight-eyebrow {
+    .intern-hero-copy {
+      max-width: 700px;
+    }
+
+    .intern-eyebrow {
       display: inline-flex;
       align-items: center;
 
@@ -169,43 +200,41 @@ description: >
       letter-spacing: .07em;
     }
 
-    .insight-intro h1 {
-      max-width: 900px;
-
+    .intern-hero h1 {
       margin: 0 0 24px;
 
-      color: var(--ink);
-
       font-family: var(--font-display);
-      font-size: clamp(40px, 5.8vw, 66px);
-      line-height: 1.05;
+      font-size: clamp(42px, 5.8vw, 68px);
+      line-height: 1.04;
       letter-spacing: -.045em;
       font-weight: 780;
     }
 
-    .insight-intro h1 span {
+    .intern-hero h1 span {
       color: var(--purple);
     }
 
-    .insight-intro-desc {
-      max-width: 760px;
+    .intern-hero-desc {
+      max-width: 650px;
 
-      margin: 0 0 28px;
+      margin-bottom: 28px;
 
       color: var(--body);
 
       font-size: 17px;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
-    .insight-meta {
+    .intern-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
     }
 
-    .insight-meta span {
+    .intern-meta span {
       padding: 8px 13px;
+
+      background: var(--off);
 
       border: 1px solid var(--purple-line);
       border-radius: 999px;
@@ -213,98 +242,156 @@ description: >
       color: var(--body);
 
       font-size: 12px;
-      background: var(--off);
     }
+
 
     /* =========================================================
-       OPENING
+       HERO VISUAL
     ========================================================= */
 
-    .insight-opening {
-      padding: 0 0 92px;
-      background: var(--white);
-    }
-
-    .insight-opening-grid {
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 48px;
-      align-items: stretch;
-    }
-
-    .insight-opening-copy {
-      padding: 32px 0;
-    }
-
-    .insight-opening-copy p {
-      margin: 0 0 18px;
-
-      color: var(--body);
-
-      font-size: 15.5px;
-      line-height: 1.75;
-    }
-
-    .insight-opening-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .insight-opening-copy strong {
-      color: var(--ink);
-    }
-
-    .insight-opening-card {
+    .intern-hero-visual {
       position: relative;
 
-      padding: 38px;
+      min-height: 410px;
 
-      background: var(--purple-deep);
-      color: var(--white);
+      padding: 34px;
 
-      border-radius: 30px;
+      background:
+        linear-gradient(
+          145deg,
+          #F4EDFF 0%,
+          #EDE4FF 55%,
+          #D9D4ED 100%
+        );
+
+      border-radius: 34px;
 
       overflow: hidden;
     }
 
-    .insight-opening-card::before {
+    .intern-hero-visual::before {
       content: "";
 
       position: absolute;
 
-      width: 330px;
-      height: 330px;
+      width: 270px;
+      height: 270px;
 
-      right: -135px;
-      top: -165px;
+      right: -105px;
+      top: -110px;
 
-      border: 1px solid rgba(147, 69, 255, .45);
+      border: 1px solid rgba(147,69,255,.22);
+
       border-radius: 50%;
     }
 
-    .insight-opening-card::after {
+    .intern-hero-visual::after {
       content: "";
 
       position: absolute;
 
-      width: 210px;
-      height: 210px;
+      width: 180px;
+      height: 180px;
 
-      left: -105px;
-      bottom: -125px;
+      left: -80px;
+      bottom: -85px;
 
-      background: rgba(147, 69, 255, .25);
+      background: rgba(224,231,34,.28);
 
       border-radius: 50%;
     }
 
-    .insight-opening-card-content {
+    .intern-hero-stat {
+      position: absolute;
+
+      top: 32px;
+      right: 32px;
+
+      padding: 9px 13px;
+
+      background: var(--yellow);
+
+      border-radius: 999px;
+
+      color: var(--purple-deep);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .intern-hero-message {
       position: relative;
       z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      height: 100%;
+      min-height: 342px;
     }
 
-    .insight-opening-mini {
-      margin-bottom: 46px;
+    .intern-hero-message-small {
+      margin-bottom: 16px;
 
+      color: var(--purple-dark);
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .intern-hero-message h2 {
+      max-width: 420px;
+
+      margin-bottom: 18px;
+
+      color: var(--purple-deep);
+
+      font-family: var(--font-display);
+      font-size: 34px;
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+
+    .intern-hero-message h2 span {
+      color: var(--purple);
+    }
+
+    .intern-hero-message p {
+      max-width: 390px;
+
+      color: #625B70;
+
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       INTRO / CORE IDEA
+    ========================================================= */
+
+    .intern-intro {
+      padding: 0 0 92px;
+      background: var(--white);
+    }
+
+    .intern-intro-card {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 48px;
+
+      padding: 46px;
+
+      background: var(--purple-deep);
+
+      border-radius: 30px;
+
+      color: var(--white);
+    }
+
+    .intern-intro-label {
       color: var(--yellow);
 
       font-size: 11px;
@@ -312,103 +399,31 @@ description: >
       letter-spacing: .08em;
     }
 
-    .insight-opening-big {
-      max-width: 430px;
+    .intern-intro-content p {
+      margin-bottom: 17px;
 
-      margin-bottom: 30px;
+      color: rgba(255,255,255,.72);
 
-      font-size: 30px;
-      line-height: 1.2;
-      letter-spacing: -.025em;
-      font-weight: 750;
+      font-size: 15.5px;
+      line-height: 1.75;
     }
 
-    .insight-opening-big span {
-      color: var(--yellow);
+    .intern-intro-content p:last-child {
+      margin-bottom: 0;
     }
 
-    .insight-opening-note {
-      max-width: 390px;
-
-      padding-top: 20px;
-
-      border-top: 1px solid rgba(255,255,255,.15);
-
-      color: rgba(255,255,255,.68);
-
-      font-size: 13px;
-      line-height: 1.6;
+    .intern-intro-content strong {
+      color: var(--white);
     }
+
 
     /* =========================================================
-       WHY INTERN OVERVIEW
+       BENEFITS OVERVIEW
     ========================================================= */
 
-    .insight-data-strip {
-      padding: 0 0 92px;
-      background: var(--white);
-    }
-
-    .insight-data-box {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-
-      overflow: hidden;
-
-      background: var(--purple-line);
-
-      border: 1px solid var(--purple-line);
-      border-radius: 26px;
-    }
-
-    .insight-data-item {
-      padding: 30px 28px;
-      background: var(--off);
-    }
-
-    .insight-data-number {
-      margin-bottom: 10px;
-
-      color: var(--purple);
-
-      font-family: var(--font-display);
-      font-size: 32px;
-      line-height: 1;
-      font-weight: 780;
-      letter-spacing: -.035em;
-    }
-
-    .insight-data-item h3 {
-      margin: 0 0 7px;
-
-      font-size: 15px;
-      line-height: 1.35;
-    }
-
-    .insight-data-item p {
-      margin: 0;
-
-      color: var(--body);
-
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    /* =========================================================
-       TREND / REASON SECTIONS
-    ========================================================= */
-
-    .insight-trend {
+    .intern-benefits {
       padding: 92px 0;
-      background: var(--white);
-    }
 
-    .insight-trend.alt {
-      background: var(--off);
-    }
-
-    .insight-trend.soft {
       background:
         linear-gradient(
           180deg,
@@ -417,44 +432,16 @@ description: >
         );
     }
 
-    .insight-trend-grid {
-      display: grid;
-      grid-template-columns: 74px 1fr;
-      gap: 34px;
+    .intern-section-heading {
+      max-width: 760px;
+
+      margin-bottom: 48px;
     }
 
-    .insight-trend-number {
-      width: 58px;
-      height: 58px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: linear-gradient(
-        0deg,
-        var(--purple-dark),
-        var(--purple)
-      );
-
-      color: var(--white);
-
-      border-radius: 18px;
-
-      font-size: 15px;
-      font-weight: 800;
-
-      box-shadow: 0 10px 25px rgba(85, 28, 175, .15);
-    }
-
-    .insight-trend-content {
-      max-width: 900px;
-    }
-
-    .insight-trend-label {
+    .intern-section-label {
       display: inline-block;
 
-      margin-bottom: 15px;
+      margin-bottom: 14px;
 
       color: var(--purple-dark);
 
@@ -463,66 +450,434 @@ description: >
       letter-spacing: .09em;
     }
 
-    .insight-trend h2 {
-      max-width: 850px;
-
-      margin: 0 0 22px;
+    .intern-section-heading h2 {
+      margin-bottom: 16px;
 
       font-family: var(--font-display);
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.12;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.1;
       letter-spacing: -.035em;
-      font-weight: 760;
     }
 
-    .insight-trend h2 span {
-      color: var(--purple);
-    }
-
-    .insight-trend p {
-      max-width: 820px;
-
-      margin: 0 0 17px;
+    .intern-section-heading p {
+      max-width: 680px;
 
       color: var(--body);
 
       font-size: 15.5px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       BENEFIT 01 - PIPELINE
+    ========================================================= */
+
+    .intern-benefit {
+      margin-bottom: 22px;
+
+      padding: 38px;
+
+      background: var(--white);
+
+      border: 1px solid var(--purple-line);
+      border-radius: 28px;
+    }
+
+    .intern-benefit:last-child {
+      margin-bottom: 0;
+    }
+
+    .intern-benefit-grid {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 38px;
+      align-items: start;
+    }
+
+    .intern-benefit-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 66px;
+      height: 66px;
+
+      background: var(--purple-gradient);
+
+      border-radius: 20px;
+
+      color: var(--white);
+
+      font-size: 14px;
+      font-weight: 800;
+
+      box-shadow:
+        0 10px 25px rgba(85,28,175,.14);
+    }
+
+    .intern-benefit-content h3 {
+      margin-bottom: 11px;
+
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+    .intern-benefit-content > p {
+      max-width: 790px;
+
+      margin-bottom: 18px;
+
+      color: var(--body);
+
+      font-size: 15px;
       line-height: 1.75;
     }
 
-    .insight-trend p:last-child {
-      margin-bottom: 0;
+    .intern-benefit-content strong {
+      color: var(--ink);
     }
+
 
     /* =========================================================
        RECRUITMENT FLOW
     ========================================================= */
 
-    .insight-flow {
+    .intern-flow {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: 1fr 42px 1fr;
 
-      margin-top: 34px;
+      align-items: stretch;
+
+      margin-top: 28px;
     }
 
-    .insight-flow-card {
-      padding: 27px;
+    .intern-flow-card {
+      padding: 23px;
 
-      background: var(--white);
+      border-radius: 20px;
+
+      background: var(--off);
 
       border: 1px solid var(--purple-line);
-      border-radius: 23px;
     }
 
-    .insight-flow-card.highlight {
+    .intern-flow-card.new {
+      background: var(--light-green-gradient);
+
+      border-color: transparent;
+    }
+
+    .intern-flow-label {
+      margin-bottom: 13px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .intern-flow-card.new .intern-flow-label {
+      color: var(--green);
+    }
+
+    .intern-flow-text {
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .intern-flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--purple);
+
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       BENEFIT 02 - TALENT PIPELINE
+    ========================================================= */
+
+    .intern-pipeline-highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 14px;
+
+      margin-top: 26px;
+    }
+
+    .intern-pipeline-box {
+      padding: 24px;
+
+      border-radius: 20px;
+
+      background: var(--off);
+    }
+
+    .intern-pipeline-box.highlight {
+      background: var(--purple-soft);
+    }
+
+    .intern-pipeline-box-label {
+      margin-bottom: 12px;
+
+      color: var(--purple);
+
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .07em;
+    }
+
+    .intern-pipeline-box h4 {
+      margin-bottom: 7px;
+
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .intern-pipeline-box p {
+      margin: 0;
+
+      color: var(--body);
+
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       BENEFIT 03 - ASSESSMENT
+    ========================================================= */
+
+    .intern-assessment {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 12px;
+
+      margin-top: 28px;
+    }
+
+    .intern-assessment-card {
+      padding: 24px 21px;
+
+      background: var(--off);
+
+      border-radius: 20px;
+
+      border: 1px solid #EAE5F2;
+    }
+
+    .intern-assessment-icon {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 19px;
+
+      background: var(--yellow);
+
+      border-radius: 12px;
+
+      color: var(--purple-deep);
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .intern-assessment-card h4 {
+      margin-bottom: 7px;
+
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .intern-assessment-card p {
+      margin: 0;
+
+      color: var(--body);
+
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    .intern-assessment-note {
+      margin-top: 26px;
+
+      padding: 22px 24px;
+
+      background: var(--light-green-gradient);
+
+      border-radius: 20px;
+    }
+
+    .intern-assessment-note p {
+      margin: 0;
+
+      color: var(--purple-deep);
+
+      font-size: 17px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       BENEFIT 04 - EMPLOYER BRANDING
+    ========================================================= */
+
+    .intern-employer-brand {
+      margin-top: 28px;
+
+      padding: 28px;
+
       background: var(--purple-deep);
-      border-color: var(--purple-deep);
+
+      border-radius: 24px;
+
       color: var(--white);
     }
 
-    .insight-flow-label {
-      margin-bottom: 20px;
+    .intern-employer-brand-title {
+      margin-bottom: 23px;
+
+      color: var(--yellow);
+
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .intern-employer-brand-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 10px;
+    }
+
+    .intern-brand-step {
+      padding: 19px 15px;
+
+      background: rgba(255,255,255,.07);
+
+      border: 1px solid rgba(255,255,255,.09);
+
+      border-radius: 16px;
+    }
+
+    .intern-brand-step-number {
+      margin-bottom: 13px;
+
+      color: var(--yellow);
+
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .intern-brand-step h4 {
+      margin-bottom: 5px;
+
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .intern-brand-step p {
+      margin: 0;
+
+      color: rgba(255,255,255,.63);
+
+      font-size: 11.5px;
+      line-height: 1.45;
+    }
+
+    .intern-brand-closing {
+      margin-top: 25px;
+
+      padding-top: 22px;
+
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .intern-brand-closing p {
+      max-width: 720px;
+
+      margin: 0;
+
+      color: rgba(255,255,255,.75);
+
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .intern-brand-closing strong {
+      color: var(--white);
+    }
+
+
+    /* =========================================================
+       KEY TAKEAWAY
+    ========================================================= */
+
+    .intern-takeaway {
+      padding: 92px 0;
+
+      background: var(--white);
+    }
+
+    .intern-takeaway-card {
+      position: relative;
+
+      padding: 52px 56px;
+
+      background: var(--purple-soft);
+
+      border-radius: 30px;
+
+      overflow: hidden;
+    }
+
+    .intern-takeaway-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+
+      right: -95px;
+      bottom: -120px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(224,231,34,.26),
+          rgba(137,191,0,.18)
+        );
+
+      border-radius: 50%;
+    }
+
+    .intern-takeaway-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 850px;
+    }
+
+    .intern-takeaway-label {
+      margin-bottom: 17px;
 
       color: var(--purple-dark);
 
@@ -531,174 +886,148 @@ description: >
       letter-spacing: .08em;
     }
 
-    .insight-flow-card.highlight .insight-flow-label {
-      color: var(--yellow);
-    }
-
-    .insight-flow-text {
-      font-size: 16px;
-      line-height: 1.55;
-      font-weight: 700;
-    }
-
-    .insight-flow-card.highlight .insight-flow-text {
-      color: var(--white);
-    }
-
-    /* =========================================================
-       QUOTE
-    ========================================================= */
-
-    .insight-quote {
-      margin: 34px 0 0;
-
-      padding: 25px 28px;
-
-      background:
-        linear-gradient(
-          180deg,
-          var(--light-green-1),
-          var(--light-green-2)
-        );
-
-      border-radius: 22px;
-    }
-
-    .insight-quote p {
-      margin: 0;
-
-      color: var(--purple-deep);
-
-      font-size: 19px;
-      line-height: 1.45;
-      font-weight: 700;
-      letter-spacing: -.015em;
-    }
-
-    /* =========================================================
-       EMPLOYER BRANDING JOURNEY
-    ========================================================= */
-
-    .insight-touchpoints {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-
-      margin-top: 36px;
-    }
-
-    .insight-touchpoint {
-      padding: 22px 19px;
-
-      background: var(--white);
-
-      border-radius: 20px;
-
-      border: 1px solid var(--purple-line);
-    }
-
-    .insight-touchpoint-number {
-      margin-bottom: 21px;
-
-      color: var(--purple);
-
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .insight-touchpoint h3 {
-      margin: 0 0 7px;
-
-      font-size: 15px;
-      line-height: 1.3;
-    }
-
-    .insight-touchpoint p {
-      margin: 0;
-
-      font-size: 12.5px;
-      line-height: 1.5;
-    }
-
-    /* =========================================================
-       CLOSING
-    ========================================================= */
-
-    .insight-closing {
-      padding: 92px 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          #FAF9FC 0%,
-          #F5F0FF 100%
-        );
-    }
-
-    .insight-closing-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .insight-closing-label {
-      margin-bottom: 18px;
-
-      color: var(--purple-dark);
-
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .09em;
-    }
-
-    .insight-closing h2 {
-      max-width: 800px;
-
-      margin: 0 auto 24px;
+    .intern-takeaway h2 {
+      margin-bottom: 19px;
 
       font-family: var(--font-display);
-      font-size: clamp(32px, 4.5vw, 48px);
-      line-height: 1.1;
+      font-size: clamp(31px, 4vw, 45px);
+      line-height: 1.12;
       letter-spacing: -.035em;
     }
 
-    .insight-closing h2 span {
+    .intern-takeaway h2 span {
       color: var(--purple);
     }
 
-    .insight-closing-desc {
-      max-width: 760px;
+    .intern-takeaway p {
+      max-width: 780px;
 
-      margin: 0 auto 30px;
+      margin: 0;
 
       color: var(--body);
 
-      font-size: 16px;
+      font-size: 15.5px;
       line-height: 1.75;
     }
 
-    .insight-closing-highlight {
-      display: inline-block;
 
-      padding: 18px 25px;
+    /* =========================================================
+       RELATED INSIGHT
+    ========================================================= */
+
+    .intern-related {
+      padding: 76px 0 86px;
+
+      background: var(--white);
+    }
+
+    .intern-related-heading {
+      margin-bottom: 20px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .intern-related-card {
+      position: relative;
+
+      display: block;
+
+      max-width: 760px;
+
+      padding: 27px 27px 30px;
 
       background: var(--white);
 
-      border: 1px solid var(--purple-line);
-      border-radius: 20px;
+      border: 1px solid #E9E4EF;
+      border-radius: 24px;
 
-      color: var(--purple-deep);
+      box-shadow:
+        0 18px 45px rgba(47,18,92,.07);
 
-      font-size: 17px;
-      line-height: 1.5;
+      overflow: hidden;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .intern-related-card:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 22px 50px rgba(47,18,92,.11);
+    }
+
+    .intern-related-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 110px;
+      height: 110px;
+
+      right: -35px;
+      bottom: -45px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(224,231,34,.12),
+          rgba(137,191,0,.16)
+        );
+
+      border-radius: 50%;
+    }
+
+    .intern-related-date {
+      margin-bottom: 13px;
+
+      color: var(--purple);
+
+      font-size: 11px;
       font-weight: 700;
     }
 
+    .intern-related-card h3 {
+      max-width: 650px;
+
+      margin-bottom: 13px;
+
+      font-family: var(--font-display);
+      font-size: 25px;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+    .intern-related-card p {
+      max-width: 610px;
+
+      margin-bottom: 20px;
+
+      color: var(--body);
+
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .intern-related-link {
+      color: var(--purple);
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+
     /* =========================================================
-       CTA FOOTER
+       UPZI CTA
     ========================================================= */
 
-    .insight-footer {
+    .intern-footer {
       position: relative;
 
       padding: 92px 0;
@@ -710,7 +1039,7 @@ description: >
       overflow: hidden;
     }
 
-    .insight-footer::before {
+    .intern-footer::before {
       content: "";
 
       position: absolute;
@@ -722,10 +1051,11 @@ description: >
       top: -300px;
 
       border: 1px solid rgba(147,69,255,.45);
+
       border-radius: 50%;
     }
 
-    .insight-footer::after {
+    .intern-footer::after {
       content: "";
 
       position: absolute;
@@ -737,10 +1067,11 @@ description: >
       top: -220px;
 
       border: 1px solid rgba(147,69,255,.4);
+
       border-radius: 50%;
     }
 
-    .insight-footer-inner {
+    .intern-footer-inner {
       position: relative;
       z-index: 2;
 
@@ -751,7 +1082,7 @@ description: >
       text-align: center;
     }
 
-    .insight-footer h2 {
+    .intern-footer h2 {
       max-width: 800px;
 
       margin: 0 auto 20px;
@@ -765,7 +1096,7 @@ description: >
       font-weight: 780;
     }
 
-    .insight-footer-desc {
+    .intern-footer-desc {
       max-width: 690px;
 
       margin: 0 auto 30px;
@@ -776,7 +1107,7 @@ description: >
       line-height: 1.65;
     }
 
-    .insight-footer-button {
+    .intern-footer-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -786,11 +1117,10 @@ description: >
       padding: 0 28px;
 
       background: var(--yellow);
+
       color: var(--purple-deep);
 
       border-radius: 999px;
-
-      text-decoration: none;
 
       font-size: 14px;
       font-weight: 800;
@@ -800,27 +1130,25 @@ description: >
         background .2s ease;
     }
 
-    .insight-footer-button:hover {
+    .intern-footer-button:hover {
       transform: translateY(-2px);
       background: #EBF13B;
     }
+
 
     /* =========================================================
        FOOTER CONTACT
     ========================================================= */
 
-    .insight-footer-bottom {
-      position: relative;
-      z-index: 2;
-
+    .intern-footer-bottom {
       padding: 46px 0 26px;
 
       background: var(--off);
 
-      border-top: 1px solid #eae5f3;
+      border-top: 1px solid #EAE5F3;
     }
 
-    .insight-footer-bottom-inner {
+    .intern-footer-bottom-inner {
       display: flex;
 
       justify-content: space-between;
@@ -831,15 +1159,15 @@ description: >
 
       padding-bottom: 28px;
 
-      border-bottom: 1px solid #e6e1ef;
+      border-bottom: 1px solid #E6E1EF;
     }
 
-    .insight-footer-brand-column {
+    .intern-footer-brand-column {
       max-width: 420px;
     }
 
-    .insight-footer-brand {
-      margin: 0 0 10px;
+    .intern-footer-brand {
+      margin-bottom: 10px;
 
       color: var(--purple-dark);
 
@@ -850,19 +1178,19 @@ description: >
       letter-spacing: -.02em;
     }
 
-    .insight-footer-description {
-      margin: 0;
-
-      color: #7a7488;
+    .intern-footer-description,
+    .intern-footer-contact p,
+    .intern-footer-social p {
+      color: #7A7488;
 
       font-size: 13.5px;
       line-height: 1.75;
     }
 
-    .insight-footer-column-title {
-      margin: 0 0 8px;
+    .intern-footer-column-title {
+      margin-bottom: 8px;
 
-      color: #a49db4;
+      color: #A49DB4;
 
       font-family: var(--font-sub);
       font-size: 11.5px;
@@ -872,34 +1200,24 @@ description: >
       text-transform: uppercase;
     }
 
-    .insight-footer-contact p,
-    .insight-footer-social p {
-      margin: 0;
-
-      color: #7a7488;
-
-      font-size: 13.5px;
-      line-height: 1.75;
-    }
-
-    .insight-footer-social a {
-      color: #7a7488;
-      text-decoration: none;
+    .intern-footer-social a {
+      color: #7A7488;
 
       transition: color .2s ease;
     }
 
-    .insight-footer-social a:hover {
+    .intern-footer-social a:hover {
       color: var(--purple-dark);
     }
 
-    .insight-footer-copyright {
+    .intern-footer-copyright {
       padding-top: 20px;
 
-      font-size: 12px;
+      color: #A49DB4;
 
-      color: #a49db4;
+      font-size: 12px;
     }
+
 
     /* =========================================================
        RESPONSIVE
@@ -907,142 +1225,176 @@ description: >
 
     @media (max-width: 900px) {
 
-      .insight-opening-grid {
+      .intern-hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .insight-data-box {
+      .intern-intro-card {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .intern-benefit-grid {
+        grid-template-columns: 80px 1fr;
+        gap: 25px;
+      }
+
+      .intern-pipeline-highlight {
         grid-template-columns: 1fr;
       }
 
-      .insight-flow {
-        grid-template-columns: 1fr;
+      .intern-assessment {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .insight-touchpoints {
+      .intern-employer-brand-flow {
         grid-template-columns: 1fr 1fr;
       }
 
     }
 
+
     @media (max-width: 650px) {
 
-      .insight-container {
+      .intern-container {
         width: min(100% - 32px, 1120px);
       }
 
-      .insight-back {
+      .intern-back {
         padding-top: 20px;
       }
 
-      .insight-intro {
-        padding: 50px 0 60px;
+      .intern-hero {
+        padding: 50px 0 65px;
       }
 
-      .insight-intro h1 {
-        font-size: 39px;
+      .intern-hero h1 {
+        font-size: 40px;
       }
 
-      .insight-intro-desc {
+      .intern-hero-desc {
         font-size: 15px;
       }
 
-      .insight-opening,
-      .insight-data-strip,
-      .insight-trend,
-      .insight-closing,
-      .insight-footer {
+      .intern-hero-visual {
+        min-height: 350px;
+        padding: 28px;
+      }
+
+      .intern-hero-message {
+        min-height: 290px;
+      }
+
+      .intern-hero-message h2 {
+        font-size: 28px;
+      }
+
+      .intern-intro,
+      .intern-benefits,
+      .intern-takeaway,
+      .intern-related,
+      .intern-footer {
         padding-top: 65px;
         padding-bottom: 65px;
       }
 
-      .insight-opening-card {
+      .intern-intro-card {
         padding: 30px;
+        border-radius: 25px;
       }
 
-      .insight-opening-big {
-        font-size: 27px;
-      }
-
-      .insight-data-item {
+      .intern-benefit {
         padding: 27px;
+        border-radius: 23px;
       }
 
-      .insight-data-number {
-        font-size: 30px;
-      }
-
-      .insight-trend-grid {
+      .intern-benefit-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
 
-      .insight-trend-number {
-        width: 52px;
-        height: 52px;
-
-        border-radius: 16px;
-
-        font-size: 13px;
+      .intern-benefit-content h3 {
+        font-size: 25px;
       }
 
-      .insight-trend h2 {
-        font-size: 31px;
+      .intern-flow {
+        grid-template-columns: 1fr;
+        gap: 8px;
       }
 
-      .insight-trend p {
-        font-size: 15px;
+      .intern-flow-arrow {
+        transform: rotate(90deg);
+        height: 25px;
       }
 
-      .insight-touchpoints {
+      .intern-assessment {
         grid-template-columns: 1fr;
       }
 
-      .insight-closing h2 {
-        font-size: 34px;
+      .intern-employer-brand {
+        padding: 24px;
       }
 
-      .insight-closing-highlight {
-        font-size: 15px;
+      .intern-employer-brand-flow {
+        grid-template-columns: 1fr;
       }
 
-      .insight-footer h2 {
+      .intern-takeaway-card {
+        padding: 34px 28px;
+      }
+
+      .intern-takeaway h2 {
+        font-size: 31px;
+      }
+
+      .intern-related-card {
+        padding: 24px;
+      }
+
+      .intern-related-card h3 {
+        font-size: 22px;
+      }
+
+      .intern-footer h2 {
         font-size: 36px;
       }
 
-      .insight-footer-desc {
+      .intern-footer-desc {
         font-size: 14px;
       }
 
-      .insight-footer-bottom {
+      .intern-footer-bottom {
         padding: 36px 0 26px;
       }
 
-      .insight-footer-bottom-inner {
+      .intern-footer-bottom-inner {
         flex-direction: column;
         gap: 28px;
       }
 
-      .insight-footer-brand-column {
+      .intern-footer-brand-column {
         max-width: 100%;
       }
 
     }
 
   </style>
+
 </head>
+
 
 <body>
 
-<div class="insight-page">
+<div class="intern-page">
+
 
   <!-- =====================================================
        BACK TO HOME
   ====================================================== -->
 
-  <section class="insight-back">
+  <section class="intern-back">
 
-    <div class="insight-container">
+    <div class="intern-container">
 
       <a href="{{ '/' | relative_url }}">
         ← Quay lại trang chủ
@@ -1054,309 +1406,60 @@ description: >
 
 
   <!-- =====================================================
-       ARTICLE INTRO
+       HERO
   ====================================================== -->
 
-  <section class="insight-intro">
+  <section class="intern-hero">
 
-    <div class="insight-container">
+    <div class="intern-container">
 
-      <div class="insight-intro-inner">
-
-        <div class="insight-eyebrow">
-          INSIGHT · EARLY CAREER
-        </div>
-
-        <h1>
-          Tại sao doanh nghiệp nên
-          <span>tuyển Intern?</span>
-        </h1>
-
-        <p class="insight-intro-desc">
-          Internship không chỉ là cơ hội để sinh viên tích lũy kinh nghiệm.
-          Với doanh nghiệp, đây cũng là một cách tiếp cận nhân tài sớm,
-          kiểm chứng năng lực qua thực tế và xây dựng nguồn nhân lực cho tương lai.
-        </p>
-
-        <div class="insight-meta">
-          <span>Early Career</span>
-          <span>Internship</span>
-          <span>Talent Pipeline</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+      <div class="intern-hero-grid">
 
 
-  <!-- =====================================================
-       OPENING
-  ====================================================== -->
+        <div class="intern-hero-copy">
 
-  <section class="insight-opening">
+          <div class="intern-eyebrow">
+            INSIGHT · EARLY CAREER
+          </div>
 
-    <div class="insight-container">
+          <h1>
+            Tại sao doanh nghiệp
+            <span>nên tuyển Intern?</span>
+          </h1>
 
-      <div class="insight-opening-grid">
-
-        <div class="insight-opening-copy">
-
-          <p>
+          <p class="intern-hero-desc">
             Internship không chỉ là cơ hội để sinh viên tích lũy kinh nghiệm.
             Với doanh nghiệp, đây cũng là một cách
             <strong>tiếp cận nhân tài sớm, kiểm chứng năng lực qua thực tế
             và xây dựng nguồn nhân lực cho tương lai.</strong>
           </p>
 
-          <p>
-            Thay vì chỉ tuyển khi vị trí đã trống, doanh nghiệp có thể chủ động
-            xây dựng talent pipeline ngay từ hôm nay - đồng thời tạo thêm nguồn lực
-            cho đội ngũ và kết nối với thế hệ nhân tài trẻ.
-          </p>
+          <div class="intern-meta">
+            <span>Early Career</span>
+            <span>Intern</span>
+            <span>Talent Pipeline</span>
+            <span>Employer Branding</span>
+          </div>
 
         </div>
 
 
-        <div class="insight-opening-card">
+        <div class="intern-hero-visual">
 
-          <div class="insight-opening-card-content">
+          <div class="intern-hero-stat">
+            EARLY TALENT
+          </div>
 
-            <div class="insight-opening-mini">
-              WHY HIRE INTERNS?
+          <div class="intern-hero-message">
+
+            <div class="intern-hero-message-small">
+              FROM INTERNSHIP TO TALENT PIPELINE
             </div>
 
-            <div class="insight-opening-big">
-              Tuyển Intern không chỉ để
-              <span>giải quyết nhu cầu hôm nay.</span>
-            </div>
-
-            <div class="insight-opening-note">
-              Đó là cách doanh nghiệp bắt đầu xây dựng nguồn nhân lực
-              cho tương lai từ sớm.
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       KEY BENEFITS
-  ====================================================== -->
-
-  <section class="insight-data-strip">
-
-    <div class="insight-container">
-
-      <div class="insight-data-box">
-
-        <div class="insight-data-item">
-
-          <div class="insight-data-number">
-            01
-          </div>
-
-          <h3>
-            Tuyển dụng hiệu quả hơn
-          </h3>
-
-          <p>
-            Tiếp cận và đánh giá talent từ sớm thay vì bắt đầu lại
-            khi vị trí đã trống.
-          </p>
-
-        </div>
-
-
-        <div class="insight-data-item">
-
-          <div class="insight-data-number">
-            02
-          </div>
-
-          <h3>
-            Xây talent pipeline từ sớm
-          </h3>
-
-          <p>
-            Tiếp cận, nuôi dưỡng và phát triển talent trước khi
-            họ bước vào thị trường lao động full-time.
-          </p>
-
-        </div>
-
-
-        <div class="insight-data-item">
-
-          <div class="insight-data-number">
-            03
-          </div>
-
-          <h3>
-            Hiểu ứng viên trước khi tuyển
-          </h3>
-
-          <p>
-            Quan sát năng lực và mức độ phù hợp trong môi trường
-            làm việc thực tế.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       REASON 01
-  ====================================================== -->
-
-  <section class="insight-trend">
-
-    <div class="insight-container">
-
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          01
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            RECRUITMENT EFFICIENCY
-          </div>
-
-          <h2>
-            Tuyển dụng
-            <span>hiệu quả hơn</span>
-          </h2>
-
-          <p>
-            <strong>Đừng đợi đến khi cần người mới bắt đầu tìm người.</strong>
-          </p>
-
-          <p>
-            Tuyển Intern giúp doanh nghiệp tiếp cận ứng viên trẻ từ sớm
-            và xây dựng mối quan hệ trước khi họ bước vào thị trường lao động
-            full-time. Khi có nhu cầu tuyển dụng, doanh nghiệp đã có sẵn
-            một nhóm ứng viên quen thuộc với công việc và môi trường thay vì
-            phải bắt đầu lại từ đầu.
-          </p>
-
-          <p>
-            Với tuyển dụng truyền thống, doanh nghiệp thường phải đi qua cả một quy trình:
-          </p>
-
-
-          <div class="insight-flow">
-
-            <div class="insight-flow-card">
-
-              <div class="insight-flow-label">
-                TUYỂN DỤNG TRUYỀN THỐNG
-              </div>
-
-              <div class="insight-flow-text">
-                Job mở → Đăng tin → Thu hút ứng viên →
-                Sàng lọc → Phỏng vấn → Đánh giá →
-                Offer → Onboard
-              </div>
-
-            </div>
-
-
-            <div class="insight-flow-card highlight">
-
-              <div class="insight-flow-label">
-                VỚI INTERN
-              </div>
-
-              <div class="insight-flow-text">
-                Internship → Trải nghiệm thực tế →
-                Đánh giá → Talent pool → Full-time hire
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <p style="margin-top:28px;">
-            Trong khi với Intern, doanh nghiệp đã có cơ hội
-            <strong>tiếp cận và đánh giá talent từ trước.</strong>
-          </p>
-
-          <div class="insight-quote">
-
-            <p>
-              Rút ngắn thời gian tuyển dụng và đưa người phù hợp
-              vào vị trí nhanh hơn.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       REASON 02
-  ====================================================== -->
-
-  <section class="insight-trend alt">
-
-    <div class="insight-container">
-
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          02
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            TALENT PIPELINE
-          </div>
-
-          <h2>
-            Xây talent pipeline
-            <span>từ sớm</span>
-          </h2>
-
-          <p>
-            <strong>
-              Nguồn nhân tài tốt không phải lúc nào cũng xuất hiện
-              đúng lúc doanh nghiệp cần.
-            </strong>
-          </p>
-
-          <p>
-            Internship cho phép doanh nghiệp bắt đầu xây dựng mối quan hệ
-            với talent từ khi họ còn ngồi trên ghế nhà trường.
-            Thay vì cạnh tranh để giành ứng viên khi tất cả doanh nghiệp
-            cùng tuyển, bạn có thể <strong>tiếp cận, nuôi dưỡng và phát triển
-            talent từ sớm.</strong>
-          </p>
-
-          <div class="insight-quote">
+            <h2>
+              Đừng chỉ tuyển khi cần.
+              <span>Hãy xây nguồn talent từ sớm.</span>
+            </h2>
 
             <p>
               Một Intern tiềm năng hôm nay có thể trở thành nhân sự
@@ -1367,6 +1470,7 @@ description: >
 
         </div>
 
+
       </div>
 
     </div>
@@ -1375,56 +1479,34 @@ description: >
 
 
   <!-- =====================================================
-       REASON 03
+       INTRO
   ====================================================== -->
 
-  <section class="insight-trend soft">
+  <section class="intern-intro">
 
-    <div class="insight-container">
+    <div class="intern-container">
 
-      <div class="insight-trend-grid">
+      <div class="intern-intro-card">
 
-        <div class="insight-trend-number">
-          03
+        <div class="intern-intro-label">
+          THE BUSINESS CASE
         </div>
 
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            REAL-WORLD ASSESSMENT
-          </div>
-
-          <h2>
-            Hiểu ứng viên
-            <span>trước khi tuyển chính thức</span>
-          </h2>
+        <div class="intern-intro-content">
 
           <p>
-            <strong>
-              CV và một vài vòng phỏng vấn chỉ cho bạn biết
-              một phần về ứng viên.
-            </strong>
+            Thay vì chỉ tuyển khi vị trí đã trống, doanh nghiệp có thể
+            chủ động xây dựng <strong>talent pipeline ngay từ hôm nay</strong>
+            - đồng thời tạo thêm nguồn lực cho đội ngũ và kết nối với
+            thế hệ nhân tài trẻ.
           </p>
 
           <p>
-            Internship tạo cơ hội để doanh nghiệp quan sát ứng viên
-            trong môi trường làm việc thực tế: cách họ giải quyết vấn đề,
-            học hỏi, giao tiếp, phối hợp với team và phản ứng trước feedback.
+            Internship vì vậy không chỉ là một chương trình dành cho
+            sinh viên. Đó có thể là một phần trong chiến lược
+            <strong>tuyển dụng, đánh giá và phát triển talent dài hạn</strong>
+            của doanh nghiệp.
           </p>
-
-          <p>
-            Doanh nghiệp cũng có thời gian để đánh giá
-            <strong>năng lực và mức độ phù hợp hai chiều</strong>
-            trước khi đưa ra quyết định tuyển dụng dài hạn.
-          </p>
-
-          <div class="insight-quote">
-
-            <p>
-              Tuyển sau khi đã hiểu người, thay vì tuyển rồi mới bắt đầu tìm hiểu.
-            </p>
-
-          </div>
 
         </div>
 
@@ -1436,179 +1518,531 @@ description: >
 
 
   <!-- =====================================================
-       REASON 04
+       FOUR BUSINESS BENEFITS
   ====================================================== -->
 
-  <section class="insight-trend alt">
+  <section class="intern-benefits">
 
-    <div class="insight-container">
-
-      <div class="insight-trend-grid">
-
-        <div class="insight-trend-number">
-          04
-        </div>
-
-        <div class="insight-trend-content">
-
-          <div class="insight-trend-label">
-            EMPLOYER BRANDING
-          </div>
-
-          <h2>
-            Thu hút Gen Z và xây dựng
-            <span>employer brand</span>
-          </h2>
-
-          <p>
-            <strong>
-              Gen Z đang dần trở thành lực lượng quan trọng của thị trường lao động -
-              và họ không đợi đến khi tốt nghiệp mới bắt đầu chuẩn bị cho sự nghiệp.
-            </strong>
-          </p>
-
-          <p>
-            Ngay từ khi còn đi học, nhiều bạn trẻ đã chủ động tìm kiếm internship
-            và các cơ hội làm việc thực tế để
-            <strong>tích lũy kinh nghiệm, phát triển kỹ năng và khám phá
-            môi trường phù hợp với mình.</strong>
-          </p>
-
-          <p>
-            Đây là cơ hội để doanh nghiệp
-            <strong>tiếp cận Gen Z từ sớm</strong>,
-            thay vì chỉ xuất hiện trước họ khi một vị trí full-time được mở.
-          </p>
-
-          <p>
-            Một internship program được thiết kế tốt không chỉ giúp doanh nghiệp
-            thu hút early talent, mà còn tạo ra <strong>trải nghiệm thực tế về
-            môi trường, văn hóa và cách doanh nghiệp phát triển nhân sự</strong> -
-            từ đó xây dựng employer brand ngay từ những điểm chạm đầu tiên.
-          </p>
+    <div class="intern-container">
 
 
-          <div class="insight-touchpoints">
+      <div class="intern-section-heading">
 
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                01
-              </div>
-
-              <h3>
-                Awareness
-              </h3>
-
-              <p>
-                Gen Z biết đến doanh nghiệp.
-              </p>
-
-            </div>
-
-
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                02
-              </div>
-
-              <h3>
-                Experience
-              </h3>
-
-              <p>
-                Trải nghiệm thực tế về doanh nghiệp.
-              </p>
-
-            </div>
-
-
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                03
-              </div>
-
-              <h3>
-                Employer affinity
-              </h3>
-
-              <p>
-                Hình thành sự yêu thích và kết nối.
-              </p>
-
-            </div>
-
-
-            <div class="insight-touchpoint">
-
-              <div class="insight-touchpoint-number">
-                04
-              </div>
-
-              <h3>
-                Future talent
-              </h3>
-
-              <p>
-                Trở thành talent tiềm năng trong tương lai.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="insight-quote">
-
-            <p>
-              Không chỉ để Gen Z biết đến doanh nghiệp.
-              Hãy để họ biết doanh nghiệp là nơi họ muốn phát triển.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       CLOSING
-  ====================================================== -->
-
-  <section class="insight-closing">
-
-    <div class="insight-container">
-
-      <div class="insight-closing-inner">
-
-        <div class="insight-closing-label">
-          THE EARLY TALENT ADVANTAGE
+        <div class="intern-section-label">
+          WHY HIRE INTERN?
         </div>
 
         <h2>
-          Internship không chỉ giải quyết
-          <span>nhu cầu nhân sự hôm nay.</span>
+          4 giá trị doanh nghiệp có thể
+          <span>nhận được từ Internship</span>
         </h2>
 
-        <p class="insight-closing-desc">
-          Đó là cách doanh nghiệp tuyển dụng hiệu quả hơn,
-          xây talent pipeline sớm hơn, giảm rủi ro tuyển dụng
-          và tạo lợi thế trong cuộc đua thu hút thế hệ nhân tài tiếp theo.
+        <p>
+          Từ hiệu quả tuyển dụng đến employer branding,
+          Internship có thể trở thành một điểm bắt đầu để doanh nghiệp
+          chủ động hơn với nguồn nhân lực tương lai.
         </p>
 
-        <div class="insight-closing-highlight">
-          Tuyển dụng hiệu quả hơn · Talent pipeline · Giảm rủi ro ·
-          Thu hút thế hệ nhân tài tiếp theo
+      </div>
+
+
+      <!-- =================================================
+           01
+      ================================================== -->
+
+      <article class="intern-benefit">
+
+        <div class="intern-benefit-grid">
+
+          <div class="intern-benefit-number">
+            01
+          </div>
+
+          <div class="intern-benefit-content">
+
+            <h3>
+              Tuyển dụng hiệu quả hơn
+            </h3>
+
+            <p>
+              <strong>Đừng đợi đến khi cần người mới bắt đầu tìm người.</strong>
+              Tuyển Intern giúp doanh nghiệp tiếp cận ứng viên trẻ từ sớm
+              và xây dựng mối quan hệ trước khi họ bước vào thị trường
+              lao động full-time.
+            </p>
+
+            <p>
+              Khi có nhu cầu tuyển dụng, doanh nghiệp đã có sẵn một nhóm
+              ứng viên quen thuộc với công việc và môi trường thay vì
+              phải bắt đầu lại từ đầu.
+            </p>
+
+
+            <div class="intern-flow">
+
+              <div class="intern-flow-card">
+
+                <div class="intern-flow-label">
+                  TUYỂN DỤNG TRUYỀN THỐNG
+                </div>
+
+                <div class="intern-flow-text">
+                  Job mở → Đăng tin → Thu hút ứng viên →
+                  Sàng lọc → Phỏng vấn → Đánh giá →
+                  Offer → Onboard
+                </div>
+
+              </div>
+
+
+              <div class="intern-flow-arrow">
+                →
+              </div>
+
+
+              <div class="intern-flow-card new">
+
+                <div class="intern-flow-label">
+                  TIẾP CẬN QUA INTERNSHIP
+                </div>
+
+                <div class="intern-flow-text">
+                  Internship → Trải nghiệm thực tế →
+                  Đánh giá → Talent pool →
+                  Full-time hire
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <p style="margin-top:24px;margin-bottom:0;">
+              Qua đó, doanh nghiệp có thể
+              <strong>rút ngắn thời gian tuyển dụng</strong>
+              và đưa người phù hợp vào vị trí nhanh hơn.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           02
+      ================================================== -->
+
+      <article class="intern-benefit">
+
+        <div class="intern-benefit-grid">
+
+          <div class="intern-benefit-number">
+            02
+          </div>
+
+          <div class="intern-benefit-content">
+
+            <h3>
+              Xây talent pipeline từ sớm
+            </h3>
+
+            <p>
+              <strong>
+                Nguồn nhân tài tốt không phải lúc nào cũng xuất hiện
+                đúng lúc doanh nghiệp cần.
+              </strong>
+            </p>
+
+            <p>
+              Internship cho phép doanh nghiệp bắt đầu xây dựng mối quan hệ
+              với talent từ khi họ còn ngồi trên ghế nhà trường.
+              Thay vì cạnh tranh để giành ứng viên khi tất cả doanh nghiệp
+              cùng tuyển, bạn có thể <strong>tiếp cận, nuôi dưỡng và phát triển
+              talent từ sớm.</strong>
+            </p>
+
+
+            <div class="intern-pipeline-highlight">
+
+              <div class="intern-pipeline-box">
+
+                <div class="intern-pipeline-box-label">
+                  TODAY
+                </div>
+
+                <h4>
+                  Intern tiềm năng
+                </h4>
+
+                <p>
+                  Bắt đầu trải nghiệm công việc,
+                  xây dựng kỹ năng và làm quen với doanh nghiệp.
+                </p>
+
+              </div>
+
+
+              <div class="intern-pipeline-box highlight">
+
+                <div class="intern-pipeline-box-label">
+                  TOMORROW
+                </div>
+
+                <h4>
+                  Future talent
+                </h4>
+
+                <p>
+                  Có thể trở thành nhân sự full-time
+                  phù hợp với doanh nghiệp trong tương lai.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           03
+      ================================================== -->
+
+      <article class="intern-benefit">
+
+        <div class="intern-benefit-grid">
+
+          <div class="intern-benefit-number">
+            03
+          </div>
+
+          <div class="intern-benefit-content">
+
+            <h3>
+              Hiểu ứng viên trước khi tuyển chính thức
+            </h3>
+
+            <p>
+              <strong>
+                CV và một vài vòng phỏng vấn chỉ cho bạn biết
+                một phần về ứng viên.
+              </strong>
+            </p>
+
+            <p>
+              Internship tạo cơ hội để doanh nghiệp quan sát ứng viên
+              trong môi trường làm việc thực tế: cách họ giải quyết vấn đề,
+              học hỏi, giao tiếp, phối hợp với team và phản ứng trước feedback.
+            </p>
+
+
+            <div class="intern-assessment">
+
+              <div class="intern-assessment-card">
+
+                <div class="intern-assessment-icon">
+                  01
+                </div>
+
+                <h4>
+                  Năng lực
+                </h4>
+
+                <p>
+                  Ứng viên thực sự xử lý công việc như thế nào?
+                </p>
+
+              </div>
+
+
+              <div class="intern-assessment-card">
+
+                <div class="intern-assessment-icon">
+                  02
+                </div>
+
+                <h4>
+                  Tiềm năng
+                </h4>
+
+                <p>
+                  Khả năng học hỏi và phát triển ra sao?
+                </p>
+
+              </div>
+
+
+              <div class="intern-assessment-card">
+
+                <div class="intern-assessment-icon">
+                  03
+                </div>
+
+                <h4>
+                  Fit
+                </h4>
+
+                <p>
+                  Mức độ phù hợp giữa talent và doanh nghiệp?
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="intern-assessment-note">
+
+              <p>
+                Tuyển sau khi đã hiểu người,
+                thay vì tuyển rồi mới bắt đầu tìm hiểu.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           04
+      ================================================== -->
+
+      <article class="intern-benefit">
+
+        <div class="intern-benefit-grid">
+
+          <div class="intern-benefit-number">
+            04
+          </div>
+
+          <div class="intern-benefit-content">
+
+            <h3>
+              Thu hút Gen Z và xây dựng employer brand
+            </h3>
+
+            <p>
+              <strong>
+                Gen Z đang dần trở thành lực lượng quan trọng của thị trường
+                lao động - và họ không đợi đến khi tốt nghiệp mới bắt đầu
+                chuẩn bị cho sự nghiệp.
+              </strong>
+            </p>
+
+            <p>
+              Ngay từ khi còn đi học, nhiều bạn trẻ đã chủ động tìm kiếm
+              internship và các cơ hội làm việc thực tế để
+              <strong>tích lũy kinh nghiệm, phát triển kỹ năng và khám phá
+              môi trường phù hợp với mình.</strong>
+            </p>
+
+            <p>
+              Đây là cơ hội để doanh nghiệp
+              <strong>tiếp cận Gen Z từ sớm</strong>,
+              thay vì chỉ xuất hiện trước họ khi một vị trí full-time được mở.
+            </p>
+
+
+            <div class="intern-employer-brand">
+
+              <div class="intern-employer-brand-title">
+                FROM INTERNSHIP TO EMPLOYER AFFINITY
+              </div>
+
+
+              <div class="intern-employer-brand-flow">
+
+
+                <div class="intern-brand-step">
+
+                  <div class="intern-brand-step-number">
+                    01
+                  </div>
+
+                  <h4>
+                    Awareness
+                  </h4>
+
+                  <p>
+                    Gen Z biết đến doanh nghiệp.
+                  </p>
+
+                </div>
+
+
+                <div class="intern-brand-step">
+
+                  <div class="intern-brand-step-number">
+                    02
+                  </div>
+
+                  <h4>
+                    Experience
+                  </h4>
+
+                  <p>
+                    Talent trải nghiệm môi trường thực tế.
+                  </p>
+
+                </div>
+
+
+                <div class="intern-brand-step">
+
+                  <div class="intern-brand-step-number">
+                    03
+                  </div>
+
+                  <h4>
+                    Employer affinity
+                  </h4>
+
+                  <p>
+                    Hình thành cảm nhận và kết nối với doanh nghiệp.
+                  </p>
+
+                </div>
+
+
+                <div class="intern-brand-step">
+
+                  <div class="intern-brand-step-number">
+                    04
+                  </div>
+
+                  <h4>
+                    Future talent
+                  </h4>
+
+                  <p>
+                    Sẵn sàng trở thành talent trong tương lai.
+                  </p>
+
+                </div>
+
+
+              </div>
+
+
+              <div class="intern-brand-closing">
+
+                <p>
+                  Một internship program được thiết kế tốt không chỉ giúp
+                  doanh nghiệp thu hút early talent, mà còn tạo ra
+                  <strong>trải nghiệm thực tế về môi trường, văn hóa và cách
+                  doanh nghiệp phát triển nhân sự</strong> - từ đó xây dựng
+                  employer brand ngay từ những điểm chạm đầu tiên.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <p style="margin-top:24px;margin-bottom:0;">
+              <strong>
+                Không chỉ để Gen Z biết đến doanh nghiệp.
+                Hãy để họ biết doanh nghiệp là nơi họ muốn phát triển.
+              </strong>
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       KEY TAKEAWAY / CLOSING
+  ====================================================== -->
+
+  <section class="intern-takeaway">
+
+    <div class="intern-container">
+
+      <div class="intern-takeaway-card">
+
+        <div class="intern-takeaway-content">
+
+          <div class="intern-takeaway-label">
+            THE BIGGER PICTURE
+          </div>
+
+          <h2>
+            Internship không chỉ giải quyết
+            nhu cầu nhân sự <span>hôm nay.</span>
+          </h2>
+
+          <p>
+            Đó là cách doanh nghiệp
+            <strong>tuyển dụng hiệu quả hơn, xây talent pipeline sớm hơn,
+            giảm rủi ro tuyển dụng và tạo lợi thế trong cuộc đua thu hút
+            thế hệ nhân tài tiếp theo.</strong>
+          </p>
+
         </div>
 
       </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       RELATED INSIGHT
+  ====================================================== -->
+
+  <section class="intern-related">
+
+    <div class="intern-container">
+
+      <div class="intern-related-heading">
+        Có thể bạn quan tâm
+      </div>
+
+
+      <a
+        href="{{ '/bai-viet-dau-tien/' | relative_url }}"
+        class="intern-related-card"
+      >
+
+        <div class="intern-related-date">
+          UPZI INSIGHTS
+        </div>
+
+        <h3>
+          Gen Z tìm hiểu doanh nghiệp
+          từ rất lâu trước khi tìm việc
+        </h3>
+
+        <p>
+          Với Gen Z, hành trình tìm việc không bắt đầu từ lúc họ nhìn thấy
+          một tin tuyển dụng. Họ quan sát, tìm hiểu và đánh giá doanh nghiệp
+          từ rất lâu trước đó.
+        </p>
+
+        <span class="intern-related-link">
+          Đọc bài viết →
+        </span>
+
+      </a>
 
     </div>
 
@@ -1619,25 +2053,25 @@ description: >
        UPZI CTA
   ====================================================== -->
 
-  <section class="insight-footer">
+  <section class="intern-footer">
 
-    <div class="insight-container">
+    <div class="intern-container">
 
-      <div class="insight-footer-inner">
+      <div class="intern-footer-inner">
 
         <h2>
-          Đang tìm cách tiếp cận
-          nguồn talent trẻ từ sớm?
+          Sẵn sàng xây nguồn
+          talent từ sớm?
         </h2>
 
-        <p class="insight-footer-desc">
+        <p class="intern-footer-desc">
           Khám phá cách Upzi có thể giúp doanh nghiệp
-          tiếp cận nguồn ứng viên trẻ phù hợp hơn.
+          tiếp cận và xây dựng nguồn ứng viên trẻ phù hợp hơn.
         </p>
 
         <a
           href="{{ '/' | relative_url }}#leadform"
-          class="insight-footer-button"
+          class="intern-footer-button"
         >
           Trao đổi với Upzi
         </a>
@@ -1653,21 +2087,20 @@ description: >
        FOOTER CONTACT
   ====================================================== -->
 
-  <div class="insight-footer-bottom">
+  <div class="intern-footer-bottom">
 
-    <div class="insight-container">
+    <div class="intern-container">
 
-      <div class="insight-footer-bottom-inner">
+      <div class="intern-footer-bottom-inner">
 
-        <!-- BRAND -->
 
-        <div class="insight-footer-brand-column">
+        <div class="intern-footer-brand-column">
 
-          <div class="insight-footer-brand">
+          <div class="intern-footer-brand">
             upzi
           </div>
 
-          <p class="insight-footer-description">
+          <p class="intern-footer-description">
             Một sản phẩm của Công Ty Cổ Phần
             Navigos Group Việt Nam.
           </p>
@@ -1675,11 +2108,9 @@ description: >
         </div>
 
 
-        <!-- CONTACT -->
+        <div class="intern-footer-contact">
 
-        <div class="insight-footer-contact">
-
-          <div class="insight-footer-column-title">
+          <div class="intern-footer-column-title">
             Liên hệ
           </div>
 
@@ -1698,11 +2129,9 @@ description: >
         </div>
 
 
-        <!-- SOCIAL -->
+        <div class="intern-footer-social">
 
-        <div class="insight-footer-social">
-
-          <div class="insight-footer-column-title">
+          <div class="intern-footer-column-title">
             Kết nối
           </div>
 
@@ -1718,10 +2147,11 @@ description: >
 
         </div>
 
+
       </div>
 
 
-      <div class="insight-footer-copyright">
+      <div class="intern-footer-copyright">
 
         © 2026 Upzi — Member of Navigos Group.
         All rights reserved.
