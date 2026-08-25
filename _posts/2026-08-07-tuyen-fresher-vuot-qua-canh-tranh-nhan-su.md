@@ -1,14 +1,14 @@
 ---
 layout: frame2
 
-title: "Tránh cuộc đua tăng lương bằng cách tuyển Fresher"
+title: "Khi cuộc đua lương ngày càng khốc liệt, doanh nghiệp bắt đầu xây dựng đội ngũ từ Fresher"
 
 category: "Success Story"
 
 description: >
-  Một công ty xây dựng Nhật Bản tại Việt Nam chuyển hướng
-  từ tuyển ứng viên giàu kinh nghiệm sang tiếp cận Fresher
-  để giải quyết bài toán thiếu hụt nhân sự và chi phí tuyển dụng tăng cao.
+  Một công ty xây dựng Nhật Bản tại Việt Nam chuyển hướng từ tuyển ứng viên
+  giàu kinh nghiệm sang tiếp cận Fresher, mở rộng nguồn ứng viên và xây dựng
+  đội ngũ nhân sự trẻ cho nhu cầu phát triển lâu dài.
 
 industry: "Xây dựng"
 target: "Fresher"
@@ -31,16 +31,22 @@ date: 2026-08-07
         </div>
 
         <h2>
-          Khi tuyển người có kinh nghiệm
-          trở thành cuộc đua về lương
+          Khi cuộc đua lương ngày càng khốc liệt,
+          doanh nghiệp bắt đầu xây dựng đội ngũ từ Fresher
         </h2>
 
         <p>
-          Thị trường xây dựng Việt Nam đang thiếu hụt nhân sự
-          có kinh nghiệm trong bối cảnh đầu tư hạ tầng gia tăng.
-          Các doanh nghiệp lớn trong nước đưa ra mức lương hấp dẫn,
-          khiến việc thu hút ứng viên giàu kinh nghiệm ngày càng
-          khó khăn và tốn kém.
+          Tuyển kỹ sư có kinh nghiệm ngày càng khó. Nhu cầu nhân lực tăng,
+          mức lương liên tục bị đẩy lên và doanh nghiệp phải cạnh tranh
+          với nhiều đối thủ để tiếp cận cùng một nhóm ứng viên.
+        </p>
+
+        <p>
+          Thay vì tiếp tục cuộc đua đó, doanh nghiệp mở thêm các vị trí
+          dành cho Fresher như CAD Draftsman, Site Engineer, QS Engineer
+          và M&E Site Engineer tại cả miền Bắc và miền Nam, đồng thời
+          điều chỉnh cách viết tin tuyển dụng cho nhóm ứng viên chưa
+          có kinh nghiệm.
         </p>
 
       </div>
@@ -49,7 +55,7 @@ date: 2026-08-07
       <div class="challenge-card">
 
         <h3>
-          Thách thức
+          Bài toán
         </h3>
 
         <ul>
@@ -58,8 +64,7 @@ date: 2026-08-07
             <span class="check">✓</span>
 
             <span>
-              Chi phí tuyển dụng ứng viên có kinh nghiệm
-              ngày càng cao.
+              Nguồn ứng viên kỹ sư có kinh nghiệm ngày càng cạnh tranh.
             </span>
           </li>
 
@@ -67,8 +72,7 @@ date: 2026-08-07
             <span class="check">✓</span>
 
             <span>
-              Khó cạnh tranh với mức lương từ các tập đoàn
-              lớn trong nước.
+              Mức lương của nhóm ứng viên giàu kinh nghiệm liên tục tăng.
             </span>
           </li>
 
@@ -76,8 +80,8 @@ date: 2026-08-07
             <span class="check">✓</span>
 
             <span>
-              Nguồn ứng viên có kinh nghiệm trong ngành
-              đang thiếu hụt.
+              Doanh nghiệp cần một hướng tiếp cận mới để xây dựng
+              nguồn nhân sự cho nhu cầu phát triển lâu dài.
             </span>
           </li>
 
@@ -102,21 +106,21 @@ date: 2026-08-07
       <div>
 
         <div class="eyebrow">
-          Bài toán
+          Insight
         </div>
 
         <h2>
-          Thay vì cạnh tranh để giành người đã có kinh nghiệm,
+          Fresher không ngại ngành xây dựng.
           <span class="accent">
-            hãy xây dựng nguồn nhân lực từ sớm.
+            Họ cần biết mình được đào tạo thế nào, ai hướng dẫn và con đường phía trước ra sao.
           </span>
         </h2>
 
         <p>
-          Doanh nghiệp lựa chọn mở rộng nhóm ứng viên mục tiêu
-          sang Fresher, thiết kế tin tuyển dụng phù hợp với nhóm
-          ứng viên trẻ và phối hợp cùng Upzi để tiếp cận nguồn
-          ứng viên này.
+          Với ứng viên mới tốt nghiệp, rào cản không nhất thiết nằm ở
+          ngành nghề. Điều họ quan tâm là liệu doanh nghiệp có tạo điều kiện
+          để mình bắt đầu, được hướng dẫn và phát triển trong những năm đầu
+          sự nghiệp hay không.
         </p>
 
       </div>
@@ -131,7 +135,7 @@ date: 2026-08-07
           </div>
 
           <p>
-            Vị trí tuyển dụng được triển khai
+            Vị trí Fresher được triển khai
           </p>
 
         </div>
@@ -166,18 +170,17 @@ date: 2026-08-07
     <div class="section-head">
 
       <div class="eyebrow-light">
-        Giải pháp
+        PlayBook
       </div>
 
       <h2>
-        Thiết kế lại cách tiếp cận ứng viên trẻ
+        Thay đổi cách nói về cơ hội dành cho Fresher
       </h2>
 
       <p>
-        Thay vì chỉ tập trung vào ứng viên đã có kinh nghiệm,
-        doanh nghiệp chuyển sang tuyển Fresher và tối ưu
-        cách truyền tải cơ hội nghề nghiệp dành cho nhóm
-        ứng viên này.
+        Thay vì mở đầu bằng yêu cầu kinh nghiệm, tin tuyển dụng tập trung
+        trả lời câu hỏi mà hầu hết Fresher đều quan tâm:
+        <strong>“Nếu chưa có kinh nghiệm, mình có cơ hội không?”</strong>
       </p>
 
     </div>
@@ -192,12 +195,13 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Mở rộng nhóm ứng viên mục tiêu
+          Giúp Fresher tự tin bắt đầu sự nghiệp
         </h3>
 
         <p>
-          Chủ động tiếp cận Fresher thay vì chỉ cạnh tranh
-          trong nhóm ứng viên giàu kinh nghiệm.
+          Thông điệp về đào tạo trực tiếp tại công trường được đưa lên
+          rõ ràng, giúp ứng viên hiểu rằng họ vẫn có cơ hội bắt đầu
+          dù chưa từng đi làm.
         </p>
 
       </div>
@@ -210,12 +214,13 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Thiết kế tin tuyển dụng cho Fresher
+          Mở rộng nguồn ứng viên bằng cách tiếp cận sớm hơn
         </h3>
 
         <p>
-          Xây dựng job posting phù hợp với nhu cầu,
-          kỳ vọng và khả năng tiếp cận của ứng viên trẻ.
+          Doanh nghiệp mở thêm các vị trí dành cho Fresher trên Upzi,
+          chủ động tiếp cận nguồn nhân sự trẻ thay vì chỉ cạnh tranh
+          trong nhóm ứng viên đã có kinh nghiệm.
         </p>
 
       </div>
@@ -228,12 +233,13 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Phối hợp cùng Upzi
+          Cho ứng viên thấy con đường phát triển
         </h3>
 
         <p>
-          Tận dụng nền tảng Upzi để đưa cơ hội tuyển dụng
-          tới nhóm ứng viên trẻ phù hợp.
+          Lộ trình phát triển được làm rõ để ứng viên biết mình sẽ được
+          hướng dẫn bởi đội ngũ kỹ sư Việt Nam và Nhật Bản, tham gia các
+          dự án quy mô lớn và từng bước phát triển lên vị trí cao hơn.
         </p>
 
       </div>
@@ -246,12 +252,13 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Thử nghiệm với 5 vị trí
+          Thử nghiệm trên nhiều vị trí Fresher
         </h3>
 
         <p>
-          Triển khai trong tháng đầu tiên để kiểm chứng
-          khả năng tiếp cận và thu hút ứng viên.
+          CAD Draftsman, Site Engineer, QS Engineer và M&E Site Engineer
+          được triển khai tại cả miền Bắc và miền Nam để mở rộng khả năng
+          tiếp cận nguồn ứng viên trẻ.
         </p>
 
       </div>
@@ -271,16 +278,17 @@ date: 2026-08-07
     <div class="results-title">
 
       <div class="eyebrow-light">
-        Tóm tắt kết quả
+        Doanh nghiệp nhìn thấy được gì
       </div>
 
       <h2>
-        Các con số quan trọng nổi bật
+        Những tín hiệu đầu tiên từ tháng triển khai
       </h2>
 
       <p>
-        Dưới đây là các con số quan trọng nổi bật
-        từ quá trình triển khai tuyển dụng.
+        Sau tháng đầu tiên, điều doanh nghiệp có được không chỉ là
+        hồ sơ ứng tuyển, mà còn là cơ sở để hiểu cách tiếp cận nhóm
+        nhân sự trẻ hiệu quả hơn.
       </p>
 
     </div>
@@ -299,8 +307,7 @@ date: 2026-08-07
         </h3>
 
         <p>
-          Tổng lượt xem các tin tuyển dụng
-          trong tháng đầu tiên.
+          Tổng lượt xem các tin tuyển dụng trong tháng đầu tiên.
         </p>
 
       </div>
@@ -313,12 +320,11 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Ứng viên
+          Hồ sơ ứng tuyển
         </h3>
 
         <p>
-          Hồ sơ ứng tuyển được ghi nhận
-          cho 5 vị trí tuyển dụng.
+          Hồ sơ ứng tuyển được ghi nhận cho 5 vị trí tuyển dụng.
         </p>
 
       </div>
@@ -331,12 +337,11 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Vị trí
+          Vị trí Fresher
         </h3>
 
         <p>
-          Các vị trí Fresher được triển khai
-          trong giai đoạn thử nghiệm đầu tiên.
+          Các vị trí được triển khai trong giai đoạn đầu tiên.
         </p>
 
       </div>
@@ -356,16 +361,18 @@ date: 2026-08-07
     <div class="section-head">
 
       <div class="eyebrow-light">
-        Nội dung chi tiết
+        Early Career Insight
       </div>
 
       <h2>
-        Nội dung chi tiết của báo cáo
+        Điều gì khiến Fresher sẵn sàng ứng tuyển?
       </h2>
 
       <p>
-        Khám phá bối cảnh, thách thức, giải pháp và kết quả
-        trong quá trình triển khai tuyển dụng Fresher.
+        Với nhiều người trẻ, câu hỏi lớn nhất không chỉ là
+        “Công việc này lương bao nhiêu?” mà còn là:
+        mình có được đào tạo không, ai sẽ hướng dẫn và mình sẽ
+        học được gì sau một hoặc hai năm?
       </p>
 
     </div>
@@ -380,13 +387,12 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Bối cảnh tuyển dụng
+          Vị trí nào Fresher sẵn sàng ứng tuyển?
         </h3>
 
         <p>
-          Thị trường xây dựng Việt Nam đang thiếu hụt
-          nhân sự có kinh nghiệm trong bối cảnh đầu tư
-          hạ tầng gia tăng.
+          Không phải vị trí nào cũng thu hút như nhau. Dữ liệu theo
+          từng tin cho thấy nhóm ứng viên trẻ phản hồi mạnh nhất ở đâu.
         </p>
 
       </div>
@@ -399,13 +405,12 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Bài toán doanh nghiệp
+          Thông điệp nào tạo được phản hồi?
         </h3>
 
         <p>
-          Doanh nghiệp gặp khó khăn trong việc thu hút
-          ứng viên giàu kinh nghiệm với chi phí tuyển dụng
-          hợp lý.
+          Những tin nói rõ về đào tạo, mentor và lộ trình phát triển
+          nhận được phản hồi tích cực hơn so với tin chỉ mô tả công việc.
         </p>
 
       </div>
@@ -418,12 +423,12 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Giải pháp tuyển Fresher
+          Fresher có thật sự quan tâm ngành không?
         </h3>
 
         <p>
-          Doanh nghiệp mở rộng nhóm ứng viên mục tiêu
-          và thiết kế tin tuyển dụng phù hợp với Fresher.
+          Phản hồi từ tháng đầu cho thấy rào cản nằm nhiều hơn ở cách
+          mô tả cơ hội, thay vì nằm ở bản thân ngành nghề.
         </p>
 
       </div>
@@ -436,12 +441,13 @@ date: 2026-08-07
         </div>
 
         <h3>
-          Kết quả triển khai
+          Làm rõ hành trình phát triển
         </h3>
 
         <p>
-          Trong tháng đầu tiên, 5 vị trí tuyển dụng đạt
-          790 lượt xem và ghi nhận 19 hồ sơ ứng tuyển.
+          Khi doanh nghiệp trả lời rõ về đào tạo, người hướng dẫn và
+          lộ trình phát triển ngay từ tin tuyển dụng, rào cản ứng tuyển
+          của Fresher có thể giảm đi đáng kể.
         </p>
 
       </div>
@@ -461,13 +467,12 @@ date: 2026-08-07
     <div class="quote-wrap">
 
       <div class="eyebrow-light">
-        Điểm đáng chú ý
+        Một quan sát từ chiến dịch
       </div>
 
       <div class="quote">
-        “Không nhất thiết phải trả mức lương cao hơn để tuyển được người.
-        Doanh nghiệp có thể thay đổi nhóm ứng viên mục tiêu
-        và xây dựng nguồn nhân lực từ sớm.”
+        “Đối với các vị trí Early Career, sự rõ ràng về hành trình phát triển
+        đôi khi tạo ra nhiều khác biệt hơn việc chỉ nhấn mạnh yêu cầu công việc.”
       </div>
 
       <div class="source">
