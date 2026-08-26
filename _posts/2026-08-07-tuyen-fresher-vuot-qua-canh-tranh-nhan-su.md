@@ -9,244 +9,56 @@ period: "Tháng đầu tiên"
 date: 2026-08-07
 ---
 
-import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
-import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
-import fs from "node:fs";
-import path from "node:path";
-import { defineConfig, type Plugin, type ViteDevServer } from "vite";
-import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
-
-// =============================================================================
-// Manus Debug Collector - Vite Plugin
-// Writes browser logs directly to files, trimmed when exceeding size limit
-// =============================================================================
-
-const PROJECT_ROOT = import.meta.dirname;
-const LOG_DIR = path.join(PROJECT_ROOT, ".manus-logs");
-const MAX_LOG_SIZE_BYTES = 1 * 1024 * 1024; // 1MB per log file
-const TRIM_TARGET_BYTES = Math.floor(MAX_LOG_SIZE_BYTES * 0.6); // Trim to 60% to avoid constant re-trimming
-
-type LogSource = "browserConsole" | "networkRequests" | "sessionReplay";
-
-function ensureLogDir() {
-  if (!fs.existsSync(LOG_DIR)) {
-    fs.mkdirSync(LOG_DIR, { recursive: true });
-  }
-}
-
-function trimLogFile(logPath: string, maxSize: number) {
-  try {
-    if (!fs.existsSync(logPath) || fs.statSync(logPath).size <= maxSize) {
-      return;
-    }
-
-    const lines = fs.readFileSync(logPath, "utf-8").split("\n");
-    const keptLines: string[] = [];
-    let keptBytes = 0;
-
-    // Keep newest lines (from end) that fit within 60% of maxSize
-    const targetSize = TRIM_TARGET_BYTES;
-    for (let i = lines.length - 1; i >= 0; i--) {
-      const lineBytes = Buffer.byteLength(`${lines[i]}\n`, "utf-8");
-      if (keptBytes + lineBytes > targetSize) break;
-      keptLines.unshift(lines[i]);
-      keptBytes += lineBytes;
-    }
-
-    fs.writeFileSync(logPath, keptLines.join("\n"), "utf-8");
-  } catch {
-    /* ignore trim errors */
-  }
-}
-
-function writeToLogFile(source: LogSource, entries: unknown[]) {
-  if (entries.length === 0) return;
-
-  ensureLogDir();
-  const logPath = path.join(LOG_DIR, `${source}.log`);
-
-  // Format entries with timestamps
-  const lines = entries.map((entry) => {
-    const ts = new Date().toISOString();
-    return `[${ts}] ${JSON.stringify(entry)}`;
-  });
-
-  // Append to log file
-  fs.appendFileSync(logPath, `${lines.join("\n")}\n`, "utf-8");
-
-  // Trim if exceeds max size
-  trimLogFile(logPath, MAX_LOG_SIZE_BYTES);
-}
-
-/**
- * Vite plugin to collect browser debug logs
- * - POST /__manus__/logs: Browser sends logs, written directly to files
- * - Files: browserConsole.log, networkRequests.log, sessionReplay.log
- * - Auto-trimmed when exceeding 1MB (keeps newest entries)
- */
-function vitePluginManusDebugCollector(): Plugin {
-  return {
-    name: "manus-debug-collector",
-
-    transformIndexHtml(html) {
-      if (process.env.NODE_ENV === "production") {
-        return html;
-      }
-      return {
-        html,
-        tags: [
-          {
-            tag: "script",
-            attrs: {
-              src: "/__manus__/debug-collector.js",
-              defer: true,
-            },
-            injectTo: "head",
-          },
-        ],
-      };
-    },
-
-    configureServer(server: ViteDevServer) {
-      // POST /__manus__/logs: Browser sends logs (written directly to files)
-      server.middlewares.use("/__manus__/logs", (req, res, next) => {
-        if (req.method !== "POST") {
-          return next();
-        }
-
-        const handlePayload = (payload: any) => {
-          // Write logs directly to files
-          if (payload.consoleLogs?.length > 0) {
-            writeToLogFile("browserConsole", payload.consoleLogs);
-          }
-          if (payload.networkRequests?.length > 0) {
-            writeToLogFile("networkRequests", payload.networkRequests);
-          }
-          if (payload.sessionEvents?.length > 0) {
-            writeToLogFile("sessionReplay", payload.sessionEvents);
-          }
-
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({ success: true }));
-        };
-
-        const reqBody = (req as { body?: unknown }).body;
-        if (reqBody && typeof reqBody === "object") {
-          try {
-            handlePayload(reqBody);
-          } catch (e) {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ success: false, error: String(e) }));
-          }
-          return;
-        }
-
-        let body = "";
-        req.on("data", (chunk) => {
-          body += chunk.toString();
-        });
-
-        req.on("end", () => {
-          try {
-            const payload = JSON.parse(body);
-            handlePayload(payload);
-          } catch (e) {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ success: false, error: String(e) }));
-          }
-        });
-      });
-    },
-  };
-}
-
-function vitePluginStorageProxy(): Plugin {
-  return {
-    name: "manus-storage-proxy",
-    configureServer(server: ViteDevServer) {
-      server.middlewares.use("/manus-storage", async (req, res) => {
-        const key = req.url?.replace(/^\//, "");
-        if (!key) {
-          res.writeHead(400, { "Content-Type": "text/plain" });
-          res.end("Missing storage key");
-          return;
-        }
-
-        const forgeBaseUrl = (process.env.BUILT_IN_FORGE_API_URL || "").replace(/\/+$/, "");
-        const forgeKey = process.env.BUILT_IN_FORGE_API_KEY;
-
-        if (!forgeBaseUrl || !forgeKey) {
-          res.writeHead(500, { "Content-Type": "text/plain" });
-          res.end("Storage proxy not configured");
-          return;
-        }
-
-        try {
-          const forgeUrl = new URL("v1/storage/presign/get", forgeBaseUrl + "/");
-          forgeUrl.searchParams.set("path", key);
-
-          const forgeResp = await fetch(forgeUrl, {
-            headers: { Authorization: `Bearer ${forgeKey}` },
-          });
-
-          if (!forgeResp.ok) {
-            res.writeHead(502, { "Content-Type": "text/plain" });
-            res.end("Storage backend error");
-            return;
-          }
-
-          const { url } = (await forgeResp.json()) as { url: string };
-          if (!url) {
-            res.writeHead(502, { "Content-Type": "text/plain" });
-            res.end("Empty signed URL");
-            return;
-          }
-
-          res.writeHead(307, { Location: url, "Cache-Control": "no-store" });
-          res.end();
-        } catch {
-          res.writeHead(502, { "Content-Type": "text/plain" });
-          res.end("Storage proxy error");
-        }
-      });
-    },
-  };
-}
-
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
-
-export default defineConfig({
-  plugins,
-  resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
-    },
-  },
-  envDir: path.resolve(import.meta.dirname),
-  root: path.resolve(import.meta.dirname, "client"),
-  build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
-    emptyOutDir: true,
-  },
-  server: {
-    port: 3000,
-    strictPort: false, // Will find next available port if 3000 is busy
-    host: true,
-    allowedHosts: [
-      ".manuspre.computer",
-      ".manus.computer",
-      ".manus-asia.computer",
-      ".manuscomputer.ai",
-      ".manusvm.computer",
-      "localhost",
-      "127.0.0.1",
-    ],
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
-  },
-});
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Upzi Success Story — xây dựng đội ngũ kỹ sư từ Fresher." />
+  <title>Upzi Success Story — Xây dựng đội ngũ từ Fresher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@10..48,75..100,400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#191527; --lavender:#9345ff; --lavender-pale:#f8f5ff; --lime:#e0e722; --body:#605b6d; --line:#e9e5ef; --paper:#fffefe; --ease:cubic-bezier(.23,1,.32,1); }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased} a{color:inherit;text-decoration:none} h1,h2,h3,p{margin-top:0} h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.045em}.container{width:min(1120px,calc(100% - 48px));margin-inline:auto}.case-container{width:min(960px,calc(100% - 48px));margin-inline:auto}.eyebrow{margin:0 0 17px;color:var(--lavender);font-size:10px;font-weight:800;letter-spacing:.125em}.lime{background:linear-gradient(transparent 60%,rgba(224,231,34,.85) 60%);white-space:nowrap}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 20px;border:1px solid var(--lavender);border-radius:999px;background:var(--lavender);color:white;font-size:13px;font-weight:700;box-shadow:0 10px 24px rgba(147,69,255,.18);transition:transform 160ms var(--ease),background 160ms var(--ease)}.button:hover{background:#772ed9;transform:translateY(-2px)}.button.light{background:white;border-color:white;color:var(--ink);box-shadow:none}.button.light:hover{background:var(--lime);border-color:var(--lime)}
+    /* Navigation */
+    .site-header{height:76px;display:flex;align-items:center;border-bottom:1px solid rgba(25,21,39,.08);background:rgba(255,255,255,.94);position:sticky;top:0;z-index:30;backdrop-filter:blur(16px)}.site-header__inner{width:min(1240px,calc(100% - 48px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:118px;height:auto}.brand i{width:1px;height:18px;background:#d8d3df}.brand b{color:var(--lavender);font-size:10px;letter-spacing:.16em}.nav{display:flex;align-items:center;gap:34px;margin-left:auto;margin-right:10px}.nav a{color:#4f495a;font-size:13px;font-weight:600}.nav a:hover{color:var(--lavender)}
+    /* Hero */
+    .case-hero{position:relative;overflow:hidden;background:radial-gradient(680px 360px at 87% 12%,rgba(147,69,255,.14),transparent 70%),linear-gradient(180deg,#fbf9ff,white 76%)}.case-hero:after{content:"";position:absolute;left:-100px;bottom:42px;width:270px;height:270px;border:1px dashed rgba(224,231,34,.6);border-radius:50%}.case-hero__inner{position:relative;z-index:1;padding:46px 0 58px}.back{display:inline-flex;align-items:center;gap:8px;color:#665f6f;font-size:12px;font-weight:700}.back:hover{color:var(--lavender)}.case-hero__grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(410px,1.05fr);gap:54px;align-items:center;padding:42px 0 40px}.case-hero h1{max-width:570px;margin-bottom:22px;font-size:clamp(43px,5vw,64px);line-height:.99;font-weight:800}.case-hero__dek{max-width:510px;margin-bottom:24px;color:var(--body);font-size:15px;line-height:1.72}.case-hero__meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:#7d7587;font-size:11px}.case-hero__meta i{width:3px;height:3px;border-radius:50%;background:#bcb5c2}.hero-figure{position:relative;margin:0;overflow:hidden;border:7px solid white;border-radius:27px;background:#eee8ff;box-shadow:0 25px 60px rgba(84,48,139,.16)}.hero-figure img{display:block;width:100%;aspect-ratio:16/10.9;object-fit:cover}.hero-figure figcaption{position:absolute;right:18px;bottom:16px;display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;color:var(--ink);background:rgba(255,255,255,.92);font-size:9px;font-weight:800;letter-spacing:.1em;box-shadow:0 7px 18px rgba(25,21,39,.08)}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(224,231,34,.22)}.facts{display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;border:1px solid #e9e2f2;border-radius:18px;background:rgba(255,255,255,.86);box-shadow:0 12px 28px rgba(25,21,39,.05)}.facts>div{min-height:78px;padding:17px 19px;border-right:1px solid #e9e2f2}.facts>div:last-child{border-right:0}.facts span{display:block;margin-bottom:8px;color:var(--lavender);font-size:8px;font-weight:800;letter-spacing:.1em}.facts b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:16px;line-height:1.1;letter-spacing:-.025em}.progress{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:30px}.progress:before{content:"";position:absolute;top:14px;left:14px;right:14px;border-top:1px dashed #c5b1ed}.progress a{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:8px;color:#8a8196;font-size:10px;font-weight:700}.progress a:hover{color:var(--lavender)}.progress i{display:grid;place-items:center;width:28px;height:28px;border:1px solid #d5c7f2;border-radius:50%;color:var(--lavender);background:white;font-size:8px;font-style:normal;font-weight:800}.progress a:first-child i{color:var(--ink);border-color:var(--lime);background:var(--lime);box-shadow:0 0 0 5px rgba(224,231,34,.15)}.progress a:not(:first-child) i{width:11px;height:11px;margin:8px 8px 9px;border:0;color:transparent;background:var(--lavender);box-shadow:0 0 0 4px #f4eeff}.progress a:nth-child(3) i,.progress a:nth-child(5) i{background:var(--lime);box-shadow:0 0 0 4px rgba(224,231,34,.15)}
+    /* Opening route */
+    .opening{padding:90px 0}.opening-label{display:flex;align-items:center;gap:9px;margin-bottom:19px;color:var(--lavender);font-size:10px;font-weight:800;letter-spacing:.1em}.opening-label span{width:19px;height:10px;border-top:1px dashed var(--lavender);position:relative}.opening-label span:after{content:"";position:absolute;top:-4px;right:0;width:7px;height:7px;border-radius:50%;background:var(--lime)}.opening-lead{max-width:760px;margin-bottom:41px;color:#423b4b;font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(25px,3.2vw,35px);font-weight:540;line-height:1.25;letter-spacing:-.035em}.opening-lead strong{color:var(--lavender)}.route{display:grid;grid-template-columns:1fr 170px 1fr;align-items:stretch;overflow:hidden;border:1px solid #e5dafa;border-radius:20px;background:#fcfbff}.route__box{padding:25px 27px}.route__box.end{background:#f3edff}.route__box span{display:block;margin-bottom:11px;color:var(--lavender);font-size:9px;font-weight:800;letter-spacing:.11em}.route__box b{display:block;margin-bottom:8px;font-family:"Bricolage Grotesque",sans-serif;font-size:20px;line-height:1.05;letter-spacing:-.03em}.route__box p{margin:0;color:#6d6577;font-size:12px;line-height:1.55}.route__line{position:relative;display:flex;align-items:center;justify-content:center;color:var(--lavender)}.route__line:before{content:"";position:absolute;left:0;right:0;border-top:1px dashed #b99df2}.route__line i{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 6px rgba(224,231,34,.18)}.route__line i:first-child{left:20px}.route__line i:last-child{right:20px}.route__line b{position:relative;z-index:1;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:white;font-size:18px}
+    /* Challenge */
+    .challenge{padding:93px 0;background:#f8f5ff}.challenge-grid{display:grid;grid-template-columns:1fr .92fr;gap:86px;align-items:center}.challenge h2,.section-head h2,.learning-intro h2{margin-bottom:17px;font-size:clamp(34px,4vw,48px);line-height:1.02;font-weight:750}.challenge-copy>p:not(.eyebrow){color:var(--body);font-size:14px;line-height:1.75}.challenge-card{position:relative;padding:29px;overflow:hidden;border:1px solid #e2d7fa;border-radius:22px;background:white;box-shadow:0 18px 34px rgba(83,45,145,.07)}.challenge-card:after{content:"";position:absolute;top:-67px;right:-61px;width:177px;height:177px;border:20px solid rgba(147,69,255,.08);border-radius:50%}.challenge-head{position:relative;z-index:1;display:flex;gap:12px;align-items:center;padding-bottom:22px;border-bottom:1px solid #ece6f4}.challenge-head>span{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;color:var(--lavender);background:#f2ebff}.challenge-head p{margin:0 0 4px;color:var(--lavender);font-size:8px;font-weight:800;letter-spacing:.1em}.challenge-head h3{margin:0;font-size:23px;line-height:1}.check-list{position:relative;z-index:1;padding:19px 0 9px}.check-list p{display:grid;grid-template-columns:19px 1fr;gap:9px;margin:0;padding:11px 0;color:#625a6a;font-size:12px;line-height:1.55}.check{color:#23ae94;font-weight:800}.check-list b{color:var(--ink)}.challenge-route{position:relative;z-index:1;display:flex;align-items:center;gap:7px;padding-top:16px;border-top:1px solid #ece6f4;color:#7e758b;font-size:8px;font-weight:800;letter-spacing:.1em}.challenge-route i{width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(224,231,34,.18)}.challenge-route span{color:var(--lavender);font-size:14px}
+    /* Fresher insight and playbook */
+    .questions{padding:105px 0}.section-head{max-width:675px}.center{text-align:center;margin-inline:auto}.section-head h2 span,.learning-intro h2 span{color:var(--lavender)}.section-head>p:last-child{max-width:570px;margin:0;color:var(--body);font-size:14px;line-height:1.65}.center>p:last-child{margin-inline:auto}.question-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:44px}.question-card{position:relative;min-height:215px;padding:25px;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:white}.question-card:after{content:"";position:absolute;right:-23px;bottom:-32px;width:105px;height:105px;border:15px solid rgba(147,69,255,.07);border-radius:50%}.question-card>span{display:grid;place-items:center;width:31px;height:31px;margin-bottom:25px;border-radius:10px;color:var(--lavender);background:#f1ebff;font-size:9px;font-weight:800}.question-card h3{position:relative;z-index:1;margin-bottom:10px;font-size:23px;line-height:1.05}.question-card p{position:relative;z-index:1;max-width:235px;margin:0;color:#6d6476;font-size:12px;font-style:italic;line-height:1.55}.playbook{padding:21px 0 115px}.playbook-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:46px}.playbook-card{position:relative;min-height:250px;padding:24px;border:1px solid var(--line);border-radius:19px;background:white;transition:transform 180ms var(--ease),box-shadow 180ms var(--ease)}.playbook-card:hover{transform:translateY(-5px);box-shadow:0 16px 27px rgba(25,21,39,.07)}.playbook-card__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:47px}.playbook-card__top span{color:var(--lavender);font-size:9px;font-weight:800;letter-spacing:.08em}.playbook-card__top i{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(224,231,34,.13)}.playbook-card h3{margin-bottom:12px;font-size:23px;line-height:1.05}.playbook-card p{margin:0;color:#665e6f;font-size:12px;line-height:1.6}.playbook-card>b{position:absolute;right:21px;bottom:20px;color:var(--lavender)}
+    /* Evidence */
+    .learnings{padding:89px 0 102px;background:#f6f2ff}.learnings-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:76px;align-items:center}.learning-intro>p:not(.eyebrow){color:var(--body);font-size:14px;line-height:1.7}.learning-intro blockquote{position:relative;margin:30px 0 0;padding:23px 24px 23px 47px;border-radius:16px;color:#453c51;background:white;font-family:"Bricolage Grotesque",sans-serif;font-size:18px;font-weight:600;line-height:1.35;letter-spacing:-.02em}.learning-intro blockquote>span{position:absolute;left:18px;top:14px;color:var(--lavender);font-family:Georgia,serif;font-size:44px;line-height:1}.interpretation{margin-top:14px;padding:15px 16px 15px 19px;border-left:2px solid var(--lavender);color:#5f5669;background:rgba(255,255,255,.47);font-size:11px;line-height:1.55}.interpretation b{margin-right:7px;color:var(--lavender);font-size:8px;letter-spacing:.1em}.learning-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.learning-card{min-height:165px;padding:21px;border-radius:18px;background:white;box-shadow:0 9px 20px rgba(77,43,124,.05)}.learning-card p{margin-bottom:20px;color:var(--lavender);font-size:8px;font-weight:800;letter-spacing:.09em}.learning-card h3{margin-bottom:7px;font-size:20px;line-height:1.05}.learning-card span{color:#6d6575;font-size:11px;line-height:1.5}
+    /* Takeaway and footer */
+    .takeaway{position:relative;overflow:hidden;padding:104px 24px;color:white;text-align:center;background:var(--ink)}.takeaway:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 10%,rgba(147,69,255,.45),transparent 24%),radial-gradient(circle at 83% 90%,rgba(224,231,34,.2),transparent 24%)}.takeaway__inner{position:relative;z-index:1;width:min(750px,100%);margin:auto}.takeaway .eyebrow{color:var(--lime)}.takeaway blockquote{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(27px,3.4vw,42px);font-weight:600;line-height:1.14;letter-spacing:-.045em}.takeaway__source{margin:24px 0 27px;color:rgba(255,255,255,.59);font-size:10px;letter-spacing:.08em}.next-read{display:flex;align-items:center;justify-content:center;gap:9px;max-width:550px;margin:37px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.74);font-size:11px;line-height:1.35;text-align:left}.next-read:hover{color:white}.next-read span{display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--lime);font-size:8px;font-weight:800;letter-spacing:.09em}.next-read i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(224,231,34,.12)}.site-footer{background:#f7f5f9}.site-footer__inner{width:min(1120px,calc(100% - 48px));display:flex;justify-content:space-between;gap:50px;margin:auto;padding:46px 0}.site-footer__brand img{display:block;width:138px;margin-bottom:13px}.site-footer__brand p{max-width:300px;margin:0;color:#706a78;font-size:12px;line-height:1.6}.site-footer__links{display:flex;align-items:flex-start;gap:25px;padding-top:10px}.site-footer__links a{color:#514b5b;font-size:12px;font-weight:600}.site-footer__bottom{width:min(1120px,calc(100% - 48px));display:flex;justify-content:space-between;gap:18px;margin:auto;padding:17px 0 21px;border-top:1px solid #e4e0e8;color:#8b8492;font-size:10px}
+    @media(max-width:900px){.container,.case-container{width:min(100% - 36px,680px)}.nav{display:none}.case-hero__grid,.challenge-grid,.learnings-grid{grid-template-columns:1fr;gap:35px}.hero-figure{max-width:630px}.playbook-grid{grid-template-columns:repeat(2,1fr)}.learnings-grid{gap:39px}.site-header__inner{width:min(100% - 36px,680px)}}
+    @media(max-width:580px){.container,.case-container,.site-header__inner{width:calc(100% - 32px)}.site-header{height:66px}.brand img{width:102px}.brand i,.brand b,.nav{display:none}.site-header .button{display:none}.case-hero__inner{padding:33px 0 41px}.case-hero__grid{padding:31px 0 28px}.case-hero h1{font-size:44px}.hero-figure{border-width:5px;border-radius:20px}.facts{grid-template-columns:repeat(2,1fr)}.facts>div{min-height:72px;padding:15px;border-bottom:1px solid #e9e2f2}.facts>div:nth-child(2){border-right:0}.facts>div:nth-child(3),.facts>div:nth-child(4){border-bottom:0}.progress{display:flex;width:calc(100% + 32px);gap:24px;padding:2px 0 0;overflow-x:auto}.progress:before{width:570px;right:auto}.progress a{min-width:86px}.opening{padding:67px 0}.opening-lead{font-size:26px}.route{grid-template-columns:1fr}.route__line{height:51px;transform:rotate(90deg)}.challenge{padding:70px 0}.questions{padding:73px 0}.question-grid,.playbook-grid,.learning-grid{grid-template-columns:1fr}.question-grid{margin-top:33px}.question-card{min-height:180px}.playbook{padding:3px 0 77px}.playbook-grid{margin-top:33px}.playbook-card{min-height:207px}.learnings{padding:70px 0}.takeaway{padding:79px 24px;text-align:left}.takeaway blockquote{font-size:30px}.next-read{justify-content:flex-start;margin-top:31px}.site-footer__inner{width:calc(100% - 32px);flex-direction:column;gap:29px;padding:39px 0}.site-footer__bottom{width:calc(100% - 32px);flex-direction:column;padding:15px 0 18px}}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header"><div class="site-header__inner"><a class="brand" href="#top"><img src="/manus-storage/upzi-wordmark_a19f17ec.png" alt="Upzi — Empowered by VietnamWorks" /><i></i><b>BLOG</b></a><nav class="nav"><a href="#bai-toan">Góc nhìn</a><a href="#chien-luoc">Chủ đề</a><a href="#bang-chung">Tín hiệu Upzi</a></nav><a class="button" href="https://upzi-employers.vercel.app/" target="_blank" rel="noreferrer">Tư vấn tuyển dụng ↗</a></div></header>
+  <main id="top">
+    <!-- Hero and article facts -->
+    <section class="case-hero"><div class="container case-hero__inner"><a class="back" href="/">← Tất cả góc nhìn</a><div class="case-hero__grid"><div><p class="eyebrow">SUCCESS STORY · UPZI CASE STUDY</p><h1>Khi cuộc đua lương ngày càng khốc liệt, doanh nghiệp bắt đầu xây đội ngũ từ <span class="lime">Fresher.</span></h1><p class="case-hero__dek">Cách một doanh nghiệp xây dựng Nhật Bản chuyển từ tuyển dụng bị động sang chủ động xây dựng Early-Career Pipeline dài hạn.</p><div class="case-hero__meta"><span>Ngành xây dựng</span><i></i><span>07.08.2026</span><i></i><span>07 phút đọc</span></div></div><figure class="hero-figure"><img src="/manus-storage/upzi-case-study-construction_cbad7f58.png" alt="Kỹ sư trẻ và lộ trình phát triển nghề nghiệp trong ngành xây dựng" /><figcaption><span class="dot"></span>EARLY-CAREER PIPELINE</figcaption></figure></div><div class="facts"><div><span>THỊ TRƯỜNG</span><b>Việt Nam</b></div><div><span>NHÓM ỨNG VIÊN</span><b>Gen Z · Fresher</b></div><div><span>VỊ TRÍ TRỌNG ĐIỂM</span><b>CAD, Site, QS, M&amp;E</b></div><div><span>CỘT MỐC</span><b>Tháng đầu tiên</b></div></div><nav class="progress"><a href="#bai-toan"><i>01</i><span>Bài toán</span></a><a href="#ung-vien"><i>02</i><span>Góc nhìn Fresher</span></a><a href="#chien-luoc"><i>03</i><span>Quyết định</span></a><a href="#bang-chung"><i>04</i><span>Tín hiệu</span></a><a href="#ham-y"><i>05</i><span>Hàm ý</span></a></nav></div></section>
+    <!-- Opening claim -->
+    <section class="opening case-container"><div class="opening-label"><span></span>BƯỚC NGOẶT CỦA BÀI TOÁN</div><p class="opening-lead">Thay vì tiếp tục chi trả cao hơn để tiếp cận cùng một nhóm kỹ sư giàu kinh nghiệm, doanh nghiệp đã mở thêm một con đường: <strong>tạo cơ hội rõ ràng cho Fresher và xây nguồn ứng viên từ sớm.</strong></p><div class="route"><div class="route__box"><span>TRƯỚC ĐÂY</span><b>Tuyển theo nhu cầu phát sinh</b><p>Chạy theo nhóm ứng viên có kinh nghiệm, trong một thị trường cạnh tranh.</p></div><div class="route__line"><i></i><b>→</b><i></i></div><div class="route__box end"><span>HƯỚNG ĐI MỚI</span><b>Early-Career Pipeline</b><p>Thu hút, định hướng và đồng hành cùng nhân sự trẻ từ đầu hành trình.</p></div></div></section>
+    <!-- Challenge -->
+    <section id="bai-toan" class="challenge"><div class="case-container challenge-grid"><div class="challenge-copy"><p class="eyebrow">01 · THÁCH THỨC THỊ TRƯỜNG</p><h2>Không thể thắng một cuộc đua chỉ bằng <span class="lime">chi phí.</span></h2><p>Nhu cầu nhân lực tăng cao đẩy mức lương lên liên tục. Nhiều doanh nghiệp cùng tiếp cận một nhóm kỹ sư có kinh nghiệm vốn đã hạn chế, khiến tuyển dụng trở thành một vòng xoáy cạnh tranh tốn kém.</p><p>Doanh nghiệp trong case study lựa chọn mở rộng cơ hội Fresher tại cả miền Bắc và miền Nam cho các nhóm CAD Draftsman, Site Engineer, QS Engineer và M&amp;E Site Engineer.</p></div><aside class="challenge-card"><div class="challenge-head"><span>✦</span><div><p>ĐIỂM CẦN GIẢI</p><h3>Bài toán cần lời giải</h3></div></div><div class="check-list"><p><b class="check">✓</b><span><b>Cạnh tranh gắt gao.</b> Chi phí tiếp cận kỹ sư có kinh nghiệm vượt ngoài mức ngân sách mong muốn.</span></p><p><b class="check">✓</b><span><b>Cuộc đua lương.</b> Nhiều bên cùng chào mời một ứng viên, khiến sự khác biệt khó đến từ offer.</span></p><p><b class="check">✓</b><span><b>Thiếu pipeline.</b> Tuyển dụng phản ứng theo nhu cầu thay vì tạo nguồn ngay từ sớm.</span></p></div><div class="challenge-route"><i></i>SALARY WAR <span>→</span> EARLY SIGNAL</div></aside></div></section>
+    <!-- Fresher insight -->
+    <section id="ung-vien" class="questions"><div class="case-container"><div class="section-head center"><p class="eyebrow">02 · EARLY-CAREER INSIGHT</p><h2>Fresher không ngại ngành xây dựng.<br /><span>Họ cần nhìn thấy con đường để phát triển.</span></h2><p>Trước khi quyết định ứng tuyển, điều nhân sự trẻ cần không chỉ là mô tả công việc hiện tại mà còn là một hình dung cụ thể về ngày mai.</p></div><div class="question-grid"><article class="question-card"><span>01</span><h3>Đào tạo thực chiến</h3><p>“Liệu mình có được đào tạo bài bản khi chưa từng đi làm?”</p></article><article class="question-card"><span>02</span><h3>Người đồng hành</h3><p>“Ai sẽ là mentor dẫn dắt và hướng dẫn mình tại công trường?”</p></article><article class="question-card"><span>03</span><h3>Lộ trình dài hạn</h3><p>“Năng lực và vị trí của mình sẽ phát triển ra sao sau 1–2 năm?”</p></article></div></div></section>
+    <!-- Playbook -->
+    <section id="chien-luoc" class="playbook case-container"><div class="section-head"><p class="eyebrow">03 · UPZI STRATEGY PLAYBOOK</p><h2>Chuyển từ “yêu cầu kinh nghiệm” sang <span class="lime">“trao quyền cơ hội”.</span></h2><p>Thông điệp tuyển dụng được tái cấu trúc để giải đáp trực tiếp những băn khoăn đầu tiên của Fresher.</p></div><div class="playbook-grid"><article class="playbook-card"><div class="playbook-card__top"><span>STEP 01</span><i></i></div><h3>Minh bạch đào tạo</h3><p>Đưa thông tin đào tạo thực tế tại công trường lên đầu tin tuyển dụng để giảm rào cản tự tin cho người mới.</p><b>→</b></article><article class="playbook-card"><div class="playbook-card__top"><span>STEP 02</span><i></i></div><h3>Cam kết mentorship</h3><p>Nêu rõ sự đồng hành của các kỹ sư chuyên gia Việt Nam và Nhật Bản trong quá trình làm việc.</p><b>→</b></article><article class="playbook-card"><div class="playbook-card__top"><span>STEP 03</span><i></i></div><h3>Trực quan lộ trình</h3><p>Giúp ứng viên hình dung kiến thức tích luỹ được và cơ hội phát triển trong những năm đầu.</p><b>→</b></article><article class="playbook-card"><div class="playbook-card__top"><span>STEP 04</span><i></i></div><h3>Mở rộng phễu tiếp cận</h3><p>Mở thêm vị trí Fresher chuyên biệt thay vì chỉ tìm kiếm ứng viên đã có sẵn kinh nghiệm.</p><b>→</b></article></div></section>
+    <!-- Evidence -->
+    <section id="bang-chung" class="learnings"><div class="case-container learnings-grid"><div class="learning-intro"><p class="eyebrow">04 · MONTH-ONE SIGNALS</p><h2>Nhìn thấy gì từ phản hồi của <span>nhân sự trẻ?</span></h2><p>Kết quả tháng đầu tiên không chỉ nằm ở số lượng hồ sơ. Đây là dữ liệu giúp doanh nghiệp hiểu rõ hơn nhóm công việc, thông điệp và rào cản đang thực sự ảnh hưởng đến quyết định ứng tuyển.</p><blockquote><span>“</span>Tuyển sau khi đã hiểu người — thay vì tuyển rồi mới bắt đầu tìm hiểu.</blockquote><div class="interpretation"><b>DIỄN GIẢI</b>Tín hiệu ban đầu cho thấy thông điệp về đào tạo, mentor và lộ trình có thể làm rõ giá trị của một cơ hội Fresher—ngay cả trong một ngành vốn được xem là nhiều rào cản.</div></div><div class="learning-grid"><article class="learning-card"><p>SỨC HÚT VỊ TRÍ</p><h3>Xác định vị trí ưu tiên</h3><span>Nhận biết nhóm công việc tạo sự quan tâm tự nhiên cao hơn với Fresher.</span></article><article class="learning-card"><p>SỨC MẠNH THÔNG ĐIỆP</p><h3>Nội dung tạo chuyển đổi</h3><span>Đào tạo và mentor trở thành điểm chạm quan trọng trong quyết định nộp hồ sơ.</span></article><article class="learning-card"><p>THÁO GỠ RÀO CẢN</p><h3>Giải mã ngành nghề</h3><span>Rào cản nằm ở cách doanh nghiệp truyền tải cơ hội, không chỉ ở đặc thù ngành xây dựng.</span></article><article class="learning-card"><p>CHUẨN HOÁ MÔ HÌNH</p><h3>Nhân rộng toàn hệ thống</h3><span>Đóng gói công thức từ vị trí hiệu quả để áp dụng cho các nhóm tuyển dụng khác.</span></article></div></div></section>
+    <!-- Takeaway -->
+    <section id="ham-y" class="takeaway"><div class="takeaway__inner"><p class="eyebrow">05 · STRATEGIC TAKEAWAY</p><blockquote>“Khi doanh nghiệp giảm bớt rào cản về kinh nghiệm và phác họa rõ cách nhân sự trẻ sẽ được đào tạo, đồng hành và phát triển, nhiều Fresher sẵn sàng đón nhận cơ hội mà trước đây họ nghĩ mình chưa đủ điều kiện ứng tuyển.”</blockquote><p class="takeaway__source">Upzi Early Career Insight</p><a class="button light" href="https://upzi-employers.vercel.app/" target="_blank" rel="noreferrer">Trao đổi về pipeline của bạn ↗</a><a class="next-read" href="#top"><span><i></i>NEXT PATH</span>Đọc tiếp: Gen Z không đợi đến lúc thấy tin tuyển dụng mới quyết định họ tin ai. →</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__brand"><img src="/manus-storage/upzi-wordmark_a19f17ec.png" alt="Upzi — Empowered by VietnamWorks" /><p>Một góc nhìn từ Upzi về Gen Z, campus và nguồn nhân lực tương lai.</p></div><div class="site-footer__links"><a href="#top">Góc nhìn</a><a href="https://upzi-employers.vercel.app/" target="_blank" rel="noreferrer">Dành cho doanh nghiệp ↗</a></div></div><div class="site-footer__bottom"><span>© 2026 Upzi · Member of Navigos Group</span><span>Tiếp cận Gen Z sớm hơn trong hành trình nghề nghiệp.</span></div></footer>
+</body>
+</html>
