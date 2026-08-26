@@ -1,5 +1,4 @@
 ---
-layout: frame2
 title: "Khi cuộc đua lương ngày càng khốc liệt, doanh nghiệp bắt đầu xây dựng đội ngũ từ Fresher"
 category: "Success Story"
 description: "Cách một doanh nghiệp xây dựng Nhật Bản chuyển hướng từ tuyển dụng bị động sang chủ động xây dựng Early-Career Pipeline dài hạn."
@@ -10,245 +9,244 @@ period: "Tháng đầu tiên"
 date: 2026-08-07
 ---
 
-<!-- HERO SECTION (LANDING PAGE STYLE) -->
-<section class="hero-section text-center white">
-  <div class="wrap hero-wrap">
-    
-    <div class="badge-pill">
-      <span class="badge-dot"></span>
-      <span class="badge-text">Success Story · Upzi Case Study</span>
-    </div>
+import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import fs from "node:fs";
+import path from "node:path";
+import { defineConfig, type Plugin, type ViteDevServer } from "vite";
+import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
-    <h1 class="hero-heading">
-      Thoát khỏi cuộc đua chi phí: <br/>
-      <span class="text-gradient-purple">Xây dựng đội ngũ kỹ sư từ Fresher</span>
-    </h1>
+// =============================================================================
+// Manus Debug Collector - Vite Plugin
+// Writes browser logs directly to files, trimmed when exceeding size limit
+// =============================================================================
 
-    <p class="hero-lead">
-      Một công ty xây dựng Nhật Bản tại Việt Nam tái định hình chiến lược tuyển dụng: Chuyển hướng từ tiếp cận ứng viên giàu kinh nghiệm sang chủ động thu hút và đào tạo thế hệ Fresher.
-    </p>
+const PROJECT_ROOT = import.meta.dirname;
+const LOG_DIR = path.join(PROJECT_ROOT, ".manus-logs");
+const MAX_LOG_SIZE_BYTES = 1 * 1024 * 1024; // 1MB per log file
+const TRIM_TARGET_BYTES = Math.floor(MAX_LOG_SIZE_BYTES * 0.6); // Trim to 60% to avoid constant re-trimming
 
-    <!-- METRICS DATA BAR -->
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <span class="metric-label">Thị trường</span>
-        <span class="metric-value">Việt Nam</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-label">Đối tượng</span>
-        <span class="metric-value">Gen Z / Fresher</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-label">Vị trí trọng điểm</span>
-        <span class="metric-value">CAD, Site, QS, M&E</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-label">Cột mốc</span>
-        <span class="metric-value">Tháng thứ 1</span>
-      </div>
-    </div>
+type LogSource = "browserConsole" | "networkRequests" | "sessionReplay";
 
-  </div>
-</section>
+function ensureLogDir() {
+  if (!fs.existsSync(LOG_DIR)) {
+    fs.mkdirSync(LOG_DIR, { recursive: true });
+  }
+}
 
-<!-- SECTION 1: THE CHALLENGE (2-COLUMN GRID) -->
-<section class="story-section off">
-  <div class="wrap">
-    
-    <div class="section-grid two-columns align-center">
-      
-      <div class="content-block">
-        <div class="eyebrow">Thách thức thị trường</div>
-        <h2>Bối cảnh cuộc đua giành giật nhân lực kinh nghiệm</h2>
-        <p>
-          Nhu cầu nhân lực tăng cao đẩy mức lương liên tục lên đỉnh mới. Các doanh nghiệp rơi vào vòng xoáy cạnh tranh khốc liệt để tiếp cận cùng một nhóm ứng viên hạn chế.
-        </p>
-        <p>
-          Thay vì tiếp tục tiêu tốn ngân sách cho cuộc đua này, doanh nghiệp xây dựng Nhật Bản đã mở rộng cơ hội cho nhóm Fresher tại cả hai miền Bắc - Nam (với các vị trí: CAD Draftsman, Site Engineer, QS Engineer, M&E Site Engineer).
-        </p>
-      </div>
+function trimLogFile(logPath: string, maxSize: number) {
+  try {
+    if (!fs.existsSync(logPath) || fs.statSync(logPath).size <= maxSize) {
+      return;
+    }
 
-      <!-- INSIGHT / CHALLENGE CARD -->
-      <div class="tech-card bg-white highlight-border">
-        <div class="card-header">
-          <span class="icon-warning">⚠️</span>
-          <h3>Bài toán cần lời giải</h3>
-        </div>
-        <div class="card-body">
-          <div class="check-item">
-            <div class="check-icon">✓</div>
-            <div class="check-text">
-              <strong>Cạnh tranh gắt gao:</strong> Chi phí tiếp cận nhóm kỹ sư có kinh nghiệm vượt ngân sách cho phép.
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon">✓</div>
-            <div class="check-text">
-              <strong>Salary War:</strong> Mức lương bị đẩy lên cao do nhiều bên cùng chào mời một ứng viên.
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon">✓</div>
-            <div class="check-text">
-              <strong>Thiếu Pipeline:</strong> Tuyển dụng bị động theo nhu cầu phát sinh thay vì tạo nguồn từ sớm.
-            </div>
-          </div>
-        </div>
-      </div>
+    const lines = fs.readFileSync(logPath, "utf-8").split("\n");
+    const keptLines: string[] = [];
+    let keptBytes = 0;
 
-    </div>
+    // Keep newest lines (from end) that fit within 60% of maxSize
+    const targetSize = TRIM_TARGET_BYTES;
+    for (let i = lines.length - 1; i >= 0; i--) {
+      const lineBytes = Buffer.byteLength(`${lines[i]}\n`, "utf-8");
+      if (keptBytes + lineBytes > targetSize) break;
+      keptLines.unshift(lines[i]);
+      keptBytes += lineBytes;
+    }
 
-  </div>
-</section>
+    fs.writeFileSync(logPath, keptLines.join("\n"), "utf-8");
+  } catch {
+    /* ignore trim errors */
+  }
+}
 
-<!-- SECTION 2: EARLY CAREER INSIGHT (CARD GRID) -->
-<section class="story-section white">
-  <div class="wrap text-center">
-    
-    <div class="section-head max-width-center">
-      <div class="eyebrow-light">Early Career Insight</div>
-      <h2>
-        Fresher không ngại ngành xây dựng. <br/>
-        <span class="text-purple">Họ tìm kiếm sự rõ ràng trong con đường phát triển.</span>
-      </h2>
-      <p>
-        Trước khi quyết định ứng tuyển, mối quan tâm lớn nhất của nhân sự trẻ không dừng lại ở mô tả công việc hiện tại.
-      </p>
-    </div>
+function writeToLogFile(source: LogSource, entries: unknown[]) {
+  if (entries.length === 0) return;
 
-    <!-- 3 COLUMNS QUESTIONS GRID -->
-    <div class="bento-grid three-columns">
-      <div class="bento-card">
-        <div class="bento-number">01</div>
-        <h4>Đào tạo thực chiến</h4>
-        <p class="bento-quote">“Liệu mình có được đào tạo bài bản khi chưa từng đi làm?”</p>
-      </div>
+  ensureLogDir();
+  const logPath = path.join(LOG_DIR, `${source}.log`);
 
-      <div class="bento-card">
-        <div class="bento-number">02</div>
-        <h4>Người đồng hành</h4>
-        <p class="bento-quote">“Ai sẽ là mentor dẫn dắt và hướng dẫn mình tại công trường?”</p>
-      </div>
+  // Format entries with timestamps
+  const lines = entries.map((entry) => {
+    const ts = new Date().toISOString();
+    return `[${ts}] ${JSON.stringify(entry)}`;
+  });
 
-      <div class="bento-card">
-        <div class="bento-number">03</div>
-        <h4>Lộ trình dài hạn</h4>
-        <p class="bento-quote">“Năng lực và vị trí của mình sẽ phát triển ra sao sau 1–2 năm?”</p>
-      </div>
-    </div>
+  // Append to log file
+  fs.appendFileSync(logPath, `${lines.join("\n")}\n`, "utf-8");
 
-  </div>
-</section>
+  // Trim if exceeds max size
+  trimLogFile(logPath, MAX_LOG_SIZE_BYTES);
+}
 
-<!-- SECTION 3: PLAYBOOK (4-STEP PROCESS) -->
-<section class="story-section off">
-  <div class="wrap">
-    
-    <div class="section-head text-center">
-      <div class="eyebrow">Upzi Strategy Playbook</div>
-      <h2>Chuyển từ "Yêu cầu kinh nghiệm" sang "Trao quyền cơ hội"</h2>
-      <p>Tái cấu trúc thông điệp tuyển dụng để trực tiếp giải đáp nỗi băn khoăn của Fresher.</p>
-    </div>
+/**
+ * Vite plugin to collect browser debug logs
+ * - POST /__manus__/logs: Browser sends logs, written directly to files
+ * - Files: browserConsole.log, networkRequests.log, sessionReplay.log
+ * - Auto-trimmed when exceeding 1MB (keeps newest entries)
+ */
+function vitePluginManusDebugCollector(): Plugin {
+  return {
+    name: "manus-debug-collector",
 
-    <div class="playbook-cards-grid">
-      
-      <div class="playbook-card">
-        <div class="card-step">Step 01</div>
-        <h3>Minh bạch đào tạo</h3>
-        <p>Đưa thông tin đào tạo thực tế tại công trường lên ngay đầu tin tuyển dụng, loại bỏ rào cản tự tin cho người mới.</p>
-      </div>
+    transformIndexHtml(html) {
+      if (process.env.NODE_ENV === "production") {
+        return html;
+      }
+      return {
+        html,
+        tags: [
+          {
+            tag: "script",
+            attrs: {
+              src: "/__manus__/debug-collector.js",
+              defer: true,
+            },
+            injectTo: "head",
+          },
+        ],
+      };
+    },
 
-      <div class="playbook-card">
-        <div class="card-step">Step 02</div>
-        <h3>Cam kết Mentorship</h3>
-        <p>Nêu rõ sự đồng hành trực tiếp từ đội ngũ kỹ sư chuyên gia Việt Nam & Nhật Bản trong suốt quá trình làm việc.</p>
-      </div>
+    configureServer(server: ViteDevServer) {
+      // POST /__manus__/logs: Browser sends logs (written directly to files)
+      server.middlewares.use("/__manus__/logs", (req, res, next) => {
+        if (req.method !== "POST") {
+          return next();
+        }
 
-      <div class="playbook-card">
-        <div class="card-step">Step 03</div>
-        <h3>Trực quan lộ trình</h3>
-        <p>Cho ứng viên hình dung rõ kiến thức tích lũy được và khả năng thăng tiến lên các vị trí cao hơn trong những năm đầu.</p>
-      </div>
+        const handlePayload = (payload: any) => {
+          // Write logs directly to files
+          if (payload.consoleLogs?.length > 0) {
+            writeToLogFile("browserConsole", payload.consoleLogs);
+          }
+          if (payload.networkRequests?.length > 0) {
+            writeToLogFile("networkRequests", payload.networkRequests);
+          }
+          if (payload.sessionEvents?.length > 0) {
+            writeToLogFile("sessionReplay", payload.sessionEvents);
+          }
 
-      <div class="playbook-card">
-        <div class="card-step">Step 04</div>
-        <h3>Mở rộng phễu tiếp cận</h3>
-        <p>Chủ động mở thêm vị trí Fresher chuyên biệt thay vì chỉ tìm kiếm những ứng viên đã có sẵn kinh nghiệm.</p>
-      </div>
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ success: true }));
+        };
 
-    </div>
+        const reqBody = (req as { body?: unknown }).body;
+        if (reqBody && typeof reqBody === "object") {
+          try {
+            handlePayload(reqBody);
+          } catch (e) {
+            res.writeHead(400, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ success: false, error: String(e) }));
+          }
+          return;
+        }
 
-  </div>
-</section>
+        let body = "";
+        req.on("data", (chunk) => {
+          body += chunk.toString();
+        });
 
-<!-- SECTION 4: DATA & MATCH INTELLIGENCE -->
-<section class="story-section white">
-  <div class="wrap">
-    
-    <div class="section-grid two-columns align-center">
-      
-      <div class="content-block">
-        <div class="eyebrow-light">Match Rate Intelligence</div>
-        <h2>Nhìn thấy gì từ phản hồi của nhân sự trẻ?</h2>
-        <p>
-          Kết quả tháng đầu tiên không chỉ đo bằng số lượng hồ sơ, mà là những dữ liệu đắt giá để doanh nghiệp hiểu đúng tâm lý ứng viên Gen Z.
-        </p>
-        <div class="quote-pill-wrapper">
-          <div class="quote-pill">
-            💡 “Tuyển sau khi đã hiểu người — thay vì tuyển rồi mới bắt đầu tìm hiểu.”
-          </div>
-        </div>
-      </div>
+        req.on("end", () => {
+          try {
+            const payload = JSON.parse(body);
+            handlePayload(payload);
+          } catch (e) {
+            res.writeHead(400, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ success: false, error: String(e) }));
+          }
+        });
+      });
+    },
+  };
+}
 
-      <div class="results-bento-grid">
-        <div class="res-item">
-          <span class="res-tag">Sức hút vị trí</span>
-          <h4>Xác định vị trí ưu tiên</h4>
-          <p>Nhận biết rõ nhóm chức danh công việc có sức hút tự nhiên cao nhất với Fresher.</p>
-        </div>
+function vitePluginStorageProxy(): Plugin {
+  return {
+    name: "manus-storage-proxy",
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use("/manus-storage", async (req, res) => {
+        const key = req.url?.replace(/^\//, "");
+        if (!key) {
+          res.writeHead(400, { "Content-Type": "text/plain" });
+          res.end("Missing storage key");
+          return;
+        }
 
-        <div class="res-item">
-          <span class="res-tag">Sức mạnh thông điệp</span>
-          <h4>Nội dung tạo chuyển đổi</h4>
-          <p>Các yếu tố Đào tạo & Mentor là điểm chạm quyết định tỷ lệ nộp hồ sơ.</p>
-        </div>
+        const forgeBaseUrl = (process.env.BUILT_IN_FORGE_API_URL || "").replace(/\/+$/, "");
+        const forgeKey = process.env.BUILT_IN_FORGE_API_KEY;
 
-        <div class="res-item">
-          <span class="res-tag">Tháo gỡ rào cản</span>
-          <h4>Giải mã ngành nghề</h4>
-          <p>Ứng viên không ngại ngành Xây dựng, rào cản nằm ở cách doanh nghiệp truyền tải cơ hội.</p>
-        </div>
+        if (!forgeBaseUrl || !forgeKey) {
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end("Storage proxy not configured");
+          return;
+        }
 
-        <div class="res-item">
-          <span class="res-tag">Chuẩn hóa mô hình</span>
-          <h4>Nhân rộng toàn hệ thống</h4>
-          <p>Đóng gói công thức thành công từ vị trí hiệu quả nhất để áp dụng cho toàn bộ các phòng ban khác.</p>
-        </div>
-      </div>
+        try {
+          const forgeUrl = new URL("v1/storage/presign/get", forgeBaseUrl + "/");
+          forgeUrl.searchParams.set("path", key);
 
-    </div>
+          const forgeResp = await fetch(forgeUrl, {
+            headers: { Authorization: `Bearer ${forgeKey}` },
+          });
 
-  </div>
-</section>
+          if (!forgeResp.ok) {
+            res.writeHead(502, { "Content-Type": "text/plain" });
+            res.end("Storage backend error");
+            return;
+          }
 
-<!-- SECTION 5: STRATEGIC TAKEAWAY QUOTE (BANNER BANNER STYLE) -->
-<section class="purple-banner-section text-center">
-  <div class="wrap center-wrap">
-    <div class="banner-badge">Strategic Takeaway</div>
-    <blockquote class="banner-quote">
-      “Khi doanh nghiệp giảm bớt rào cản về kinh nghiệm và phác họa rõ nét cách họ sẽ được đào tạo, đồng hành và phát triển, nhiều Fresher sẵn sàng đón nhận những cơ hội mà trước đây họ nghĩ mình chưa đủ điều kiện ứng tuyển.”
-    </blockquote>
-    <div class="banner-source">Upzi Early Career Research</div>
-  </div>
-</section>
+          const { url } = (await forgeResp.json()) as { url: string };
+          if (!url) {
+            res.writeHead(502, { "Content-Type": "text/plain" });
+            res.end("Empty signed URL");
+            return;
+          }
 
-<!-- SECTION 6: KẾT LUẬN -->
-<section class="story-section white">
-  <div class="wrap text-center max-width-800">
-    <div class="eyebrow-light">Kết luận</div>
-    <h2>Xây dựng nguồn nhân sự cho nhu cầu tương lai</h2>
-    <p class="summary-text">
-      Chiến dịch chứng minh một hướng đi mới: Thay vì cuốn theo cuộc đua chi phí giành giật nhân sự cũ, việc mở rộng nguồn ứng viên và giúp họ thấy rõ lộ trình đồng hành chính là chìa khóa để doanh nghiệp tự tạo dựng nguồn nhân lực tài năng và bền vững.
-    </p>
-  </div>
-</section>
+          res.writeHead(307, { Location: url, "Cache-Control": "no-store" });
+          res.end();
+        } catch {
+          res.writeHead(502, { "Content-Type": "text/plain" });
+          res.end("Storage proxy error");
+        }
+      });
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+
+export default defineConfig({
+  plugins,
+  resolve: {
+    alias: {
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+    },
+  },
+  envDir: path.resolve(import.meta.dirname),
+  root: path.resolve(import.meta.dirname, "client"),
+  build: {
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    emptyOutDir: true,
+  },
+  server: {
+    port: 3000,
+    strictPort: false, // Will find next available port if 3000 is busy
+    host: true,
+    allowedHosts: [
+      ".manuspre.computer",
+      ".manus.computer",
+      ".manus-asia.computer",
+      ".manuscomputer.ai",
+      ".manusvm.computer",
+      "localhost",
+      "127.0.0.1",
+    ],
+    fs: {
+      strict: true,
+      deny: ["**/.*"],
+    },
+  },
+});
