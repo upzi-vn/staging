@@ -62,3 +62,69 @@ date: 2026-08-07
   <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__brand"><img src="/manus-storage/upzi-wordmark_a19f17ec.png" alt="Upzi — Empowered by VietnamWorks" /><p>Một góc nhìn từ Upzi về Gen Z, campus và nguồn nhân lực tương lai.</p></div><div class="site-footer__links"><a href="#top">Góc nhìn</a><a href="https://upzi-employers.vercel.app/" target="_blank" rel="noreferrer">Dành cho doanh nghiệp ↗</a></div></div><div class="site-footer__bottom"><span>© 2026 Upzi · Member of Navigos Group</span><span>Tiếp cận Gen Z sớm hơn trong hành trình nghề nghiệp.</span></div></footer>
 </body>
 </html>
+/* ===== Desktop viewport fix ===== */
+html,
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.wrap {
+  width: min(100% - 80px, 1200px);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.story-section,
+.results-section,
+.quote-section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Không để grid/card ép chiều rộng trang */
+.section-grid,
+.solution-grid,
+.results {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .story-section,
+  .results-section,
+  .quote-section {
+    min-height: auto;
+    height: auto;
+  }
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .wrap {
+    width: min(100% - 48px, 1100px);
+  }
+}
+
+/* Tablet/mobile */
+@media (max-width: 768px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
+  .section-grid,
+  .solution-grid,
+  .results {
+    grid-template-columns: 1fr;
+  }
+}
