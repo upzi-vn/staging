@@ -35,6 +35,123 @@ Cách một doanh nghiệp xây dựng Nhật Bản chuyển hướng từ tuy�
     .takeaway{position:relative;overflow:hidden;padding:104px 24px;color:white;text-align:center;background:var(--ink)}.takeaway:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 10%,rgba(147,69,255,.45),transparent 24%),radial-gradient(circle at 83% 90%,rgba(224,231,34,.2),transparent 24%)}.takeaway__inner{position:relative;z-index:1;width:min(750px,100%);margin:auto}.takeaway .eyebrow{color:var(--lime)}.takeaway blockquote{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(27px,3.4vw,42px);font-weight:600;line-height:1.14;letter-spacing:-.045em}.takeaway__source{margin:24px 0 27px;color:rgba(255,255,255,.59);font-size:10px;letter-spacing:.08em}.next-read{display:flex;align-items:center;justify-content:center;gap:9px;max-width:550px;margin:37px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.74);font-size:11px;line-height:1.35;text-align:left}.next-read:hover{color:white}.next-read span{display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--lime);font-size:8px;font-weight:800;letter-spacing:.09em}.next-read i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(224,231,34,.12)}.site-footer{background:#f7f5f9}.site-footer__inner{width:min(1120px,calc(100% - 48px));display:flex;justify-content:space-between;gap:50px;margin:auto;padding:46px 0}.site-footer__brand img{display:block;width:138px;margin-bottom:13px}.site-footer__brand p{max-width:300px;margin:0;color:#706a78;font-size:12px;line-height:1.6}.site-footer__links{display:flex;align-items:flex-start;gap:25px;padding-top:10px}.site-footer__links a{color:#514b5b;font-size:12px;font-weight:600}.site-footer__bottom{width:min(1120px,calc(100% - 48px));display:flex;justify-content:space-between;gap:18px;margin:auto;padding:17px 0 21px;border-top:1px solid #e4e0e8;color:#8b8492;font-size:10px}
     @media(max-width:900px){.container,.case-container{width:min(100% - 36px,680px)}.nav{display:none}.case-hero__grid,.challenge-grid,.learnings-grid{grid-template-columns:1fr;gap:35px}.hero-figure{max-width:630px}.playbook-grid{grid-template-columns:repeat(2,1fr)}.learnings-grid{gap:39px}.site-header__inner{width:min(100% - 36px,680px)}}
     @media(max-width:580px){.container,.case-container,.site-header__inner{width:calc(100% - 32px)}.site-header{height:66px}.brand img{width:102px}.brand i,.brand b,.nav{display:none}.site-header .button{display:none}.case-hero__inner{padding:33px 0 41px}.case-hero__grid{padding:31px 0 28px}.case-hero h1{font-size:44px}.hero-figure{border-width:5px;border-radius:20px}.facts{grid-template-columns:repeat(2,1fr)}.facts>div{min-height:72px;padding:15px;border-bottom:1px solid #e9e2f2}.facts>div:nth-child(2){border-right:0}.facts>div:nth-child(3),.facts>div:nth-child(4){border-bottom:0}.progress{display:flex;width:calc(100% + 32px);gap:24px;padding:2px 0 0;overflow-x:auto}.progress:before{width:570px;right:auto}.progress a{min-width:86px}.opening{padding:67px 0}.opening-lead{font-size:26px}.route{grid-template-columns:1fr}.route__line{height:51px;transform:rotate(90deg)}.challenge{padding:70px 0}.questions{padding:73px 0}.question-grid,.playbook-grid,.learning-grid{grid-template-columns:1fr}.question-grid{margin-top:33px}.question-card{min-height:180px}.playbook{padding:3px 0 77px}.playbook-grid{margin-top:33px}.playbook-card{min-height:207px}.learnings{padding:70px 0}.takeaway{padding:79px 24px;text-align:left}.takeaway blockquote{font-size:30px}.next-read{justify-content:flex-start;margin-top:31px}.site-footer__inner{width:calc(100% - 32px);flex-direction:column;gap:29px;padding:39px 0}.site-footer__bottom{width:calc(100% - 32px);flex-direction:column;padding:15px 0 18px}}
+  /* ===== Desktop viewport fix ===== */
+
+html,
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container,
+.case-container,
+.site-header__inner,
+.site-footer__inner,
+.site-footer__bottom {
+  width: min(100% - 48px, 1200px);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.case-container {
+  width: min(100% - 48px, 960px);
+  max-width: 960px;
+}
+
+.case-hero,
+.opening,
+.challenge,
+.questions,
+.playbook,
+.learnings,
+.takeaway,
+.site-footer {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .case-hero__grid,
+  .challenge-grid,
+  .learnings-grid {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .case-hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .facts {
+    width: 100%;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .playbook-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .learning-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .container,
+  .site-header__inner,
+  .site-footer__inner,
+  .site-footer__bottom {
+    width: calc(100% - 48px);
+  }
+}
+
+@media (max-width: 900px) {
+  .container,
+  .case-container,
+  .site-header__inner,
+  .site-footer__inner,
+  .site-footer__bottom {
+    width: calc(100% - 36px);
+  }
+
+  .case-hero__grid,
+  .challenge-grid,
+  .learnings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .playbook-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .container,
+  .case-container,
+  .site-header__inner,
+  .site-footer__inner,
+  .site-footer__bottom {
+    width: calc(100% - 32px);
+  }
+
+  .question-grid,
+  .playbook-grid,
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 <body>
@@ -59,69 +176,3 @@ Cách một doanh nghiệp xây dựng Nhật Bản chuyển hướng từ tuy�
   <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__brand"><img src="/manus-storage/upzi-wordmark_a19f17ec.png" alt="Upzi — Empowered by VietnamWorks" /><p>Một góc nhìn từ Upzi về Gen Z, campus và nguồn nhân lực tương lai.</p></div><div class="site-footer__links"><a href="#top">Góc nhìn</a><a href="https://upzi-employers.vercel.app/" target="_blank" rel="noreferrer">Dành cho doanh nghiệp ↗</a></div></div><div class="site-footer__bottom"><span>© 2026 Upzi · Member of Navigos Group</span><span>Tiếp cận Gen Z sớm hơn trong hành trình nghề nghiệp.</span></div></footer>
 </body>
 </html>
-/* ===== Desktop viewport fix ===== */
-html,
-body {
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100vh;
-}
-
-.wrap {
-  width: min(100% - 80px, 1200px);
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-}
-
-.story-section,
-.results-section,
-.quote-section {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Không để grid/card ép chiều rộng trang */
-.section-grid,
-.solution-grid,
-.results {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .story-section,
-  .results-section,
-  .quote-section {
-    min-height: auto;
-    height: auto;
-  }
-}
-
-/* Laptop */
-@media (max-width: 1200px) {
-  .wrap {
-    width: min(100% - 48px, 1100px);
-  }
-}
-
-/* Tablet/mobile */
-@media (max-width: 768px) {
-  .wrap {
-    width: calc(100% - 32px);
-  }
-
-  .section-grid,
-  .solution-grid,
-  .results {
-    grid-template-columns: 1fr;
-  }
-}
